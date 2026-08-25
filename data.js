@@ -66,10 +66,10 @@ const MATAKULIAH = [
         judul: 'Pengenalan laboratorium dan keselamatan kerja',
         catatan: 'Sesi di kelas, belum masuk lab. Baca panduan K3 sebelum datang.',
         berkas: [
-          { nama: 'Slide Minggu 1',            tipe: 'slide', url: '', tersedia: false },
-          { nama: 'LK-0 Kesiapan Praktikum',   tipe: 'lk',    url: '', tersedia: false },
-          { nama: 'Panduan K3 Mineralogi',     tipe: 'k3',    url: '', tersedia: false },
-          { nama: 'Kuis Kesiapan',             tipe: 'kuis',  url: '', tersedia: false }
+          { nama: 'Slide Minggu 1',            tipe: 'slide', url: 'https://drive.google.com/file/d/19EXR4N_jz2EMFyO7hPPiJj_DlsSGj4mb/view?usp=sharing', tersedia: false },
+          { nama: 'LK-0 Kesiapan Praktikum',   tipe: 'lk',    url: 'https://docs.google.com/document/d/1icFDqfvKTH1quoVB1we5Vf5fBKFUvMiF/edit?usp=sharing&ouid=107582960318118110587&rtpof=true&sd=true', tersedia: false },
+          { nama: 'Panduan K3 Mineralogi',     tipe: 'k3',    url: 'https://drive.google.com/file/d/152ilYo1L4MufUo3WtO9b27jOxbHmh9kf/view?usp=sharing', tersedia: false },
+          { nama: 'Kuis Kesiapan',             tipe: 'kuis',  url: 'https://docs.google.com/forms/d/e/1FAIpQLSf4YW313kqHQvRQQzC3NybnRRJ4WVGk_IWxyrAN8RiaCnMnlw/viewform', tersedia: false }
         ]
       },
       { ke: 2,  judul: '', catatan: '', berkas: [] },
