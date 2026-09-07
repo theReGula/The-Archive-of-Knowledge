@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Birefringence Axis Order · Arsip Praktikum</title>
+<meta name="description" content="Ordo asisten praktikum Teknik Geologi UNG. Crystalogix dan Crystal Clear Crew, dua poros pada satu sumbu.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0F1417; --ink-2:#161D21;
+  --tulang:#F2EFE9; --kabut:#8B959A; --kabut-2:#B6BFC4;
+  --logika:#2E8FA8; --cahaya:#C4571F;
+  --sans:'Archivo',Arial,Helvetica,'Liberation Sans',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Consolas,monospace;
+  --sisi:clamp(1.15rem,4.5vw,4.5rem);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ink);color:var(--tulang);font-family:var(--sans);
+  font-size:1.0625rem;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2.5px solid var(--cahaya);outline-offset:3px}
+.bungkus{max-width:62rem;margin:0 auto;padding:0 var(--sisi)}
+
+.spektrum{height:6px;width:100%;
+  background:linear-gradient(90deg,#1A1A1A 0%,#5C5850 5%,#A79E8C 10%,#E0D49B 15%,#E9AE2E 21%,#D2622F 27%,#8E2E5A 34%,#3B4E9B 42%,#2E8FA8 51%,#4C9257 60%,#B9AE3C 68%,#C4571F 77%,#8A4470 85%,#4A5C9B 93%,#6E7A80 100%)}
+
+.kembali{padding:1.4rem 0 0}
+.kembali a{font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--kabut);text-decoration:none}
+.kembali a:hover{color:var(--cahaya)}
+
+.kepala{padding:clamp(2.4rem,7vw,5rem) 0 clamp(2rem,5vw,3.4rem)}
+.eyebrow{font-family:var(--mono);font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--logika);margin:0 0 1.1rem}
+h1{font-weight:900;font-size:clamp(2.1rem,7.5vw,4.6rem);line-height:.94;letter-spacing:-.04em;
+  text-transform:uppercase;margin:0}
+h1 em{font-style:normal;display:block;color:var(--cahaya)}
+.moto{font-family:var(--mono);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--kabut);margin:1.4rem 0 0}
+
+/* ---------- sumbu ---------- */
+.sumbu{padding:clamp(1.6rem,4vw,2.6rem) 0 clamp(2rem,5vw,3rem);
+  border-top:1px solid rgba(242,239,233,.14)}
+.label{font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--cahaya);margin:0 0 1.4rem;display:flex;align-items:center;gap:.7rem}
+.label::after{content:'';flex:1;height:1px;background:rgba(242,239,233,.14)}
+.dua{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr))}
+
+.dv{background:var(--ink-2);border:1px solid rgba(242,239,233,.14);border-top:5px solid var(--kabut);
+  padding:1.5rem 1.5rem 1.7rem;display:flex;flex-direction:column}
+.dv.logika{border-top-color:var(--logika)}
+.dv.cahaya{border-top-color:var(--cahaya)}
+.dv .lambang{width:76px;height:76px;object-fit:contain;margin:0 0 1rem;background:var(--tulang);padding:6px}
+.dv h2{font-weight:900;font-size:1.5rem;letter-spacing:-.02em;text-transform:uppercase;margin:0 0 .35rem}
+.dv .manifestasi{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--logika);margin:0 0 .9rem}
+.dv.cahaya .manifestasi{color:var(--cahaya)}
+.dv .domain{font-size:.92rem;color:var(--kabut-2);margin:0 0 1.1rem}
+.dv .tagline{font-size:1rem;font-style:italic;margin:auto 0 0;padding-top:1rem;
+  border-top:1px solid rgba(242,239,233,.12)}
+
+/* ---------- filosofi ---------- */
+.filosofi{padding:clamp(2rem,5vw,3.4rem) 0;border-top:1px solid rgba(242,239,233,.14)}
+.filosofi p{max-width:44rem;color:var(--kabut-2);margin:0 0 1.15rem}
+.filosofi p.tegas{color:var(--tulang)}
+blockquote{margin:0 0 2rem;padding:1.4rem 0 1.4rem 1.6rem;border-left:3px solid var(--cahaya);
+  font-size:clamp(1.05rem,2.6vw,1.32rem);line-height:1.5;font-weight:600;letter-spacing:-.015em;max-width:42rem}
+
+.baris-tegas{display:grid;gap:.5rem;max-width:44rem;margin:0 0 1.8rem}
+.baris-tegas span{font-size:1rem;color:var(--kabut-2);padding-left:1.1rem;position:relative}
+.baris-tegas span::before{content:'';position:absolute;left:0;top:.72em;width:.45rem;height:1px;background:var(--cahaya)}
+
+/* ---------- sepupu ---------- */
+.sepupu{padding:clamp(1.8rem,4vw,2.8rem) 0;border-top:1px solid rgba(242,239,233,.14)}
+.sepupu-kotak{background:var(--ink-2);border:1px solid rgba(242,239,233,.14);
+  border-left:5px solid var(--cahaya);padding:1.4rem 1.5rem;max-width:46rem}
+.sepupu-kotak img{width:150px;max-width:60%;object-fit:contain;background:var(--tulang);padding:8px;margin:0 0 1rem;display:block}
+.sepupu-kotak h3{font-weight:900;font-size:1.25rem;letter-spacing:-.02em;text-transform:uppercase;margin:0 0 .4rem}
+.sepupu-kotak p{margin:0 0 .6rem;color:var(--kabut-2);font-size:.94rem}
+.sepupu-kotak .kutip{font-style:italic;color:var(--tulang);margin:0}
+
+/* ---------- segel ---------- */
+.segel{padding:clamp(2.2rem,5vw,3.6rem) 0 1.6rem;border-top:1px solid rgba(242,239,233,.14);text-align:center}
+.segel .mantra{font-weight:900;font-size:clamp(1.15rem,3.6vw,1.9rem);letter-spacing:-.02em;
+  text-transform:uppercase;margin:0 0 .8rem;line-height:1.15}
+.segel .mantra em{font-style:normal;color:var(--cahaya)}
+.segel .silang{font-family:var(--mono);font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--kabut);margin:0}
+
+footer{padding:1.6rem 0 3.4rem;text-align:center}
+.kolofon{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--kabut);margin:0}
+.kolofon b{font-weight:600;color:var(--cahaya)}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="spektrum" role="presentation"></div>
+
+<div class="bungkus kembali"><a href="/">&#8592; Arsip Praktikum</a></div>
+
+<header class="kepala">
+  <div class="bungkus">
+    <p class="eyebrow">Divisi asisten praktikum &middot; Teknik Geologi UNG</p>
+    <h1>The Birefringence <em>Axis Order</em></h1>
+    <p class="moto">Order in Chaos &middot; Madness in Light</p>
+  </div>
+</header>
+
+<section class="sumbu">
+  <div class="bungkus">
+    <p class="label">Dua poros, satu sumbu</p>
+    <div class="dua">
+
+      <article class="dv logika">
+        <img class="lambang" src="/assets/crystalogix.png" alt="Lambang Crystalogix"
+             onerror="this.style.display='none'">
+        <h2>Crystalogix</h2>
+        <p class="manifestasi">The Axis of Logic</p>
+        <p class="domain">Kristalografi dan Mineralogi</p>
+        <p class="tagline">&ldquo;We bring Chaos in Logic.&rdquo;</p>
+      </article>
+
+      <article class="dv cahaya">
+        <img class="lambang" src="/assets/crystal-clear-crew.png" alt="Lambang Crystal Clear Crew"
+             onerror="this.style.display='none'">
+        <h2>Crystal Clear Crew</h2>
+        <p class="manifestasi">The Axis of Light</p>
+        <p class="domain">Mineral Optik dan Petrografi</p>
+        <p class="tagline">&ldquo;We Twist Light into Madness.&rdquo;</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="filosofi">
+  <div class="bungkus">
+    <p class="label">Filosofi</p>
+
+    <blockquote>Cahaya tidak hanya mengungkap bentuk; ia juga membelokkan makna. Logika tidak hanya membangun keteraturan; ia juga memelihara kekacauan.</blockquote>
+
+    <p class="tegas">The Birefringence Axis Order lahir dari dua entitas yang bertentangan namun saling mengisi. Satu berporos pada struktur dan logika, satu bernafas dalam cahaya dan distorsi.</p>
+
+    <div class="baris-tegas">
+      <span>Dua jalur yang berbeda.</span>
+      <span>Dua pandangan yang berlawanan.</span>
+      <span>Tapi keduanya berputar pada satu poros, sumbu pengetahuan yang sama.</span>
+    </div>
+
+    <p>Kami percaya bahwa memahami dunia mineral bukan hanya tentang mengukur, tetapi juga menyaksikan bagaimana dunia itu membelah dirinya di bawah lensa. Kami melihat struktur, tapi kami juga melihat bayangan di antaranya. Kami menghitung sudut, tapi kami juga menafsirkan warna. Karena bagi kami, ilmu dan kegilaan hanyalah dua sisi dari satu kristal.</p>
+
+    <p>The Birefringence Axis Order bukan sekadar kumpulan asisten laboratorium, tetapi perwujudan dua kekuatan purba dalam sains kebumian: struktur yang mencari arti, dan cahaya yang menolak diam.</p>
+
+    <p class="tegas">Selama masih ada kristal yang memecah cahaya, dan pikiran yang berani menatap distorsinya, ordo ini akan berdiri, di antara keteraturan dan keindahan yang membingungkan.</p>
+  </div>
+</section>
+
+<section class="sepupu">
+  <div class="bungkus">
+    <p class="label">Di lapangan</p>
+    <div class="sepupu-kotak">
+      <img src="/assets/fabriq.png" alt="Lambang FABRIQ" onerror="this.style.display='none'">
+      <h3>FABRIQ</h3>
+      <p>Cousin division of The Birefringence Axis Order. Petrologi. Where crystals become history.</p>
+      <p class="kutip">&ldquo;And somewhere in the field, our cousin reads what we wrote.&rdquo;</p>
+    </div>
+  </div>
+</section>
+
+<section class="segel">
+  <div class="bungkus">
+    <p class="mantra">Order in Chaos. <em>Madness in Light.</em></p>
+    <p class="silang">Crystalogix &times; Crystal Clear Crew &middot; The Birefringence Axis Order</p>
+  </div>
+</section>
+
+<footer>
+  <div class="bungkus">
+    <p class="kolofon">FMIPA Universitas Negeri Gorontalo &middot; Disusun dan dipelihara oleh <b>ALFWDY</b></p>
+  </div>
+</footer>
+</body>
+</html>
