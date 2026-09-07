@@ -113,7 +113,7 @@ const MATAKULIAH = [
     semesterKe: 'Semester I',
     divisi: 'crystalogix',
     ringkas: 'Mendeskripsi mineral dari sifat fisik yang bisa diamati dan diuji langsung, sebelum menyebut namanya.',
-    MINGGU_AKTIF: 1,
+    MINGGU_AKTIF: 3,
     minggu: [
       {
         ke: 1,
@@ -153,21 +153,21 @@ const MATAKULIAH = [
     semesterKe: 'Semester III',
     divisi: 'ccc',
     ringkas: 'Membaca sayatan tipis dengan mikroskop polarisasi. Periksa alat dulu, baru pengamatan.',
-    MINGGU_AKTIF: 1,
+    MINGGU_AKTIF: 3,
     minggu: [
       {
         ke: 1,
-        judul: 'Mikroskop polarisasi dan sifat optik mineral',
-        catatan: 'Lembar kerja diisi langsung di lab lewat HP. Kirim sebelum sesi berakhir, catat nomor tanda terimanya.',
+        judul: '',
+        catatan: '',
         berkas: [
-          { nama: 'Lembar Kerja 1', tipe: 'lk', url: '/petrografi/lk1/', tersedia: true },
-          { nama: 'Slide Minggu 1', tipe: 'slide', url: '', tersedia: false },
-          { nama: 'Panduan K3 Petrografi', tipe: 'k3', url: '', tersedia: false },
-          { nama: 'Kuis Kesiapan', tipe: 'kuis', url: '', tersedia: false }
+          
         ]
       },
-      { ke: 2, judul: '', catatan: '', berkas: [] },
-      { ke: 3, judul: '', catatan: '', berkas: [] },
+      { ke: 2, judul: 'Pengambilan Sample Petrografi di Lapangan', catatan: 'Di telaah dengan benar, cara kita sampling batuan menentukan data petrografi', berkas: [] },
+      { ke: 3, judul: 'Mikroskop polarisasi dan sifat optik mineral', catatan: 'Lembar kerja diisi langsung di lab lewat HP. Kirim sebelum sesi berakhir, catat nomor tanda terimanya.', berkas: [{ nama: 'Lembar Kerja 1', tipe: 'lk', url: '/petrografi/lk1/', tersedia: true },
+          { nama: 'Slide Minggu 1', tipe: 'slide', url: '', tersedia: false },
+          { nama: 'Panduan K3 Petrografi', tipe: 'k3', url: '', tersedia: false },
+          { nama: 'Kuis Kesiapan', tipe: 'kuis', url: '', tersedia: false }] },
       { ke: 4, judul: '', catatan: '', berkas: [] },
       { ke: 5, judul: '', catatan: '', berkas: [] },
       { ke: 6, judul: '', catatan: '', berkas: [] },
@@ -191,9 +191,9 @@ const MATAKULIAH = [
     kode: '',
     sks: '1 SKS',
     semesterKe: 'Semester I',
-    divisi: '',
-    ringkas: '',
-    MINGGU_AKTIF: 1,
+    divisi: 'fabriq',
+    ringkas: 'Deskripsi dulu, nama belakangan. Batuan yang salah dideskripsi tidak bisa diselamatkan oleh nama yang benar.',
+    MINGGU_AKTIF: 3,
     minggu: [
       { ke: 1, judul: '', catatan: '', berkas: [] },
       { ke: 2, judul: '', catatan: '', berkas: [] },
