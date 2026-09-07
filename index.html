@@ -7,183 +7,190 @@
 <meta name="description" content="Arsip materi praktikum Program Studi Teknik Geologi, FMIPA Universitas Negeri Gorontalo.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --plagioklas:#E8F0F4;
-  --sandstone:#F5EFE6;
-  --slate:#4C7A8A;
-  --slate-deep:#2F5763;
-  --terra:#C4714A;
-  --serpentin:#7A9E6E;
-  --ash:#6B6B66;
-  --ink:#22333A;
-  --garis:rgba(47,87,99,.16);
-  --garis-tipis:rgba(47,87,99,.09);
-  --putih:#FCFDFD;
+  --ink:#0F1417;
+  --ink-2:#1B2429;
+  --tulang:#F2EFE9;
+  --tulang-2:#E7E2D9;
+  --putih:#FBFAF7;
+  --kabut:#6E7A80;
+  --logika:#2E8FA8;
+  --cahaya:#C4571F;
+  --lumut:#5E7355;
+  --garis:rgba(15,20,23,.14);
+  --garis-tipis:rgba(15,20,23,.07);
 
-  --display:'Fraunces',Georgia,'Times New Roman',serif;
-  --body:'IBM Plex Sans',system-ui,-apple-system,sans-serif;
-  --mono:'IBM Plex Mono',ui-monospace,'Courier New',monospace;
+  --sans:'Archivo',Arial,Helvetica,'Liberation Sans',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Consolas,monospace;
 
-  --sisi:clamp(1.15rem,4.5vw,4rem);
+  --sisi:clamp(1.15rem,4.5vw,4.5rem);
   --rail:2.6rem;
 }
-
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{
-  margin:0;
-  background:var(--plagioklas);
-  color:var(--ink);
-  font-family:var(--body);
-  font-size:1.0625rem;
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-}
+body{margin:0;background:var(--tulang);color:var(--ink);font-family:var(--sans);
+  font-size:1.0625rem;line-height:1.55;-webkit-font-smoothing:antialiased}
 a{color:inherit}
-:focus-visible{outline:2.5px solid var(--terra);outline-offset:3px;border-radius:3px}
+:focus-visible{outline:2.5px solid var(--cahaya);outline-offset:3px}
 
-/* tautan lewati navigasi */
-.lewati{position:absolute;left:-9999px;top:0;background:var(--slate-deep);color:#fff;
-  padding:.7rem 1.1rem;z-index:50;font-size:.9rem;text-decoration:none}
+.lewati{position:absolute;left:-9999px;top:0;background:var(--ink);color:#fff;
+  padding:.7rem 1.1rem;z-index:60;font-size:.9rem;text-decoration:none}
 .lewati:focus{left:.6rem;top:.6rem}
+.bungkus{max-width:76rem;margin:0 auto;padding:0 var(--sisi)}
+.sembunyi{display:none}
 
-.bungkus{max-width:74rem;margin:0 auto;padding:0 var(--sisi)}
+/* ---------- pita spektrum ---------- */
+.spektrum{height:6px;width:100%;
+  background:linear-gradient(90deg,#1A1A1A 0%,#5C5850 5%,#A79E8C 10%,#E0D49B 15%,#E9AE2E 21%,#D2622F 27%,#8E2E5A 34%,#3B4E9B 42%,#2E8FA8 51%,#4C9257 60%,#B9AE3C 68%,#C4571F 77%,#8A4470 85%,#4A5C9B 93%,#6E7A80 100%)}
 
 /* ---------- kepala ---------- */
-.kepala{padding:clamp(2.2rem,6vw,4rem) 0 clamp(1.6rem,4vw,2.4rem);position:relative}
-.kepala::after{content:'';position:absolute;left:var(--sisi);right:var(--sisi);bottom:0;
-  height:1px;background:var(--garis)}
-.eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--slate);margin:0 0 .9rem}
-.judul-situs{font-family:var(--display);font-weight:600;font-size:clamp(2.1rem,6.5vw,3.6rem);
-  line-height:1.02;letter-spacing:-.02em;margin:0;color:var(--slate-deep);
-  font-variation-settings:'SOFT' 20,'WONK' 1}
-.judul-situs em{font-style:normal;display:block;color:var(--terra)}
-.meta-situs{margin:1.1rem 0 0;font-size:.95rem;color:var(--ash);max-width:34rem}
+.kepala{background:var(--ink);color:var(--tulang);padding:clamp(2rem,5vw,3.4rem) 0 clamp(1.6rem,4vw,2.4rem)}
+.eyebrow{font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--logika);margin:0 0 1rem}
+.judul-situs{font-weight:900;font-size:clamp(2.3rem,8vw,5rem);line-height:.92;letter-spacing:-.035em;
+  text-transform:uppercase;margin:0}
+.judul-situs em{font-style:normal;display:block;color:var(--cahaya)}
+.meta-situs{margin:1.2rem 0 0;font-size:.95rem;color:#A9B3B8;max-width:36rem}
+
+.ordo-pita{margin:1.6rem 0 0;padding-top:1.1rem;border-top:1px solid rgba(242,239,233,.16);
+  display:flex;flex-wrap:wrap;align-items:center;gap:.55rem 1rem}
+.ordo-pita .tanda{font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:#7E8B91}
+.ordo-pita .nama{font-weight:700;font-size:.94rem;letter-spacing:.01em}
+.ordo-pita a{color:var(--logika);font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;
+  text-transform:uppercase;text-decoration:none;border-bottom:1px solid rgba(46,143,168,.45);padding-bottom:1px}
+.ordo-pita a:hover{color:var(--cahaya);border-color:var(--cahaya)}
 
 /* ---------- minggu ini ---------- */
-.sorot{padding:clamp(1.8rem,4vw,2.6rem) 0 clamp(1.4rem,3vw,2rem)}
-.sorot-label{font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--terra);margin:0 0 1rem;display:flex;align-items:center;gap:.6rem}
-.sorot-label::after{content:'';flex:1;height:1px;background:var(--garis-tipis)}
-.sorot-grid{display:grid;gap:.9rem;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr))}
+.sorot{padding:clamp(1.8rem,4vw,2.8rem) 0 clamp(1.2rem,3vw,1.8rem)}
+.label-bagian{font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--cahaya);margin:0 0 1.1rem;display:flex;align-items:center;gap:.7rem}
+.label-bagian::after{content:'';flex:1;height:1px;background:var(--garis-tipis)}
+.sorot-grid{display:grid;gap:.85rem;grid-template-columns:repeat(auto-fit,minmax(17.5rem,1fr))}
 
-.kartu{background:var(--putih);border:1px solid var(--garis);border-radius:2px;
-  padding:1.25rem 1.35rem 1.35rem;display:flex;flex-direction:column;
-  border-top:3px solid var(--slate)}
+.kartu{background:var(--putih);border:1px solid var(--garis);padding:1.2rem 1.3rem 1.3rem;
+  display:flex;flex-direction:column;border-top:4px solid var(--ink)}
 .kartu.kosong{border-top-color:var(--garis);background:transparent;border-style:dashed}
-.kartu-mk{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--slate);margin:0 0 .45rem}
-.kartu-judul{font-family:var(--display);font-weight:600;font-size:1.22rem;line-height:1.22;
-  margin:0 0 .5rem;color:var(--slate-deep);font-variation-settings:'SOFT' 20}
-.kartu-catatan{margin:0 0 1rem;font-size:.9rem;color:var(--ash);line-height:1.5}
+.kartu-mk{font-family:var(--mono);font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--kabut);margin:0 0 .5rem}
+.kartu-judul{font-weight:800;font-size:1.16rem;line-height:1.18;margin:0 0 .5rem;letter-spacing:-.015em}
+.kartu-catatan{margin:0 0 1rem;font-size:.88rem;color:var(--kabut);line-height:1.5}
 .kartu .berkas{margin-top:auto}
 
 /* ---------- daftar berkas ---------- */
-.berkas{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.3rem}
-.berkas li{margin:0}
-.tautan{display:flex;align-items:baseline;gap:.7rem;text-decoration:none;
-  padding:.5rem .65rem;border-radius:2px;background:var(--sandstone);
-  transition:background .16s ease,transform .16s ease}
-.tautan:hover{background:#EFE4D6;transform:translateX(2px)}
-.tautan .nama{font-size:.92rem;font-weight:500;flex:1;color:var(--ink)}
-.tautan .panah{font-family:var(--mono);color:var(--terra);font-size:.85rem}
-.tipe{font-family:var(--mono);font-size:.62rem;letter-spacing:.09em;text-transform:uppercase;
-  color:var(--slate);border:1px solid var(--garis);padding:.1rem .38rem;border-radius:2px;
-  white-space:nowrap;background:var(--putih)}
-.belum{display:flex;align-items:baseline;gap:.7rem;padding:.5rem .65rem;
-  border:1px dashed var(--garis);border-radius:2px}
-.belum .nama{font-size:.92rem;flex:1;color:var(--ash)}
-.belum .status{font-family:var(--mono);font-size:.68rem;color:var(--ash);white-space:nowrap}
+.berkas{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.28rem}
+.tautan{display:flex;align-items:center;gap:.7rem;text-decoration:none;padding:.55rem .7rem;
+  background:var(--tulang-2);border-left:3px solid transparent;transition:border-color .14s,background .14s}
+.tautan:hover{background:#DDD6C9;border-left-color:var(--cahaya)}
+.tautan .nama{font-size:.9rem;font-weight:600;flex:1}
+.tautan .panah{font-family:var(--mono);color:var(--cahaya);font-size:.82rem}
+.tipe{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink);background:var(--putih);border:1px solid var(--garis);padding:.12rem .4rem;white-space:nowrap}
+.belum{display:flex;align-items:center;gap:.7rem;padding:.55rem .7rem;border:1px dashed var(--garis)}
+.belum .nama{font-size:.9rem;flex:1;color:var(--kabut)}
+.belum .status{font-family:var(--mono);font-size:.64rem;color:var(--kabut);white-space:nowrap}
 
-/* ---------- pemilih mata kuliah ---------- */
-.pemilih{display:flex;flex-wrap:wrap;gap:.4rem;padding:.4rem 0 0;
-  border-top:1px solid var(--garis);margin-top:.6rem}
-.pemilih button{font-family:var(--body);font-size:.92rem;font-weight:500;color:var(--ash);
-  background:none;border:none;border-top:2px solid transparent;margin-top:-1px;
-  padding:.85rem 1rem;cursor:pointer;transition:color .16s ease}
-.pemilih button:hover{color:var(--slate-deep)}
-.pemilih button[aria-selected="true"]{color:var(--slate-deep);border-top-color:var(--terra)}
+/* ---------- pemilih ---------- */
+.pemilih{display:flex;flex-wrap:wrap;gap:0;border-top:2px solid var(--ink);margin-top:.8rem}
+.pemilih button{font-family:var(--sans);font-size:.86rem;font-weight:700;letter-spacing:.02em;
+  text-transform:uppercase;color:var(--kabut);background:none;border:none;border-top:4px solid transparent;
+  margin-top:-3px;padding:.9rem 1.15rem .9rem 0;margin-right:1.4rem;cursor:pointer;transition:color .14s}
+.pemilih button:hover{color:var(--ink)}
+.pemilih button[aria-selected="true"]{color:var(--ink);border-top-color:var(--cahaya)}
 
 /* ---------- kepala mata kuliah ---------- */
-.mk-kepala{padding:clamp(1.6rem,4vw,2.4rem) 0 1.4rem;display:flex;flex-wrap:wrap;
-  gap:.5rem 1.4rem;align-items:baseline}
-.mk-nama{font-family:var(--display);font-weight:600;font-size:clamp(1.5rem,3.6vw,2.05rem);
-  margin:0;color:var(--slate-deep);letter-spacing:-.01em;font-variation-settings:'SOFT' 20}
-.mk-tag{font-family:var(--mono);font-size:.72rem;letter-spacing:.09em;color:var(--slate);
-  text-transform:uppercase}
-.mk-ringkas{flex-basis:100%;margin:.35rem 0 0;color:var(--ash);font-size:.95rem;max-width:44rem}
+.mk-kepala{padding:clamp(1.6rem,4vw,2.4rem) 0 1.3rem}
+.mk-baris{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem;align-items:baseline}
+.mk-nama{font-weight:900;font-size:clamp(1.6rem,4.2vw,2.4rem);margin:0;letter-spacing:-.03em;text-transform:uppercase}
+.mk-tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;color:var(--kabut);text-transform:uppercase}
+.mk-ringkas{margin:.6rem 0 0;color:var(--kabut);font-size:.95rem;max-width:46rem}
 
-/* ---------- kolom terukur (rel minggu) ---------- */
+.divisi-pita{display:inline-flex;align-items:center;gap:.55rem;margin:.9rem 0 0;
+  padding:.4rem .75rem;background:var(--putih);border:1px solid var(--garis);border-left:4px solid var(--kabut)}
+.divisi-pita.logika{border-left-color:var(--logika)}
+.divisi-pita.cahaya{border-left-color:var(--cahaya)}
+.divisi-pita .dnama{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+.divisi-pita .dporos{font-size:.8rem;color:var(--kabut)}
+
+/* ---------- rel minggu ---------- */
 .kolom{position:relative;padding-bottom:3rem}
-.kolom::before{content:'';position:absolute;left:calc(var(--rail) / 2 - 1px);top:.55rem;bottom:2rem;
+.kolom::before{content:'';position:absolute;left:calc(var(--rail)/2 - 1px);top:.5rem;bottom:2rem;
   width:2px;background:linear-gradient(var(--garis),var(--garis-tipis))}
-
-.lapis{position:relative;padding:0 0 0 calc(var(--rail) + .85rem);min-height:3.1rem;
-  margin-bottom:.35rem}
-.lapis .angka{position:absolute;left:0;top:.05rem;width:var(--rail);text-align:center;
-  font-family:var(--mono);font-size:.74rem;color:var(--ash);z-index:1}
-.lapis .angka span{display:block;width:1.55rem;height:1.55rem;line-height:1.5rem;margin:0 auto;
-  border:1px solid var(--garis);border-radius:50%;background:var(--plagioklas);
-  transition:background .16s ease}
-.lapis.ada .angka span{background:var(--slate);color:var(--putih);border-color:var(--slate)}
-.lapis.kini .angka span{background:var(--terra);color:var(--putih);border-color:var(--terra);
-  box-shadow:0 0 0 4px rgba(196,113,74,.15)}
-
-.lapis-judul{font-family:var(--display);font-weight:600;font-size:1.06rem;line-height:1.3;
-  margin:0 0 .15rem;color:var(--slate-deep);font-variation-settings:'SOFT' 20}
-.lapis.sepi .lapis-judul{font-family:var(--body);font-weight:400;color:var(--ash);font-size:.95rem}
-.lapis-catatan{margin:.15rem 0 .6rem;font-size:.89rem;color:var(--ash);line-height:1.5;max-width:44rem}
-.lapis .berkas{margin:.55rem 0 1.5rem;max-width:34rem}
-.lapis.sepi{padding-bottom:.15rem;margin-bottom:.15rem;min-height:2.4rem}
-.penanda-kini{font-family:var(--mono);font-size:.63rem;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--terra);margin-left:.6rem;vertical-align:.1em}
+.lapis{position:relative;padding-left:calc(var(--rail) + .9rem);min-height:3rem;margin-bottom:.3rem}
+.lapis .angka{position:absolute;left:0;top:0;width:var(--rail);text-align:center;
+  font-family:var(--mono);font-size:.72rem;font-weight:600}
+.lapis .angka span{display:block;width:1.7rem;height:1.7rem;line-height:1.62rem;margin:0 auto;
+  border:1px solid var(--garis);background:var(--tulang);color:var(--kabut)}
+.lapis.ada .angka span{background:var(--ink);color:var(--tulang);border-color:var(--ink)}
+.lapis.kini .angka span{background:var(--cahaya);color:#fff;border-color:var(--cahaya);
+  box-shadow:0 0 0 4px rgba(196,87,31,.16)}
+.lapis-judul{font-weight:800;font-size:1.02rem;line-height:1.3;margin:.15rem 0 .15rem;letter-spacing:-.012em}
+.lapis.sepi .lapis-judul{font-weight:400;color:var(--kabut);font-size:.94rem}
+.lapis-catatan{margin:.15rem 0 .6rem;font-size:.88rem;color:var(--kabut);line-height:1.5;max-width:46rem}
+.lapis .berkas{margin:.5rem 0 1.5rem;max-width:36rem}
+.lapis.sepi{min-height:2.3rem;margin-bottom:.1rem}
+.penanda-kini{font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--cahaya);margin-left:.6rem;vertical-align:.12em}
 
 /* ---------- panduan tetap ---------- */
 .panduan{border-top:1px solid var(--garis);padding:clamp(2rem,5vw,3rem) 0}
-.panduan h2{font-family:var(--display);font-weight:600;font-size:1.35rem;margin:0 0 .4rem;
-  color:var(--slate-deep);font-variation-settings:'SOFT' 20}
-.panduan p.pengantar{margin:0 0 1.4rem;color:var(--ash);font-size:.93rem;max-width:40rem}
+.panduan h2{font-weight:900;font-size:1.5rem;margin:0 0 .4rem;text-transform:uppercase;letter-spacing:-.02em}
+.panduan p.pengantar{margin:0 0 1.4rem;color:var(--kabut);font-size:.93rem;max-width:42rem}
 .panduan-grid{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr))}
-.panduan-item{background:var(--putih);border:1px solid var(--garis);border-radius:2px;padding:1.05rem 1.15rem}
-.panduan-item h3{font-size:1rem;font-weight:600;margin:0 0 .3rem;color:var(--slate-deep)}
-.panduan-item p{margin:0 0 .8rem;font-size:.87rem;color:var(--ash);line-height:1.5}
+.panduan-item{background:var(--putih);border:1px solid var(--garis);padding:1.05rem 1.15rem}
+.panduan-item h3{font-size:.98rem;font-weight:800;margin:0 0 .3rem}
+.panduan-item p{margin:0 0 .8rem;font-size:.86rem;color:var(--kabut);line-height:1.5}
+
+/* ---------- teaser ordo ---------- */
+.ordo{background:var(--ink);color:var(--tulang);padding:clamp(2.2rem,5vw,3.4rem) 0}
+.ordo h2{font-weight:900;font-size:clamp(1.5rem,4vw,2.2rem);margin:0 0 .5rem;
+  text-transform:uppercase;letter-spacing:-.03em;line-height:1.05}
+.ordo .kutip{font-size:1rem;color:#B6BFC4;max-width:44rem;margin:0 0 1.6rem;line-height:1.6}
+.ordo-divisi{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));margin-bottom:1.6rem}
+.dv{border:1px solid rgba(242,239,233,.18);padding:1rem 1.15rem;border-top:4px solid var(--kabut)}
+.dv.logika{border-top-color:var(--logika)}
+.dv.cahaya{border-top-color:var(--cahaya)}
+.dv .dj{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
+  font-weight:600;margin:0 0 .4rem}
+.dv .dp{margin:0 0 .3rem;font-size:.9rem;color:#B6BFC4}
+.dv .dt{margin:.5rem 0 0;font-size:.86rem;font-style:italic;color:var(--tulang)}
+.ordo-aksi{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink);background:var(--tulang);text-decoration:none;padding:.7rem 1.1rem;display:inline-block;font-weight:600}
+.ordo-aksi:hover{background:var(--cahaya);color:#fff}
 
 /* ---------- kaki ---------- */
-.kaki{border-top:1px solid var(--garis);padding:1.8rem 0 3rem;font-size:.85rem;color:var(--ash)}
-.kaki p{margin:0 0 .35rem;max-width:44rem}
-.kaki .tanda{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--slate);margin-top:1rem}
-
-.sembunyi{display:none}
+.kaki{padding:2rem 0 3.4rem;font-size:.86rem;color:var(--kabut)}
+.kaki p{margin:0 0 .4rem;max-width:46rem}
+.kolofon{margin-top:1.4rem;padding-top:1rem;border-top:1px solid var(--garis);
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}
+.kolofon b{font-weight:600;color:var(--cahaya)}
 
 @media (max-width:34rem){
   :root{--rail:2.1rem}
   body{font-size:1rem}
   .lapis{padding-left:calc(var(--rail) + .6rem)}
+  .pemilih button{margin-right:1rem;font-size:.8rem}
 }
-@media (prefers-reduced-motion:reduce){
-  *{transition:none !important;animation:none !important}
-  .tautan:hover{transform:none}
-}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
 <body>
 <a class="lewati" href="#daftar">Lewati ke daftar materi</a>
+<div class="spektrum" role="presentation"></div>
 
 <header class="kepala">
   <div class="bungkus">
     <p class="eyebrow" id="eyebrow"></p>
     <h1 class="judul-situs">Arsip Praktikum <em id="semester"></em></h1>
     <p class="meta-situs" id="meta"></p>
+    <div class="ordo-pita" id="ordo-pita"></div>
   </div>
 </header>
 
 <section class="sorot" aria-labelledby="sorot-judul">
   <div class="bungkus">
-    <p class="sorot-label" id="sorot-judul">Minggu ini</p>
+    <p class="label-bagian" id="sorot-judul">Minggu ini</p>
     <div class="sorot-grid" id="sorot"></div>
   </div>
 </section>
@@ -203,11 +210,13 @@ a{color:inherit}
   </div>
 </section>
 
+<section class="ordo" id="ordo-bagian"></section>
+
 <footer class="kaki">
   <div class="bungkus">
     <p id="kontak"></p>
     <p>Materi di halaman ini terbuka untuk siapa saja. Tidak perlu akun, tidak perlu mendaftar.</p>
-    <p class="tanda" id="tanda"></p>
+    <p class="kolofon" id="kolofon"></p>
   </div>
 </footer>
 
@@ -217,19 +226,22 @@ a{color:inherit}
   var el = function (id) { return document.getElementById(id); };
   var esc = function (s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
-      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+      return { '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c];
     });
   };
-  var LABEL = { slide: 'Slide', lk: 'LK', k3: 'K3', kuis: 'Kuis', modul: 'Modul', lain: 'Berkas' };
+  var LABEL = { slide:'Slide', lk:'LK', k3:'K3', kuis:'Kuis', modul:'Modul', lain:'Berkas' };
+  var DV = (typeof DIVISI !== 'undefined' && DIVISI) ? DIVISI : {};
 
   function daftarBerkas(berkas) {
     if (!berkas || !berkas.length) return '';
     var baris = berkas.map(function (b) {
       var tipe = '<span class="tipe">' + esc(LABEL[b.tipe] || LABEL.lain) + '</span>';
       if (b.tersedia && b.url) {
-        return '<li><a class="tautan" href="' + esc(b.url) + '" target="_blank" rel="noopener">' +
+        var luar = /^https?:/i.test(b.url);
+        return '<li><a class="tautan" href="' + esc(b.url) + '"' +
+               (luar ? ' target="_blank" rel="noopener"' : '') + '>' +
                '<span class="nama">' + esc(b.nama) + '</span>' + tipe +
-               '<span class="panah" aria-hidden="true">&#8599;</span></a></li>';
+               '<span class="panah" aria-hidden="true">' + (luar ? '&#8599;' : '&#8594;') + '</span></a></li>';
       }
       return '<li><div class="belum"><span class="nama">' + esc(b.nama) + '</span>' + tipe +
              '<span class="status">belum tersedia</span></div></li>';
@@ -237,71 +249,70 @@ a{color:inherit}
     return '<ul class="berkas">' + baris + '</ul>';
   }
 
-  /* ---------- minggu ini ---------- */
   function bangunSorot() {
-    var kartu = MATAKULIAH.map(function (mk) {
-      var m = null;
-      for (var i = 0; i < mk.minggu.length; i++) {
+    el('sorot').innerHTML = MATAKULIAH.map(function (mk) {
+      var m = null, i;
+      for (i = 0; i < mk.minggu.length; i++) {
         if (mk.minggu[i].ke === mk.MINGGU_AKTIF) { m = mk.minggu[i]; break; }
       }
-      var kepala = '<p class="kartu-mk">' + esc(mk.nama) +
-                   ' &middot; Minggu ' + esc(mk.MINGGU_AKTIF) + '</p>';
-
+      var kepala = '<p class="kartu-mk">' + esc(mk.nama) + ' &middot; Minggu ' + esc(mk.MINGGU_AKTIF) + '</p>';
       if (!m || (!m.judul && !(m.berkas || []).length)) {
         return '<article class="kartu kosong">' + kepala +
                '<p class="kartu-judul">Materi belum dipasang</p>' +
-               '<p class="kartu-catatan">Bahan minggu ini akan muncul di sini begitu diunggah.</p>' +
-               '</article>';
+               '<p class="kartu-catatan">Bahan minggu ini akan muncul di sini begitu diunggah.</p></article>';
       }
       return '<article class="kartu">' + kepala +
              '<h2 class="kartu-judul">' + esc(m.judul || 'Minggu ' + m.ke) + '</h2>' +
              (m.catatan ? '<p class="kartu-catatan">' + esc(m.catatan) + '</p>' : '') +
              daftarBerkas(m.berkas) + '</article>';
     }).join('');
-    el('sorot').innerHTML = kartu;
   }
 
-  /* ---------- daftar per mata kuliah ---------- */
+  function pitaDivisi(kunci) {
+    var d = DV[kunci];
+    if (!d) return '';
+    return '<div class="divisi-pita ' + esc(d.poros || '') + '">' +
+      '<span class="dnama">' + esc(d.nama) + '</span>' +
+      (d.domain ? '<span class="dporos">' + esc(d.domain) + '</span>' : '') + '</div>';
+  }
+
   function bangunMK() {
     var tab = '', panel = '';
-
     MATAKULIAH.forEach(function (mk, i) {
       tab += '<button role="tab" id="tab-' + mk.id + '" aria-controls="panel-' + mk.id + '" ' +
              'aria-selected="' + (i === 0) + '" data-mk="' + mk.id + '">' + esc(mk.nama) + '</button>';
 
-      var tags = [mk.kode, mk.sks, mk.semesterKe].filter(Boolean)
-                   .map(function (t) { return '<span class="mk-tag">' + esc(t) + '</span>'; }).join('');
+      var tags = [mk.kode, mk.sks, mk.semesterKe].filter(Boolean).map(function (t) {
+        return '<span class="mk-tag">' + esc(t) + '</span>';
+      }).join('');
 
       var lapis = mk.minggu.map(function (m) {
         var ada = (m.berkas || []).some(function (b) { return b.tersedia && b.url; });
         var isi = (m.judul || (m.berkas || []).length);
         var kini = m.ke === mk.MINGGU_AKTIF;
         var kelas = 'lapis' + (ada ? ' ada' : '') + (kini ? ' kini' : '') + (isi ? '' : ' sepi');
-
         return '<div class="' + kelas + '">' +
           '<div class="angka"><span>' + m.ke + '</span></div>' +
           '<h3 class="lapis-judul">' +
           (m.judul ? esc(m.judul) : 'Minggu ' + m.ke + ' &mdash; belum diisi') +
           (kini ? '<span class="penanda-kini">minggu ini</span>' : '') + '</h3>' +
           (m.catatan ? '<p class="lapis-catatan">' + esc(m.catatan) + '</p>' : '') +
-          daftarBerkas(m.berkas) +
-        '</div>';
+          daftarBerkas(m.berkas) + '</div>';
       }).join('');
 
       panel += '<section class="bungkus' + (i === 0 ? '' : ' sembunyi') + '" role="tabpanel" ' +
-               'id="panel-' + mk.id + '" aria-labelledby="tab-' + mk.id + '" tabindex="0">' +
-        '<div class="mk-kepala"><h2 class="mk-nama">' + esc(mk.nama) + '</h2>' + tags +
-        (mk.ringkas ? '<p class="mk-ringkas">' + esc(mk.ringkas) + '</p>' : '') + '</div>' +
+        'id="panel-' + mk.id + '" aria-labelledby="tab-' + mk.id + '" tabindex="0">' +
+        '<div class="mk-kepala"><div class="mk-baris"><h2 class="mk-nama">' + esc(mk.nama) + '</h2>' + tags + '</div>' +
+        (mk.ringkas ? '<p class="mk-ringkas">' + esc(mk.ringkas) + '</p>' : '') +
+        pitaDivisi(mk.divisi) + '</div>' +
         '<div class="kolom">' + lapis + '</div></section>';
     });
-
     el('pemilih').innerHTML = tab;
     el('isi').innerHTML = panel;
   }
 
   function pilih(id, geser) {
-    var ada = MATAKULIAH.some(function (mk) { return mk.id === id; });
-    if (!ada) return;
+    if (!MATAKULIAH.some(function (mk) { return mk.id === id; })) return;
     MATAKULIAH.forEach(function (mk) {
       var t = el('tab-' + mk.id), p = el('panel-' + mk.id);
       var aktif = mk.id === id;
@@ -320,14 +331,13 @@ a{color:inherit}
         var arah = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
         if (!arah) return;
         e.preventDefault();
-        var j = (i + arah + tombol.length) % tombol.length;
-        pilih(tombol[j].dataset.mk, true);
+        pilih(tombol[(i + arah + tombol.length) % tombol.length].dataset.mk, true);
       });
     });
   }
 
   function bangunPanduan() {
-    var p = (SITUS.panduanTetap || []).map(function (g) {
+    el('panduan').innerHTML = (SITUS.panduanTetap || []).map(function (g) {
       var aksi = (g.tersedia && g.url)
         ? '<ul class="berkas"><li><a class="tautan" href="' + esc(g.url) + '" target="_blank" rel="noopener">' +
           '<span class="nama">Buka panduan</span><span class="panah" aria-hidden="true">&#8599;</span></a></li></ul>'
@@ -335,22 +345,49 @@ a{color:inherit}
       return '<article class="panduan-item"><h3>' + esc(g.judul) + '</h3>' +
              (g.catatan ? '<p>' + esc(g.catatan) + '</p>' : '') + aksi + '</article>';
     }).join('');
-    el('panduan').innerHTML = p;
   }
 
-  /* ---------- jalan ---------- */
+  function bangunOrdo() {
+    var o = SITUS.ordo;
+    if (!o) { el('ordo-bagian').style.display = 'none'; el('ordo-pita').style.display = 'none'; return; }
+
+    el('ordo-pita').innerHTML =
+      '<span class="tanda">Asisten</span>' +
+      '<span class="nama">' + esc(o.nama) + '</span>' +
+      (o.url ? '<a href="' + esc(o.url) + '">Baca ordo</a>' : '');
+
+    var kartuDivisi = (o.divisi || []).map(function (k) {
+      var d = DV[k]; if (!d) return '';
+      return '<div class="dv ' + esc(d.poros || '') + '">' +
+        '<p class="dj">' + esc(d.nama) + '</p>' +
+        '<p class="dp">' + esc(d.manifestasi || '') + '</p>' +
+        '<p class="dp">' + esc(d.domain || '') + '</p>' +
+        (d.tagline ? '<p class="dt">' + esc(d.tagline) + '</p>' : '') + '</div>';
+    }).join('');
+
+    el('ordo-bagian').innerHTML = '<div class="bungkus">' +
+      '<p class="label-bagian" style="color:var(--logika)">Divisi asisten</p>' +
+      '<h2>' + esc(o.nama) + '</h2>' +
+      (o.ringkas ? '<p class="kutip">' + esc(o.ringkas) + '</p>' : '') +
+      '<div class="ordo-divisi">' + kartuDivisi + '</div>' +
+      (o.url ? '<a class="ordo-aksi" href="' + esc(o.url) + '">Selengkapnya</a>' : '') +
+      '</div>';
+  }
+
   el('eyebrow').textContent = SITUS.prodi + ' \u00b7 ' + SITUS.institusi;
   el('semester').textContent = SITUS.semester;
   el('meta').textContent = 'Semua materi praktikum yang diampu ' + SITUS.pengampu +
                            ' dikumpulkan di satu tempat. Pilih mata kuliah, cari minggunya, unduh berkasnya.';
   el('kontak').textContent = SITUS.kontak || '';
-  el('tanda').textContent = SITUS.institusi;
+  el('kolofon').innerHTML = esc(SITUS.institusi) +
+    (SITUS.kolofon ? ' &middot; Disusun dan dipelihara oleh <b>' + esc(SITUS.kolofon) + '</b>' : '');
   document.title = 'Arsip Praktikum \u00b7 ' + SITUS.prodi;
 
   bangunSorot();
   bangunMK();
   pasangPemilih();
   bangunPanduan();
+  bangunOrdo();
 
   var awal = (location.hash || '').replace('#', '');
   if (awal) pilih(awal, false);
