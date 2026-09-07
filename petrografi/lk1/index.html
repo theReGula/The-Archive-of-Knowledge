@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lembar Kerja 1 · Praktikum Petrografi</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+:root{
+  --kertas:#F6F2EA; --kertas-2:#EFE8DB; --tinta:#26303A; --tinta-lembut:#5A6773;
+  --garis:#CFC5B4; --tanah:#A85D42; --lumut:#5E6E4F; --putih:#FFFDF9;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--kertas);color:var(--tinta);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size:16px;line-height:1.55}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px 90px}
+
+header{padding:28px 0 0}
+.spektrum{height:7px;border-radius:3px;margin-bottom:20px;
+  background:linear-gradient(90deg,#3B3B3B 0%,#6E6A62 6%,#B9B0A0 12%,#E3D9A8 18%,#E8B23C 24%,#D2622F 30%,#8E2E5A 36%,#3B4E9B 44%,#2E7FA6 52%,#4C9257 60%,#B9AE3C 68%,#C4682F 76%,#8A4470 84%,#5566A0 92%,#7E8C86 100%)}
+h1{font-family:Georgia,"Iowan Old Style","Times New Roman",serif;font-size:1.6rem;font-weight:600;
+  line-height:1.2;margin:0 0 6px;letter-spacing:-.01em}
+.sub{color:var(--tinta-lembut);font-size:.94rem;margin:0 0 4px}
+.meta{color:var(--tinta-lembut);font-size:.84rem;margin:0 0 22px}
+
+section{margin:36px 0 0}
+h2{font-family:Georgia,serif;font-size:1.2rem;font-weight:600;margin:0 0 6px;
+  padding-bottom:8px;border-bottom:2px solid var(--tinta)}
+h3{font-size:1rem;font-weight:650;margin:24px 0 8px}
+h4{font-size:.92rem;font-weight:650;margin:18px 0 6px;color:var(--tinta-lembut)}
+p.alasan{font-size:.9rem;color:var(--tinta-lembut);margin:6px 0 14px;max-width:66ch}
+.pengantar{font-size:.94rem;margin:10px 0 18px;max-width:68ch}
+
+label{display:block;font-size:.86rem;font-weight:600;margin:0 0 4px}
+label .satuan{font-weight:400;color:var(--tinta-lembut);font-size:.82rem}
+input[type=text],input[type=date],textarea,select,input[type=file]{
+  width:100%;background:var(--putih);border:1px solid var(--garis);border-radius:4px;
+  padding:10px;font-family:inherit;font-size:16px;color:var(--tinta);line-height:1.4}
+textarea{resize:vertical;min-height:64px}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--tanah);outline-offset:1px;border-color:var(--tanah)}
+.baris{display:grid;gap:12px;margin-bottom:12px}
+@media(min-width:640px){.baris.dua{grid-template-columns:1fr 1fr}.baris.tiga{grid-template-columns:1fr 1fr 1fr}}
+
+.kartu{background:var(--putih);border:1px solid var(--garis);border-left:3px solid var(--tanah);
+  padding:16px;margin:14px 0}
+.kartu-kepala{margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--garis)}
+.kartu-judul{font-family:Georgia,serif;font-size:1.05rem;font-weight:600;display:block;margin-bottom:8px}
+
+.periksa{background:var(--putih);border:1px solid var(--garis);border-left:4px solid var(--garis);padding:15px 16px;margin:12px 0}
+.periksa.lolos{border-left-color:var(--lumut)}
+.periksa.gagal{border-left-color:var(--tanah);background:#FBF1EC}
+.periksa h4{margin-top:0;color:var(--tinta);font-size:.98rem}
+
+.pilih{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}
+.pilih label{display:inline-flex;align-items:center;gap:7px;font-weight:500;font-size:.88rem;
+  background:var(--kertas-2);border:1px solid var(--garis);border-radius:18px;padding:7px 13px;
+  cursor:pointer;margin:0;max-width:100%;line-height:1.35}
+.pilih input{accent-color:var(--tanah);margin:0;flex-shrink:0;width:16px;height:16px}
+.pilih label:has(input:checked){background:var(--tinta);color:var(--putih);border-color:var(--tinta)}
+
+.gerbang{border:2px solid var(--tanah);background:#FBF1EC;padding:16px;margin:20px 0 0}
+.gerbang.aman{border-color:var(--lumut);background:#F0F3EC}
+.gerbang strong{display:block;font-size:.98rem;margin-bottom:5px}
+.gerbang p{margin:0;font-size:.9rem}
+
+ul.centang{list-style:none;padding:0;margin:8px 0}
+ul.centang li{display:flex;gap:10px;align-items:flex-start;padding:8px 0;
+  border-bottom:1px dotted var(--garis);font-size:.91rem}
+ul.centang input{margin-top:3px;accent-color:var(--lumut);flex-shrink:0;width:19px;height:19px}
+
+.gulir{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:10px 0}
+table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:420px}
+th,td{border:1px solid var(--garis);padding:8px;text-align:left;vertical-align:top}
+th{background:var(--kertas-2);font-weight:650;font-size:.85rem}
+td input{border:none;background:transparent;padding:4px;width:100%;min-width:120px}
+td input:focus{outline:1px solid var(--tanah)}
+
+button{font-family:inherit;font-size:.95rem;font-weight:600;cursor:pointer;border-radius:4px;
+  padding:11px 18px;border:1px solid var(--tinta);background:var(--tinta);color:var(--putih)}
+button.sekunder{background:transparent;color:var(--tinta)}
+button:disabled{opacity:.45;cursor:not-allowed}
+.aksi{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+
+.pratinjau{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0}
+.pratinjau figure{margin:0;width:104px}
+.pratinjau img{width:104px;height:104px;object-fit:cover;border:1px solid var(--garis);border-radius:4px;display:block}
+.pratinjau figcaption{font-size:.72rem;color:var(--tinta-lembut);margin-top:3px;word-break:break-all}
+
+#ekspor{min-height:220px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px}
+.status{font-size:.9rem;min-height:1.3em;margin:8px 0}
+.status.baik{color:var(--lumut);font-weight:600}
+.status.buruk{color:var(--tanah);font-weight:600}
+
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--garis);
+  font-size:.83rem;color:var(--tinta-lembut)}
+
+@media print{
+  body{background:#fff;font-size:11pt}
+  .aksi,.cetak-sembunyi{display:none!important}
+  .kartu,.periksa{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="spektrum" role="presentation"></div>
+  <h1>Lembar Kerja 1 · Mikroskop Polarisasi dan Sifat Optik Mineral</h1>
+  <p class="sub">Praktikum Petrografi (DAL604231) · Bab 1 dan Bab 2 Modul</p>
+  <p class="meta">Program Studi S1 Teknik Geologi · FMIPA · Universitas Negeri Gorontalo</p>
+</header>
+
+<p class="pengantar">Isian tersimpan otomatis di perangkat ini selama kalian mengerjakan. Setelah selesai, tekan tombol kirim di bagian akhir. Sketsa digambar tangan di buku, lalu difoto dan diunggah lewat lembar ini juga.</p>
+
+<div class="baris dua">
+  <div><label for="nama">Nama lengkap</label><input type="text" id="nama" data-simpan></div>
+  <div><label for="nim">NIM</label><input type="text" id="nim" data-simpan></div>
+</div>
+<div class="baris tiga">
+  <div><label for="kelompok">Kelompok</label><input type="text" id="kelompok" data-simpan></div>
+  <div><label for="tanggal">Tanggal</label><input type="date" id="tanggal" data-simpan></div>
+  <div><label for="asisten">Asisten pendamping</label><input type="text" id="asisten" data-simpan></div>
+</div>
+<div class="baris dua">
+  <div><label for="mikroskop">Nomor mikroskop <span class="satuan">tertera di kartu kalibrasi di meja</span></label><input type="text" id="mikroskop" data-simpan></div>
+  <div><label for="sayatan">Nomor sayatan</label><input type="text" id="sayatan" data-simpan></div>
+</div>
+
+<!-- ============ BAGIAN A ============ -->
+<section>
+  <h2>Bagian A · Mengenal dan Memeriksa Alat</h2>
+  <p class="alasan">Mikroskop polarisasi tidak memberi peringatan ketika ia salah. Sayatan yang diamati dengan alat yang tidak tepat tetap menampilkan warna dan tetap terlihat masuk akal. Karena itu ada satu pemeriksaan yang harus kalian lakukan sendiri sebelum mulai, dan satu kartu yang harus kalian baca.</p>
+
+  <h3>A1 · Fungsi bagian optik</h3>
+  <p class="alasan">Tuliskan apa yang berubah pada citra ketika bagian itu digerakkan. Bukan definisinya.</p>
+  <div class="gulir">
+  <table>
+    <thead><tr><th style="width:40%">Bagian</th><th>Apa yang berubah pada citra</th></tr></thead>
+    <tbody>
+      <tr><td>Diafragma iris dan kondensor</td><td><input type="text" data-simpan id="a1-1"></td></tr>
+      <tr><td>Polarisator bawah</td><td><input type="text" data-simpan id="a1-2"></td></tr>
+      <tr><td>Meja putar berskala</td><td><input type="text" data-simpan id="a1-3"></td></tr>
+      <tr><td>Lubang kompensator (gips &lambda;)</td><td><input type="text" data-simpan id="a1-4"></td></tr>
+      <tr><td>Analisator</td><td><input type="text" data-simpan id="a1-5"></td></tr>
+      <tr><td>Lensa Amici-Bertrand</td><td><input type="text" data-simpan id="a1-6"></td></tr>
+      <tr><td>Okuler dan benang silang</td><td><input type="text" data-simpan id="a1-7"></td></tr>
+      <tr><td>Objektif</td><td><input type="text" data-simpan id="a1-8"></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>A2 · Kartu kalibrasi meja kalian</h3>
+  <p class="alasan">Kalibrasi sudah dikerjakan asisten sebelum semester dimulai, dan hasilnya ada di kartu yang tertempel di meja kalian. Salin angkanya ke sini. Nilai ini berbeda untuk tiap objektif, dan memakai nilai objektif 10x sewaktu mengamati dengan 40x membuat semua ukuran butir salah empat kali lipat tanpa terlihat salah.</p>
+  <div class="gulir">
+  <table>
+    <thead><tr><th>Objektif</th><th>Nilai 1 skala okuler (&micro;m)</th><th>Catatan pada kartu</th></tr></thead>
+    <tbody>
+      <tr><td>4&times;</td><td><input type="text" data-simpan id="k4"></td><td><input type="text" data-simpan id="k4n"></td></tr>
+      <tr><td>10&times;</td><td><input type="text" data-simpan id="k10"></td><td><input type="text" data-simpan id="k10n"></td></tr>
+      <tr><td>40&times;</td><td><input type="text" data-simpan id="k40"></td><td><input type="text" data-simpan id="k40n"></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="pilih">
+    <label><input type="radio" name="kartu" value="Ada dan terbaca" data-simpan-radio> Kartu ada dan terbaca</label>
+    <label><input type="radio" name="kartu" value="Kartu tidak ada" data-simpan-radio> Kartu tidak ada di meja</label>
+  </div>
+
+  <h3>A3 · Satu pemeriksaan yang kalian lakukan sendiri</h3>
+  <div class="periksa" data-periksa>
+    <h4>Medan gelap maksimum</h4>
+    <p class="alasan" style="margin:2px 0 10px">Kosongkan meja, masukkan analisator, naikkan cahaya penuh. Medan pandang harus gelap merata tanpa sisa rona keabuan atau kebiruan. Kalau masih ada cahaya bocor, kedua polarisator belum saling tegak lurus, dan seluruh warna interferensi yang kalian baca nanti akan bergeser. Lima belas detik, tidak perlu alat tambahan.</p>
+    <div class="pilih">
+      <label><input type="radio" name="v1" value="Gelap merata" data-simpan-radio> Gelap merata</label>
+      <label><input type="radio" name="v1" value="Masih ada cahaya bocor" data-simpan-radio> Masih ada cahaya bocor</label>
+    </div>
+    <label for="v1b">Kalau bocor, tulis warna sisanya dan lapor ke asisten</label>
+    <input type="text" id="v1b" data-simpan>
+  </div>
+
+  <h3>A4 · Keselamatan kerja</h3>
+  <ul class="centang">
+    <li><input type="checkbox" data-simpan-cek id="k3-1"><span>Sayatan dipegang di tepi kaca, tangan kering dan bersih.</span></li>
+    <li><input type="checkbox" data-simpan-cek id="k3-2"><span>Sebelum berpindah ke objektif 40&times;, meja diturunkan dulu, lalu fokus dinaikkan perlahan. Memfokuskan ke arah turun berisiko menekan lensa ke kaca penutup.</span></li>
+    <li><input type="checkbox" data-simpan-cek id="k3-3"><span>Lampu tidak dibiarkan menyala penuh terus-menerus. Panas merusak lapisan polarisator.</span></li>
+    <li><input type="checkbox" data-simpan-cek id="k3-4"><span>Lensa dibersihkan hanya dengan kertas lensa.</span></li>
+    <li><input type="checkbox" data-simpan-cek id="k3-5"><span>Kejanggalan alat dilaporkan ke asisten saat ditemukan, bukan di akhir sesi.</span></li>
+  </ul>
+
+  <div class="gerbang" id="gerbang">
+    <strong id="gerbang-judul">Pemeriksaan belum diisi</strong>
+    <p id="gerbang-teks">Isi A2 dan A3 sebelum mulai mengamati.</p>
+  </div>
+</section>
+
+<!-- ============ BAGIAN B ============ -->
+<section>
+  <h2>Bagian B · Pengamatan Sifat Optik</h2>
+  <p class="alasan">Dua mineral. Setiap sifat disertai kondisi pengamatannya. Relief tanpa arah pita Becke, atau ukuran tanpa objektif yang dipakai, tidak bisa diperiksa ulang oleh siapa pun termasuk oleh kalian minggu depan.</p>
+  <div id="daftar-mineral"></div>
+</section>
+
+<!-- ============ PENUTUP ============ -->
+<section>
+  <h2>Penutup · Batas Keyakinan</h2>
+  <p class="alasan">Bagian ini dinilai. Menyebut apa yang belum bisa kalian pastikan, beserta uji yang akan menyelesaikannya, bernilai lebih tinggi daripada nama mineral yang ditulis yakin tanpa dasar.</p>
+  <div class="baris">
+    <div><label for="c1">Bagian prosedur mana yang belum kalian kuasai hari ini</label><textarea id="c1" data-simpan></textarea></div>
+    <div><label for="c2">Sifat mana yang kalian catat dengan keyakinan paling rendah, dan mengapa</label><textarea id="c2" data-simpan></textarea></div>
+    <div><label for="c3">Uji atau pengamatan tambahan apa yang akan menyelesaikan keraguan itu</label><textarea id="c3" data-simpan></textarea></div>
+  </div>
+</section>
+
+<!-- ============ KIRIM ============ -->
+<section class="cetak-sembunyi">
+  <h2>Kirim</h2>
+  <p class="alasan">Sekali tekan, seluruh isian dan foto sketsa terkirim ke dosen. Tunggu sampai muncul nomor tanda terima sebelum menutup halaman. Kalau pengiriman gagal, pakai tombol cadangan di bawahnya: salin teksnya dan kirim lewat jalur yang diberitahukan asisten.</p>
+  <div class="aksi">
+    <button type="button" id="btn-kirim">Kirim lembar dan foto</button>
+    <button type="button" class="sekunder" id="btn-salin">Cadangan: salin sebagai teks</button>
+    <button type="button" class="sekunder" id="btn-cetak">Cetak atau simpan PDF</button>
+  </div>
+  <p class="status" id="status"></p>
+  <textarea id="ekspor" placeholder="Teks cadangan muncul di sini." readonly></textarea>
+  <div class="aksi"><button type="button" class="sekunder" id="btn-kosong">Kosongkan lembar</button></div>
+</section>
+
+<footer>
+  Praktikum Petrografi DAL604231 &middot; Lembar Kerja 1 &middot; Semester Ganjil 2026/2027
+</footer>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+/* ====== SATU-SATUNYA BARIS YANG PERLU DIUBAH ======
+   Tempel URL penerapan Apps Script di antara tanda kutip. */
+var URL_KIRIM = "https://script.google.com/a/macros/ung.ac.id/s/AKfycbyyIx-UhhUOnX5pBV9QpU11L3Ms4xFT9a-rqO520dzbxbEXMdlsLOWr4ZvAXRd2x9UK/exec";
+
+/* Setelah tenggat lewat, ubah baris di bawah jadi false.
+   Lembar tetap bisa dibaca sebagai bahan belajar, tapi tombol kirim mati
+   sehingga tidak ada lagi baris baru yang masuk ke rekap nilai. */
+var KIRIM_AKTIF = true;
+/* ================================================== */
+
+var KUNCI = "petrografi-lk1-v2";
+var daftar = document.getElementById("daftar-mineral");
+var berkas = {};   /* {m1:[{nama,data}], m2:[...]} */
+
+function pilih(nama,opsi){
+  return '<div class="pilih">'+opsi.map(function(o){
+    return '<label><input type="radio" name="'+nama+'" value="'+o+'" data-simpan-radio> '+o+'</label>';
+  }).join('')+'</div>';
+}
+
+function kartu(n){
+  var p="m"+n+"-";
+  var d=document.createElement("div");
+  d.className="kartu"; d.dataset.mineral=n;
+  d.innerHTML=
+  '<div class="kartu-kepala"><span class="kartu-judul">Mineral '+n+'</span>'+
+    '<label for="'+p+'obj">Objektif yang dipakai</label><input type="text" id="'+p+'obj" data-simpan placeholder="4x, 10x, atau 40x"></div>'+
+
+  '<h4>PPL</h4>'+
+  '<div class="baris dua">'+
+    '<div><label for="'+p+'ukuran">Ukuran butir <span class="satuan">skala okuler dikali nilai kalibrasi, dalam &micro;m</span></label><input type="text" id="'+p+'ukuran" data-simpan></div>'+
+    '<div><label for="'+p+'bentuk">Bentuk dan kebiasaan <span class="satuan">euhedral, subhedral, anhedral; prismatik, tabular, berserabut</span></label><input type="text" id="'+p+'bentuk" data-simpan></div>'+
+  '</div>'+
+  '<div class="baris dua">'+
+    '<div><label for="'+p+'warna">Warna dan intensitasnya</label><input type="text" id="'+p+'warna" data-simpan></div>'+
+    '<div><label for="'+p+'belahan">Belahan <span class="satuan">jumlah arah, sudut antar arah, kualitas</span></label><input type="text" id="'+p+'belahan" data-simpan placeholder="dua arah, 56 dan 124 derajat, sempurna"></div>'+
+  '</div>'+
+  '<label>Ketembusan cahaya</label>'+pilih(p+"tembus",["Transparan","Translusen","Opak"])+
+  '<div class="baris dua">'+
+    '<div><label for="'+p+'pecahan">Pecahan</label><input type="text" id="'+p+'pecahan" data-simpan placeholder="konkoidal, tidak rata, tidak teramati"></div>'+
+    '<div><label for="'+p+'pleo">Pleokroisme <span class="satuan">warna pada dua kedudukan, atau tidak ada</span></label><input type="text" id="'+p+'pleo" data-simpan></div>'+
+  '</div>'+
+  '<label>Arah gerak pita Becke saat jarak objektif ke preparat dinaikkan</label>'+
+  pilih(p+"becke",["Masuk ke dalam mineral","Keluar ke media sekitar","Tidak teramati"])+
+  '<div class="baris dua">'+
+    '<div><label for="'+p+'relief">Kesimpulan relief dan indeks bias <span class="satuan">bandingkan terhadap balsam, n = 1,54</span></label><input type="text" id="'+p+'relief" data-simpan></div>'+
+    '<div><label for="'+p+'inklusi">Inklusi dan hubungan antarmineral</label><input type="text" id="'+p+'inklusi" data-simpan placeholder="poikilitik, korona, tepi bereaksi"></div>'+
+  '</div>'+
+
+  '<h4>XPL</h4>'+
+  '<label>Perilaku saat meja diputar satu putaran penuh</label>'+
+  pilih(p+"iso",["Gelap terus","Gelap empat kali","Gelap terus tapi butir sejenis lain terang"])+
+  '<p class="alasan" style="margin:-6px 0 12px">Kalau pilihan ketiga, jangan langsung menyimpulkan isotropik. Butir yang terpotong tegak lurus sumbu optik tetap gelap sepanjang putaran meskipun mineralnya anisotropik. Justru butir itu yang paling baik dipakai untuk konoskop.</p>'+
+  '<div class="baris dua">'+
+    '<div><label for="'+p+'warnaint">Warna interferensi tertinggi dan ordenya</label><input type="text" id="'+p+'warnaint" data-simpan placeholder="kuning orde dua"></div>'+
+    '<div><label for="'+p+'bire">Birefringen <span class="satuan">dari bagan Michel-L&eacute;vy, tebal sayatan 30 &micro;m</span></label><input type="text" id="'+p+'bire" data-simpan></div>'+
+  '</div>'+
+  '<div class="baris dua">'+
+    '<div><label for="'+p+'gelapan">Jenis gelapan dan sudutnya</label><input type="text" id="'+p+'gelapan" data-simpan placeholder="paralel, miring 24 derajat, bergelombang"></div>'+
+    '<div><label for="'+p+'kembar">Kembaran dan zonasi</label><input type="text" id="'+p+'kembar" data-simpan placeholder="albit polisintetik, Karlsbad, silang"></div>'+
+  '</div>'+
+  '<label>Tanda elongasi dengan kompensator gips</label>'+
+  pilih(p+"elong",["Panjang lambat","Panjang cepat","Tidak diuji"])+
+  '<div><label for="'+p+'ml">Michel-L&eacute;vy <span class="satuan">isi hanya bila plagioklas: sudut gelapan maksimum dan perkiraan persen An</span></label><input type="text" id="'+p+'ml" data-simpan></div>'+
+
+  '<h4>Konoskop</h4>'+
+  '<p class="alasan" style="margin:2px 0 10px">Objektif perbesaran tertinggi, kondensor naik, diafragma buka penuh, analisator masuk, lalu lensa Amici-Bertrand. Pilih butir dengan warna interferensi paling rendah.</p>'+
+  '<label>Gambar sumbu yang muncul</label>'+
+  pilih(p+"gambar",["Uniaksial","Biaksial","Tidak berhasil"])+
+  '<div class="baris dua">'+
+    '<div><label for="'+p+'tanda">Tanda optik dan dasarnya <span class="satuan">kuadran mana yang naik orde</span></label><input type="text" id="'+p+'tanda" data-simpan></div>'+
+    '<div><label for="'+p+'kono">Catatan. Kalau gagal, apa yang menghalangi</label><input type="text" id="'+p+'kono" data-simpan></div>'+
+  '</div>'+
+
+  '<h4>Sketsa</h4>'+
+  '<p class="alasan" style="margin:2px 0 10px">Gambar tangan di buku, lalu foto. Wajib ada pada gambar: batang skala bersatuan, arah benang silang, keterangan PPL atau XPL, perbesaran, dan nomor sayatan. Foto dikecilkan otomatis sebelum dikirim, jadi tidak perlu khawatir ukurannya.</p>'+
+  '<label for="'+p+'foto">Unggah foto sketsa PPL dan XPL</label>'+
+  '<input type="file" id="'+p+'foto" accept="image/*" multiple data-foto="'+n+'">'+
+  '<div class="pratinjau" id="'+p+'pratinjau"></div>'+
+
+  '<h4>Kesimpulan</h4>'+
+  '<div><label for="'+p+'nama">Dugaan nama mineral</label><input type="text" id="'+p+'nama" data-simpan></div>'+
+  '<label>Tingkat keyakinan</label>'+
+  pilih(p+"yakin",["Yakin","Cukup yakin","Belum pasti"])+
+  '<div><label for="'+p+'bukti">Tiga sifat yang jadi dasar penamaan, dan satu sifat yang menyingkirkan kandidat lain</label><textarea id="'+p+'bukti" data-simpan></textarea></div>';
+  return d;
+}
+
+/* ---------- kecilkan foto ---------- */
+function kecilkan(file){
+  return new Promise(function(res,rej){
+    var fr=new FileReader();
+    fr.onload=function(){
+      var img=new Image();
+      img.onload=function(){
+        var maks=1600, w=img.width, h=img.height;
+        if(w>maks||h>maks){ var s=maks/Math.max(w,h); w=Math.round(w*s); h=Math.round(h*s); }
+        var c=document.createElement("canvas"); c.width=w; c.height=h;
+        c.getContext("2d").drawImage(img,0,0,w,h);
+        res(c.toDataURL("image/jpeg",0.8));
+      };
+      img.onerror=function(){rej(new Error("gambar tidak terbaca"));};
+      img.src=fr.result;
+    };
+    fr.onerror=function(){rej(new Error("berkas tidak terbaca"));};
+    fr.readAsDataURL(file);
+  });
+}
+
+document.addEventListener("change",function(ev){
+  var el=ev.target;
+  if(!el.dataset || !el.dataset.foto) return;
+  var n=el.dataset.foto, kotak=document.getElementById("m"+n+"-pratinjau");
+  kotak.innerHTML='<p class="alasan" style="margin:0">Memproses foto...</p>';
+  berkas["m"+n]=[];
+  var daf=Array.prototype.slice.call(el.files);
+  Promise.all(daf.map(kecilkan)).then(function(hasil){
+    kotak.innerHTML="";
+    hasil.forEach(function(dt,i){
+      berkas["m"+n].push({nama:daf[i].name,data:dt});
+      var f=document.createElement("figure");
+      f.innerHTML='<img src="'+dt+'" alt=""><figcaption>'+daf[i].name+'</figcaption>';
+      kotak.appendChild(f);
+    });
+  }).catch(function(e){
+    kotak.innerHTML='<p class="alasan" style="margin:0;color:#A85D42">Foto gagal diproses. Coba pilih ulang, atau pakai foto dengan ukuran lebih kecil.</p>';
+  });
+});
+
+/* ---------- gerbang ---------- */
+function nilaiRadio(n){var e=document.querySelector('input[name="'+n+'"]:checked');return e?e.value:"";}
+function perbaruiGerbang(){
+  var v1=nilaiRadio("v1"), kartuAda=nilaiRadio("kartu");
+  var kotak=document.querySelector("[data-periksa]");
+  kotak.className="periksa"+(v1?(v1==="Gelap merata"?" lolos":" gagal"):"");
+  var g=document.getElementById("gerbang"),j=document.getElementById("gerbang-judul"),t=document.getElementById("gerbang-teks");
+  if(v1==="Gelap merata" && kartuAda==="Ada dan terbaca"){
+    g.className="gerbang aman";
+    j.textContent="Alat siap dipakai.";
+    t.textContent="Medan gelap merata dan nilai kalibrasi sudah kalian salin. Data yang kalian catat mulai sekarang punya dasar yang bisa dipertanggungjawabkan.";
+  } else if(!v1 || !kartuAda){
+    g.className="gerbang";
+    j.textContent="Pemeriksaan belum lengkap";
+    t.textContent="Isi A2 dan A3 sebelum mulai mengamati.";
+  } else {
+    g.className="gerbang";
+    j.textContent="Ada yang perlu dilaporkan ke asisten";
+    t.textContent="Kalian tetap boleh mengamati, tapi tulis keadaan ini apa adanya. Lembar yang jujur menyebut alatnya bermasalah tidak dikurangi nilainya. Yang dikurangi adalah data yang disajikan seolah sah padahal alatnya belum diperiksa.";
+  }
+}
+
+/* ---------- simpan ---------- */
+function kumpul(){
+  var d={isi:{},radio:{},cek:{}};
+  document.querySelectorAll("[data-simpan]").forEach(function(e){if(e.id)d.isi[e.id]=e.value;});
+  document.querySelectorAll("[data-simpan-radio]:checked").forEach(function(e){d.radio[e.name]=e.value;});
+  document.querySelectorAll("[data-simpan-cek]").forEach(function(e){d.cek[e.id]=e.checked;});
+  return d;
+}
+function simpan(){try{localStorage.setItem(KUNCI,JSON.stringify(kumpul()));}catch(e){}}
+function pasang(){
+  document.querySelectorAll("[data-simpan],[data-simpan-cek]").forEach(function(e){
+    if(e.dataset.pasang)return; e.dataset.pasang="1";
+    e.addEventListener("input",simpan); e.addEventListener("change",simpan);
+  });
+  document.querySelectorAll("[data-simpan-radio]").forEach(function(e){
+    if(e.dataset.pasang)return; e.dataset.pasang="1";
+    e.addEventListener("change",function(){perbaruiGerbang();simpan();});
+  });
+}
+function muat(){
+  daftar.appendChild(kartu(1)); daftar.appendChild(kartu(2));
+  var s=null; try{s=localStorage.getItem(KUNCI);}catch(e){}
+  if(s){
+    try{
+      var d=JSON.parse(s);
+      Object.keys(d.isi||{}).forEach(function(k){var e=document.getElementById(k);if(e)e.value=d.isi[k];});
+      Object.keys(d.radio||{}).forEach(function(k){
+        var e=document.querySelector('input[name="'+k+'"][value="'+d.radio[k]+'"]'); if(e)e.checked=true;});
+      Object.keys(d.cek||{}).forEach(function(k){var e=document.getElementById(k);if(e)e.checked=d.cek[k];});
+    }catch(e){}
+  }
+  pasang(); perbaruiGerbang();
+}
+
+/* ---------- teks ---------- */
+function n_(id){var e=document.getElementById(id);return e&&e.value?e.value:"-";}
+function r_(n){return nilaiRadio(n)||"-";}
+function c_(id){var e=document.getElementById(id);return e&&e.checked?"ya":"belum";}
+
+function susun(){
+  var b=[];
+  b.push("LEMBAR KERJA 1 - PRAKTIKUM PETROGRAFI (DAL604231)");
+  b.push("Nama: "+n_("nama")+" | NIM: "+n_("nim")+" | Kelompok: "+n_("kelompok"));
+  b.push("Tanggal: "+n_("tanggal")+" | Asisten: "+n_("asisten"));
+  b.push("Mikroskop: "+n_("mikroskop")+" | Sayatan: "+n_("sayatan"));
+  b.push("");
+  b.push("== BAGIAN A ==");
+  var an=["Diafragma iris dan kondensor","Polarisator bawah","Meja putar","Lubang kompensator","Analisator","Amici-Bertrand","Okuler dan benang silang","Objektif"];
+  an.forEach(function(t,i){b.push("  "+t+": "+n_("a1-"+(i+1)));});
+  b.push("  Kartu kalibrasi: "+r_("kartu"));
+  b.push("  1 skala okuler -> 4x: "+n_("k4")+" um | 10x: "+n_("k10")+" um | 40x: "+n_("k40")+" um");
+  b.push("  Catatan kartu: "+n_("k4n")+" / "+n_("k10n")+" / "+n_("k40n"));
+  b.push("  Medan gelap: "+r_("v1")+" | catatan: "+n_("v1b"));
+  b.push("  K3: "+["k3-1","k3-2","k3-3","k3-4","k3-5"].map(c_).join(", "));
+  b.push("");
+  b.push("== BAGIAN B ==");
+  [1,2].forEach(function(n){
+    var p="m"+n+"-";
+    b.push("");
+    b.push("-- Mineral "+n+" (objektif "+n_(p+"obj")+") --");
+    b.push("PPL  ukuran: "+n_(p+"ukuran"));
+    b.push("     bentuk: "+n_(p+"bentuk"));
+    b.push("     warna: "+n_(p+"warna"));
+    b.push("     ketembusan: "+r_(p+"tembus"));
+    b.push("     belahan: "+n_(p+"belahan"));
+    b.push("     pecahan: "+n_(p+"pecahan"));
+    b.push("     pita Becke: "+r_(p+"becke"));
+    b.push("     relief: "+n_(p+"relief"));
+    b.push("     pleokroisme: "+n_(p+"pleo"));
+    b.push("     inklusi: "+n_(p+"inklusi"));
+    b.push("XPL  putaran meja: "+r_(p+"iso"));
+    b.push("     warna interferensi: "+n_(p+"warnaint"));
+    b.push("     birefringen: "+n_(p+"bire"));
+    b.push("     gelapan: "+n_(p+"gelapan"));
+    b.push("     kembaran: "+n_(p+"kembar"));
+    b.push("     elongasi: "+r_(p+"elong"));
+    b.push("     Michel-Levy: "+n_(p+"ml"));
+    b.push("KONO gambar sumbu: "+r_(p+"gambar"));
+    b.push("     tanda optik: "+n_(p+"tanda"));
+    b.push("     catatan: "+n_(p+"kono"));
+    b.push("SIMP nama: "+n_(p+"nama")+" | keyakinan: "+r_(p+"yakin"));
+    b.push("     dasar: "+n_(p+"bukti"));
+    b.push("     foto sketsa: "+((berkas["m"+n]||[]).length)+" berkas");
+  });
+  b.push("");
+  b.push("== PENUTUP ==");
+  b.push("Belum dikuasai : "+n_("c1"));
+  b.push("Keyakinan rendah: "+n_("c2"));
+  b.push("Uji lanjutan   : "+n_("c3"));
+  return b.join("\n");
+}
+
+/* ---------- kirim ---------- */
+var status=document.getElementById("status");
+function pesan(t,jenis){status.textContent=t;status.className="status"+(jenis?" "+jenis:"");}
+
+document.getElementById("btn-kirim").addEventListener("click",function(){
+  var tombol=this;
+  if(!document.getElementById("nama").value.trim()||!document.getElementById("nim").value.trim()){
+    pesan("Nama dan NIM belum diisi. Lembar tanpa keduanya tidak bisa dinilai.","buruk"); return;
+  }
+  if(URL_KIRIM.indexOf("GANTI")===0){
+    pesan("Alamat pengiriman belum dipasang oleh dosen. Pakai tombol cadangan di sebelah.","buruk"); return;
+  }
+  var muatan={
+    teks:susun(),
+    nama:document.getElementById("nama").value,
+    nim:document.getElementById("nim").value,
+    kelompok:document.getElementById("kelompok").value,
+    mikroskop:document.getElementById("mikroskop").value,
+    sayatan:document.getElementById("sayatan").value,
+    data:kumpul(),
+    foto:[]
+  };
+  [1,2].forEach(function(n){
+    (berkas["m"+n]||[]).forEach(function(f,i){
+      muatan.foto.push({label:"Mineral"+n+"_"+(i+1),data:f.data});
+    });
+  });
+  tombol.disabled=true; pesan("Mengirim, jangan tutup halaman...","");
+  fetch(URL_KIRIM,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(muatan)})
+    .then(function(r){return r.json();})
+    .then(function(j){
+      if(j && j.ok){
+        pesan("Terkirim. Nomor tanda terima: "+j.tanda+". Catat nomor ini.","baik");
+      } else {
+        tombol.disabled=false;
+        pesan("Pengiriman ditolak: "+((j&&j.pesan)||"sebab tidak diketahui")+". Pakai tombol cadangan.","buruk");
+      }
+    })
+    .catch(function(){
+      tombol.disabled=false;
+      pesan("Pengiriman gagal, kemungkinan sinyal terputus. Coba sekali lagi. Kalau tetap gagal, pakai tombol cadangan.","buruk");
+    });
+});
+
+document.getElementById("btn-salin").addEventListener("click",function(){
+  var t=susun(); document.getElementById("ekspor").value=t;
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(t).then(function(){pesan("Tersalin. Foto sketsa tetap harus dikirim terpisah.","baik");})
+      .catch(function(){pesan("Salin manual dari kotak di bawah.","");});
+  } else pesan("Salin manual dari kotak di bawah.","");
+});
+document.getElementById("btn-cetak").addEventListener("click",function(){window.print();});
+document.getElementById("btn-kosong").addEventListener("click",function(){
+  if(!confirm("Seluruh isian di perangkat ini akan dihapus. Lanjutkan?"))return;
+  try{localStorage.removeItem(KUNCI);}catch(e){}
+  location.reload();
+});
+
+muat();
+})();
+</script>
+</body>
+</html>
