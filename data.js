@@ -79,7 +79,13 @@ const SITUS = {
   },
 
   // Panduan yang berlaku sepanjang semester, tidak terikat minggu tertentu.
-  panduanTetap: [
+    panduanTetap: [
+    {
+      judul: 'Cek status lembar kerja',
+      catatan: 'Lihat apakah lembar kalian sudah masuk dan sudah dinilai. Siapkan NIM dan nomor tanda terima.',
+      url: '/petrografi/pantau/',
+      tersedia: true
+    },
     {
       judul: 'Panduan K3 Laboratorium',
       catatan: 'Wajib dibaca sebelum masuk lab pertama kali. Berlaku untuk semua praktikum.',
