@@ -801,8 +801,11 @@ function susunHTML(){
   return h;
 }
 
-/* ---------- kolom spreadsheet ---------- */
-function susunKolom(){
+/* ---------- muatan untuk spreadsheet ----------
+   Dua bentuk terpisah: satu baris ringkasan untuk lembar Kiriman, dan
+   satu baris per mineral untuk lembar Data_Mineral. Dipisah di sini,
+   bukan di skrip, supaya nama butir hanya ditulis di satu tempat. */
+function susunUmum(){
   var k=[];
   function t(nama,nilai){ k.push({k:nama,v:(kosongkah(nilai)?"":String(nilai))}); }
   t("Nama",n_("nama")); t("NIM",n_("nim")); t("Kelompok",n_("kelompok"));
@@ -814,18 +817,28 @@ function susunKolom(){
   kerangkaAnatomi().forEach(function(p){ t("A1 "+p[0],p[1]); });
   t("K3 tercentang",["k3-1","k3-2","k3-3","k3-4","k3-5"].filter(function(x){
     var e=document.getElementById(x); return e&&e.checked; }).length+" dari 5");
-  sampel.forEach(function(s,i){
-    var d=s.data, aw="M"+(i+1)+" ";
-    t(aw+"Kode",d.kode); t(aw+"Objektif",d.obj);
-    BAGIAN.forEach(function(b){
-      b.butir.forEach(function(x){ t(aw+b.judul+" "+polos(x.l),d[x.k]); });
-    });
-    t(aw+"Jumlah foto",String((s.foto||[]).length));
-  });
   t("Penutup belum dikuasai",n_("c1"));
   t("Penutup keyakinan terendah",n_("c2"));
   t("Penutup uji lanjutan",n_("c3"));
   return k;
+}
+
+function susunMineral(){
+  return sampel.map(function(s,i){
+    var d=s.data, butir=[];
+    BAGIAN.forEach(function(b){
+      b.butir.forEach(function(x){
+        butir.push({ k:b.judul+" "+polos(x.l), v:(d[x.k]||"") });
+      });
+    });
+    return {
+      urut:i+1,
+      kode:d.kode||"",
+      objektif:d.obj||"",
+      foto:(s.foto||[]).length,
+      butir:butir
+    };
+  });
 }
 
 /* ---------- kirim ---------- */
@@ -854,7 +867,8 @@ document.getElementById("btn-kirim").addEventListener("click",function(){
     pesan("Alamat pengiriman belum dipasang oleh dosen. Pakai tombol cadangan.","buruk"); return;
   }
   var muatan={
-    teks:susun(), html:susunHTML(), kolom:susunKolom(),
+    teks:susun(), html:susunHTML(),
+    umum:susunUmum(), mineral:susunMineral(),
     nama:document.getElementById("nama").value,
     nim:document.getElementById("nim").value,
     kelompok:document.getElementById("kelompok").value,
@@ -864,7 +878,7 @@ document.getElementById("btn-kirim").addEventListener("click",function(){
   };
   sampel.forEach(function(s,i){
     (s.foto||[]).forEach(function(f,j){
-      muatan.foto.push({label:"Mineral"+(i+1)+"_"+(j+1),data:f.data});
+      muatan.foto.push({label:"Mineral"+(i+1)+"_"+(j+1),mineral:i+1,data:f.data});
     });
   });
   tombol.disabled=true; pesan("Mengirim, jangan tutup halaman...","");
