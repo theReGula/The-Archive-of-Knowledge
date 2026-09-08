@@ -8,7 +8,7 @@
 <style>
 :root{
   --kertas:#F6F2EA; --kertas-2:#EFE8DB; --tinta:#26303A; --tinta-lembut:#5A6773;
-  --garis:#CFC5B4; --tanah:#A85D42; --lumut:#5E6E4F; --putih:#FFFDF9;
+  --garis:#CFC5B4; --tanah:#A85D42; --lumut:#4F6B45; --putih:#FFFDF9;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -35,11 +35,11 @@ p.alasan{font-size:.9rem;color:var(--tinta-lembut);margin:6px 0 14px;max-width:6
 
 label{display:block;font-size:.86rem;font-weight:600;margin:0 0 4px}
 label .satuan{font-weight:400;color:var(--tinta-lembut);font-size:.82rem}
-input[type=text],input[type=date],textarea,select,input[type=file]{
+input[type=text],input[type=date],textarea,input[type=file]{
   width:100%;background:var(--putih);border:1px solid var(--garis);border-radius:4px;
   padding:10px;font-family:inherit;font-size:16px;color:var(--tinta);line-height:1.4}
 textarea{resize:vertical;min-height:64px}
-input:focus,textarea:focus,select:focus{outline:2px solid var(--tanah);outline-offset:1px;border-color:var(--tanah)}
+input:focus,textarea:focus{outline:2px solid var(--tanah);outline-offset:1px;border-color:var(--tanah)}
 .baris{display:grid;gap:12px;margin-bottom:12px}
 @media(min-width:640px){.baris.dua{grid-template-columns:1fr 1fr}.baris.tiga{grid-template-columns:1fr 1fr 1fr}}
 
@@ -80,6 +80,8 @@ td input:focus{outline:1px solid var(--tanah)}
 button{font-family:inherit;font-size:.95rem;font-weight:600;cursor:pointer;border-radius:4px;
   padding:11px 18px;border:1px solid var(--tinta);background:var(--tinta);color:var(--putih)}
 button.sekunder{background:transparent;color:var(--tinta)}
+button.kecil{font-size:.82rem;padding:6px 11px}
+button.hijau{background:var(--lumut);border-color:var(--lumut);color:#fff}
 button:disabled{opacity:.45;cursor:not-allowed}
 .aksi{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
 
@@ -87,6 +89,15 @@ button:disabled{opacity:.45;cursor:not-allowed}
 .pratinjau figure{margin:0;width:104px}
 .pratinjau img{width:104px;height:104px;object-fit:cover;border:1px solid var(--garis);border-radius:4px;display:block}
 .pratinjau figcaption{font-size:.72rem;color:var(--tinta-lembut);margin-top:3px;word-break:break-all}
+
+/* ---------- daftar tersimpan ---------- */
+.hitung{font-size:.92rem;color:var(--tinta-lembut);margin:0 0 10px}
+.hitung b{color:var(--tinta)}
+#daftar-sampel table{min-width:520px}
+#daftar-sampel td.aksi-sel{white-space:nowrap;display:flex;gap:6px;border:none}
+#daftar-sampel tr.sedang td{background:#FBF1EC}
+.kosong-daftar{font-size:.9rem;color:var(--tinta-lembut);border:1px dashed var(--garis);
+  padding:14px;text-align:center;margin:10px 0}
 
 #ekspor{min-height:220px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px}
 .status{font-size:.9rem;min-height:1.3em;margin:8px 0}
@@ -96,10 +107,31 @@ button:disabled{opacity:.45;cursor:not-allowed}
 footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--garis);
   font-size:.83rem;color:var(--tinta-lembut)}
 
+/* ---------- dokumen arsip (hanya tampil saat dicetak) ---------- */
+#dokumen{display:none}
 @media print{
-  body{background:#fff;font-size:11pt}
-  .aksi,.cetak-sembunyi{display:none!important}
-  .kartu,.periksa{break-inside:avoid}
+  @page{size:A4;margin:16mm 15mm}
+  html,body{background:#fff!important;color:#000;font-size:10.5pt;line-height:1.35}
+  .wrap{display:none!important}
+  #dokumen{display:block;font-family:Arial,Helvetica,sans-serif}
+  .dok-kop{border-bottom:2.5pt solid #000;padding-bottom:6pt;margin-bottom:12pt}
+  .dok-kop .lembaga{font-size:8.5pt;letter-spacing:.09em;text-transform:uppercase;margin:0 0 3pt}
+  .dok-kop h1{font-size:14pt;font-weight:bold;margin:0 0 2pt;letter-spacing:-.01em}
+  .dok-kop .mk{font-size:9.5pt;margin:0;color:#333}
+  #dokumen h2{font-size:10.5pt;font-weight:bold;text-transform:uppercase;letter-spacing:.06em;
+    margin:14pt 0 5pt;padding-bottom:2pt;border-bottom:1pt solid #000;break-after:avoid}
+  #dokumen h3{font-size:10pt;font-weight:bold;margin:9pt 0 3pt;break-after:avoid}
+  #dokumen table{width:100%;border-collapse:collapse;margin:0 0 8pt;font-size:9.5pt}
+  #dokumen th,#dokumen td{border:.6pt solid #666;padding:3pt 5pt;text-align:left;vertical-align:top}
+  #dokumen th{background:#EDEDED;font-weight:bold;width:32%}
+  #dokumen td.kosong{color:#888;font-style:italic}
+  #dokumen .blok{break-inside:avoid;page-break-inside:avoid;margin-bottom:8pt}
+  .dok-status{border:1.2pt solid #000;padding:5pt 7pt;margin:0 0 10pt;font-size:9.5pt}
+  .dok-status b{text-transform:uppercase;letter-spacing:.05em}
+  .dok-paraf{margin-top:16pt;break-inside:avoid;display:table;width:100%}
+  .dok-paraf div{display:table-cell;width:33%;padding-right:14pt;font-size:9pt;vertical-align:top}
+  .dok-paraf .garis{border-bottom:.8pt solid #000;height:34pt;margin-bottom:3pt}
+  .dok-kaki{margin-top:14pt;padding-top:5pt;border-top:.6pt solid #999;font-size:8pt;color:#444}
 }
 </style>
 </head>
@@ -113,7 +145,7 @@ footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--garis);
   <p class="meta">Program Studi S1 Teknik Geologi · FMIPA · Universitas Negeri Gorontalo</p>
 </header>
 
-<p class="pengantar">Isian tersimpan otomatis di perangkat ini selama kalian mengerjakan. Setelah selesai, tekan tombol kirim di bagian akhir. Sketsa digambar tangan di buku, lalu difoto dan diunggah lewat lembar ini juga.</p>
+<p class="pengantar">Isi satu mineral di kartu kerja, tekan Simpan, lalu kartu siap dipakai untuk mineral berikutnya. Semua yang tersimpan muncul di daftar dan tetap ada meski halaman ditutup. Kirim setelah daftarnya kalian periksa ulang.</p>
 
 <div class="baris dua">
   <div><label for="nama">Nama lengkap</label><input type="text" id="nama" data-simpan></div>
@@ -199,8 +231,19 @@ footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--garis);
 <!-- ============ BAGIAN B ============ -->
 <section>
   <h2>Bagian B · Pengamatan Sifat Optik</h2>
-  <p class="alasan">Dua mineral. Setiap sifat disertai kondisi pengamatannya. Relief tanpa arah pita Becke, atau ukuran tanpa objektif yang dipakai, tidak bisa diperiksa ulang oleh siapa pun termasuk oleh kalian minggu depan.</p>
-  <div id="daftar-mineral"></div>
+  <p class="alasan">Satu kartu untuk satu mineral. Setelah selesai, tekan Simpan Mineral di bawah kartu, lalu kartu kosong lagi untuk mineral berikutnya. Setiap sifat disertai kondisi pengamatannya, karena nilai tanpa kondisinya tidak bisa diperiksa ulang oleh siapa pun termasuk oleh kalian minggu depan.</p>
+
+  <div class="kartu" id="kartu-kerja"></div>
+
+  <div class="aksi cetak-sembunyi">
+    <button type="button" id="btn-simpan">Simpan Mineral</button>
+    <button type="button" class="sekunder" id="btn-batal">Kosongkan kartu</button>
+  </div>
+  <p class="status" id="status-kartu"></p>
+
+  <h3>Mineral yang sudah tersimpan</h3>
+  <p class="hitung" id="hitung">Belum ada mineral tersimpan.</p>
+  <div id="daftar-sampel"></div>
 </section>
 
 <!-- ============ PENUTUP ============ -->
@@ -216,16 +259,16 @@ footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--garis);
 
 <!-- ============ KIRIM ============ -->
 <section class="cetak-sembunyi">
-  <h2>Kirim</h2>
-  <p class="alasan">Sekali tekan, seluruh isian dan foto sketsa terkirim ke dosen. Tunggu sampai muncul nomor tanda terima sebelum menutup halaman. Kalau pengiriman gagal, pakai tombol cadangan di bawahnya: salin teksnya dan kirim lewat jalur yang diberitahukan asisten.</p>
+  <h2>Ringkasan dan Pengumpulan</h2>
+  <p class="alasan">Periksa dulu daftar mineral di atas. Setelah dikirim, tunggu sampai nomor tanda terima muncul sebelum menutup halaman, dan catat nomornya. Kalau pengiriman gagal, pakai tombol cadangan: salin teksnya dan kirim lewat jalur yang diberitahukan asisten.</p>
   <div class="aksi">
-    <button type="button" id="btn-kirim">Kirim lembar dan foto</button>
+    <button type="button" id="btn-kirim">Kirim ke Dosen</button>
+    <button type="button" class="sekunder" id="btn-cetak">Cetak laporan sementara</button>
     <button type="button" class="sekunder" id="btn-salin">Cadangan: salin sebagai teks</button>
-    <button type="button" class="sekunder" id="btn-cetak">Cetak atau simpan PDF</button>
   </div>
   <p class="status" id="status"></p>
   <textarea id="ekspor" placeholder="Teks cadangan muncul di sini." readonly></textarea>
-  <div class="aksi"><button type="button" class="sekunder" id="btn-kosong">Kosongkan lembar</button></div>
+  <div class="aksi"><button type="button" class="sekunder" id="btn-kosong">Kosongkan seluruh lembar</button></div>
 </section>
 
 <footer>
@@ -233,110 +276,178 @@ footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--garis);
 </footer>
 </div>
 
+<div id="dokumen" aria-hidden="true"></div>
+
 <script>
 (function(){
 "use strict";
 
 /* ====== SATU-SATUNYA BARIS YANG PERLU DIUBAH ======
    Tempel URL penerapan Apps Script di antara tanda kutip. */
-var URL_KIRIM = "https://script.google.com/a/macros/ung.ac.id/s/AKfycbyyIx-UhhUOnX5pBV9QpU11L3Ms4xFT9a-rqO520dzbxbEXMdlsLOWr4ZvAXRd2x9UK/exec";
+var URL_KIRIM = "GANTI_DENGAN_URL_APPS_SCRIPT";
 
-/* Setelah tenggat lewat, ubah baris di bawah jadi false.
-   Lembar tetap bisa dibaca sebagai bahan belajar, tapi tombol kirim mati
-   sehingga tidak ada lagi baris baru yang masuk ke rekap nilai. */
+/* Setelah tenggat lewat, ubah baris di bawah jadi false. */
 var KIRIM_AKTIF = true;
 /* ================================================== */
 
-var KUNCI = "petrografi-lk1-v2";
-var daftar = document.getElementById("daftar-mineral");
-var berkas = {};   /* {m1:[{nama,data}], m2:[...]} */
+var KUNCI = "petrografi-lk1-v3";
+var MAKS_FOTO = 3;
 
-function pilih(nama,opsi){
-  return '<div class="pilih">'+opsi.map(function(o){
-    return '<label><input type="radio" name="'+nama+'" value="'+o+'" data-simpan-radio> '+o+'</label>';
-  }).join('')+'</div>';
-}
+/* ---------- kerangka butir pengamatan ----------
+   Satu sumber untuk semuanya: kartu kerja, dokumen cetak, badan email,
+   dan kolom spreadsheet dibangun dari daftar ini. Menambah butir di sini
+   otomatis muncul di keempat tempat, jadi tidak bisa ada yang tertinggal. */
+var BAGIAN = [
+  { kode:"ppl", judul:"PPL", butir:[
+    { k:"ukuran",  l:"Ukuran butir", s:"skala okuler dikali nilai kalibrasi, dalam &micro;m" },
+    { k:"bentuk",  l:"Bentuk dan kebiasaan", s:"euhedral, subhedral, anhedral; prismatik, tabular, berserabut" },
+    { k:"warna",   l:"Warna dan intensitasnya" },
+    { k:"tembus",  l:"Ketembusan cahaya", t:"pilih", o:["Transparan","Translusen","Opak"] },
+    { k:"belahan", l:"Belahan", s:"jumlah arah, sudut antar arah, kualitas", c:"dua arah, 56 dan 124 derajat, sempurna" },
+    { k:"pecahan", l:"Pecahan", c:"konkoidal, tidak rata, tidak teramati" },
+    { k:"becke",   l:"Arah gerak pita Becke saat jarak objektif ke preparat dinaikkan",
+      t:"pilih", o:["Masuk ke dalam mineral","Keluar ke media sekitar","Tidak teramati"] },
+    { k:"relief",  l:"Kesimpulan relief dan indeks bias", s:"bandingkan terhadap balsam, n = 1,54" },
+    { k:"pleo",    l:"Pleokroisme", s:"warna pada dua kedudukan, atau tidak ada" },
+    { k:"inklusi", l:"Inklusi dan hubungan antarmineral", c:"poikilitik, korona, tepi bereaksi" }
+  ]},
+  { kode:"xpl", judul:"XPL", butir:[
+    { k:"iso", l:"Perilaku saat meja diputar satu putaran penuh", t:"pilih",
+      o:["Gelap terus","Gelap empat kali","Gelap terus tapi butir sejenis lain terang"],
+      n:"Kalau pilihan ketiga, jangan langsung menyimpulkan isotropik. Butir yang terpotong tegak lurus sumbu optik tetap gelap sepanjang putaran meskipun mineralnya anisotropik. Justru butir itu yang paling baik dipakai untuk konoskop." },
+    { k:"warnaint", l:"Warna interferensi tertinggi dan ordenya", c:"kuning orde dua" },
+    { k:"bire",     l:"Birefringen", s:"dari bagan Michel-L&eacute;vy, tebal sayatan 30 &micro;m" },
+    { k:"gelapan",  l:"Jenis gelapan dan sudutnya", c:"paralel, miring 24 derajat, bergelombang" },
+    { k:"kembar",   l:"Kembaran dan zonasi", c:"albit polisintetik, Karlsbad, silang" },
+    { k:"elong",    l:"Tanda elongasi dengan kompensator gips", t:"pilih",
+      o:["Panjang lambat","Panjang cepat","Tidak diuji"] },
+    { k:"ml", l:"Michel-L&eacute;vy", s:"isi hanya bila plagioklas: sudut gelapan maksimum dan perkiraan persen An" }
+  ]},
+  { kode:"kono", judul:"Konoskop",
+    catatan:"Objektif perbesaran tertinggi, kondensor naik, diafragma buka penuh, analisator masuk, lalu lensa Amici-Bertrand. Pilih butir dengan warna interferensi paling rendah.",
+    butir:[
+    { k:"gambar", l:"Gambar sumbu yang muncul", t:"pilih", o:["Uniaksial","Biaksial","Tidak berhasil"] },
+    { k:"tanda",  l:"Tanda optik dan dasarnya", s:"kuadran mana yang naik orde" },
+    { k:"kono",   l:"Catatan. Kalau gagal, apa yang menghalangi" }
+  ]},
+  { kode:"simp", judul:"Kesimpulan", butir:[
+    { k:"nama",  l:"Dugaan nama mineral" },
+    { k:"yakin", l:"Tingkat keyakinan", t:"pilih", o:["Yakin","Cukup yakin","Belum pasti"] },
+    { k:"bukti", l:"Tiga sifat yang jadi dasar penamaan, dan satu sifat yang menyingkirkan kandidat lain", t:"area" }
+  ]}
+];
 
-function kartu(n){
-  var p="m"+n+"-";
-  var d=document.createElement("div");
-  d.className="kartu"; d.dataset.mineral=n;
-  d.innerHTML=
-  '<div class="kartu-kepala"><span class="kartu-judul">Mineral '+n+'</span>'+
-    '<label for="'+p+'obj">Objektif yang dipakai</label><input type="text" id="'+p+'obj" data-simpan placeholder="4x, 10x, atau 40x"></div>'+
-
-  '<h4>PPL</h4>'+
-  '<div class="baris dua">'+
-    '<div><label for="'+p+'ukuran">Ukuran butir <span class="satuan">skala okuler dikali nilai kalibrasi, dalam &micro;m</span></label><input type="text" id="'+p+'ukuran" data-simpan></div>'+
-    '<div><label for="'+p+'bentuk">Bentuk dan kebiasaan <span class="satuan">euhedral, subhedral, anhedral; prismatik, tabular, berserabut</span></label><input type="text" id="'+p+'bentuk" data-simpan></div>'+
-  '</div>'+
-  '<div class="baris dua">'+
-    '<div><label for="'+p+'warna">Warna dan intensitasnya</label><input type="text" id="'+p+'warna" data-simpan></div>'+
-    '<div><label for="'+p+'belahan">Belahan <span class="satuan">jumlah arah, sudut antar arah, kualitas</span></label><input type="text" id="'+p+'belahan" data-simpan placeholder="dua arah, 56 dan 124 derajat, sempurna"></div>'+
-  '</div>'+
-  '<label>Ketembusan cahaya</label>'+pilih(p+"tembus",["Transparan","Translusen","Opak"])+
-  '<div class="baris dua">'+
-    '<div><label for="'+p+'pecahan">Pecahan</label><input type="text" id="'+p+'pecahan" data-simpan placeholder="konkoidal, tidak rata, tidak teramati"></div>'+
-    '<div><label for="'+p+'pleo">Pleokroisme <span class="satuan">warna pada dua kedudukan, atau tidak ada</span></label><input type="text" id="'+p+'pleo" data-simpan></div>'+
-  '</div>'+
-  '<label>Arah gerak pita Becke saat jarak objektif ke preparat dinaikkan</label>'+
-  pilih(p+"becke",["Masuk ke dalam mineral","Keluar ke media sekitar","Tidak teramati"])+
-  '<div class="baris dua">'+
-    '<div><label for="'+p+'relief">Kesimpulan relief dan indeks bias <span class="satuan">bandingkan terhadap balsam, n = 1,54</span></label><input type="text" id="'+p+'relief" data-simpan></div>'+
-    '<div><label for="'+p+'inklusi">Inklusi dan hubungan antarmineral</label><input type="text" id="'+p+'inklusi" data-simpan placeholder="poikilitik, korona, tepi bereaksi"></div>'+
-  '</div>'+
-
-  '<h4>XPL</h4>'+
-  '<label>Perilaku saat meja diputar satu putaran penuh</label>'+
-  pilih(p+"iso",["Gelap terus","Gelap empat kali","Gelap terus tapi butir sejenis lain terang"])+
-  '<p class="alasan" style="margin:-6px 0 12px">Kalau pilihan ketiga, jangan langsung menyimpulkan isotropik. Butir yang terpotong tegak lurus sumbu optik tetap gelap sepanjang putaran meskipun mineralnya anisotropik. Justru butir itu yang paling baik dipakai untuk konoskop.</p>'+
-  '<div class="baris dua">'+
-    '<div><label for="'+p+'warnaint">Warna interferensi tertinggi dan ordenya</label><input type="text" id="'+p+'warnaint" data-simpan placeholder="kuning orde dua"></div>'+
-    '<div><label for="'+p+'bire">Birefringen <span class="satuan">dari bagan Michel-L&eacute;vy, tebal sayatan 30 &micro;m</span></label><input type="text" id="'+p+'bire" data-simpan></div>'+
-  '</div>'+
-  '<div class="baris dua">'+
-    '<div><label for="'+p+'gelapan">Jenis gelapan dan sudutnya</label><input type="text" id="'+p+'gelapan" data-simpan placeholder="paralel, miring 24 derajat, bergelombang"></div>'+
-    '<div><label for="'+p+'kembar">Kembaran dan zonasi</label><input type="text" id="'+p+'kembar" data-simpan placeholder="albit polisintetik, Karlsbad, silang"></div>'+
-  '</div>'+
-  '<label>Tanda elongasi dengan kompensator gips</label>'+
-  pilih(p+"elong",["Panjang lambat","Panjang cepat","Tidak diuji"])+
-  '<div><label for="'+p+'ml">Michel-L&eacute;vy <span class="satuan">isi hanya bila plagioklas: sudut gelapan maksimum dan perkiraan persen An</span></label><input type="text" id="'+p+'ml" data-simpan></div>'+
-
-  '<h4>Konoskop</h4>'+
-  '<p class="alasan" style="margin:2px 0 10px">Objektif perbesaran tertinggi, kondensor naik, diafragma buka penuh, analisator masuk, lalu lensa Amici-Bertrand. Pilih butir dengan warna interferensi paling rendah.</p>'+
-  '<label>Gambar sumbu yang muncul</label>'+
-  pilih(p+"gambar",["Uniaksial","Biaksial","Tidak berhasil"])+
-  '<div class="baris dua">'+
-    '<div><label for="'+p+'tanda">Tanda optik dan dasarnya <span class="satuan">kuadran mana yang naik orde</span></label><input type="text" id="'+p+'tanda" data-simpan></div>'+
-    '<div><label for="'+p+'kono">Catatan. Kalau gagal, apa yang menghalangi</label><input type="text" id="'+p+'kono" data-simpan></div>'+
-  '</div>'+
-
-  '<h4>Sketsa</h4>'+
-  '<p class="alasan" style="margin:2px 0 10px">Gambar tangan di buku, lalu foto. Wajib ada pada gambar: batang skala bersatuan, arah benang silang, keterangan PPL atau XPL, perbesaran, dan nomor sayatan. Foto dikecilkan otomatis sebelum dikirim, jadi tidak perlu khawatir ukurannya.</p>'+
-  '<label for="'+p+'foto">Unggah foto sketsa PPL dan XPL</label>'+
-  '<input type="file" id="'+p+'foto" accept="image/*" multiple data-foto="'+n+'">'+
-  '<div class="pratinjau" id="'+p+'pratinjau"></div>'+
-
-  '<h4>Kesimpulan</h4>'+
-  '<div><label for="'+p+'nama">Dugaan nama mineral</label><input type="text" id="'+p+'nama" data-simpan></div>'+
-  '<label>Tingkat keyakinan</label>'+
-  pilih(p+"yakin",["Yakin","Cukup yakin","Belum pasti"])+
-  '<div><label for="'+p+'bukti">Tiga sifat yang jadi dasar penamaan, dan satu sifat yang menyingkirkan kandidat lain</label><textarea id="'+p+'bukti" data-simpan></textarea></div>';
+function semuaButir(){
+  var d=[];
+  BAGIAN.forEach(function(b){ b.butir.forEach(function(x){ d.push(x); }); });
   return d;
 }
 
-/* ---------- kecilkan foto ---------- */
+/* ---------- keadaan ---------- */
+var sampel = [];      /* daftar mineral tersimpan */
+var fotoKerja = [];   /* foto pada kartu yang sedang diisi */
+var sedangUbah = null;
+
+/* ---------- kartu kerja ---------- */
+function kartuIsi(){
+  var h='<div class="kartu-kepala"><span class="kartu-judul" id="judul-kartu">Kartu kerja</span>'+
+    '<div class="baris dua">'+
+    '<div><label for="w-kode">Kode butir <span class="satuan">penanda kalian sendiri, mis. Btr-1</span></label>'+
+    '<input type="text" id="w-kode" data-kerja></div>'+
+    '<div><label for="w-obj">Objektif yang dipakai</label>'+
+    '<input type="text" id="w-obj" data-kerja placeholder="4x, 10x, atau 40x"></div>'+
+    '</div></div>';
+
+  BAGIAN.forEach(function(b){
+    h+='<h4>'+b.judul+'</h4>';
+    if(b.catatan) h+='<p class="alasan" style="margin:2px 0 10px">'+b.catatan+'</p>';
+    b.butir.forEach(function(x){
+      var id="w-"+x.k;
+      var sat = x.s ? ' <span class="satuan">'+x.s+'</span>' : '';
+      if(x.t==="pilih"){
+        h+='<label>'+x.l+sat+'</label><div class="pilih">'+
+          x.o.map(function(o){
+            return '<label><input type="radio" name="'+id+'" value="'+o+'" data-kerja-radio> '+o+'</label>';
+          }).join('')+'</div>';
+        if(x.n) h+='<p class="alasan" style="margin:-6px 0 12px">'+x.n+'</p>';
+      } else if(x.t==="area"){
+        h+='<div><label for="'+id+'">'+x.l+sat+'</label><textarea id="'+id+'" data-kerja></textarea></div>';
+      } else {
+        h+='<div><label for="'+id+'">'+x.l+sat+'</label><input type="text" id="'+id+'" data-kerja'+
+           (x.c?' placeholder="'+x.c+'"':'')+'></div>';
+      }
+    });
+  });
+
+  h+='<h4>Sketsa</h4>'+
+    '<p class="alasan" style="margin:2px 0 10px">Gambar tangan di buku, lalu foto. Wajib ada pada gambar: batang skala bersatuan, arah benang silang, keterangan PPL atau XPL, perbesaran, dan nomor sayatan. Foto dikecilkan otomatis, maksimal '+MAKS_FOTO+' berkas per mineral.</p>'+
+    '<label for="w-foto">Unggah foto sketsa</label>'+
+    '<input type="file" id="w-foto" accept="image/*" multiple>'+
+    '<div class="pratinjau" id="w-pratinjau"></div>';
+  return h;
+}
+
+function bacaKartu(){
+  var d={};
+  d.kode=(document.getElementById("w-kode").value||"").trim();
+  d.obj=(document.getElementById("w-obj").value||"").trim();
+  semuaButir().forEach(function(x){
+    if(x.t==="pilih"){
+      var e=document.querySelector('input[name="w-'+x.k+'"]:checked');
+      d[x.k]=e?e.value:"";
+    } else {
+      var el=document.getElementById("w-"+x.k);
+      d[x.k]=el?el.value.trim():"";
+    }
+  });
+  return d;
+}
+
+function tulisKartu(d){
+  document.getElementById("w-kode").value=d.kode||"";
+  document.getElementById("w-obj").value=d.obj||"";
+  semuaButir().forEach(function(x){
+    if(x.t==="pilih"){
+      document.querySelectorAll('input[name="w-'+x.k+'"]').forEach(function(e){
+        e.checked = (e.value === (d[x.k]||""));
+      });
+    } else {
+      var el=document.getElementById("w-"+x.k);
+      if(el) el.value=d[x.k]||"";
+    }
+  });
+}
+
+function kartuKosong(){
+  var d=bacaKartu();
+  var adaIsi=Object.keys(d).some(function(k){ return d[k]; });
+  return !adaIsi && fotoKerja.length===0;
+}
+
+function bersihkanKartu(){
+  tulisKartu({});
+  fotoKerja=[];
+  document.getElementById("w-foto").value="";
+  document.getElementById("w-pratinjau").innerHTML="";
+  sedangUbah=null;
+  document.getElementById("judul-kartu").textContent="Kartu kerja";
+  document.getElementById("btn-simpan").textContent="Simpan Mineral";
+  document.getElementById("btn-simpan").className="";
+  gambarDaftar();
+}
+
+/* ---------- foto ---------- */
 function kecilkan(file){
   return new Promise(function(res,rej){
     var fr=new FileReader();
     fr.onload=function(){
       var img=new Image();
       img.onload=function(){
-        var maks=1600, w=img.width, h=img.height;
+        var maks=1400,w=img.width,h=img.height;
         if(w>maks||h>maks){ var s=maks/Math.max(w,h); w=Math.round(w*s); h=Math.round(h*s); }
         var c=document.createElement("canvas"); c.width=w; c.height=h;
         c.getContext("2d").drawImage(img,0,0,w,h);
-        res(c.toDataURL("image/jpeg",0.8));
+        res(c.toDataURL("image/jpeg",0.75));
       };
       img.onerror=function(){rej(new Error("gambar tidak terbaca"));};
       img.src=fr.result;
@@ -346,24 +457,115 @@ function kecilkan(file){
   });
 }
 
+function gambarPratinjau(){
+  var kotak=document.getElementById("w-pratinjau");
+  kotak.innerHTML=fotoKerja.map(function(f){
+    return '<figure><img src="'+f.data+'" alt=""><figcaption>'+f.nama+'</figcaption></figure>';
+  }).join("");
+}
+
 document.addEventListener("change",function(ev){
-  var el=ev.target;
-  if(!el.dataset || !el.dataset.foto) return;
-  var n=el.dataset.foto, kotak=document.getElementById("m"+n+"-pratinjau");
+  if(ev.target.id!=="w-foto") return;
+  var daf=Array.prototype.slice.call(ev.target.files).slice(0,MAKS_FOTO);
+  var kotak=document.getElementById("w-pratinjau");
   kotak.innerHTML='<p class="alasan" style="margin:0">Memproses foto...</p>';
-  berkas["m"+n]=[];
-  var daf=Array.prototype.slice.call(el.files);
   Promise.all(daf.map(kecilkan)).then(function(hasil){
+    fotoKerja=hasil.map(function(dt,i){ return {nama:daf[i].name,data:dt}; });
+    gambarPratinjau();
+    pesanKartu("");
+  }).catch(function(){
     kotak.innerHTML="";
-    hasil.forEach(function(dt,i){
-      berkas["m"+n].push({nama:daf[i].name,data:dt});
-      var f=document.createElement("figure");
-      f.innerHTML='<img src="'+dt+'" alt=""><figcaption>'+daf[i].name+'</figcaption>';
-      kotak.appendChild(f);
-    });
-  }).catch(function(e){
-    kotak.innerHTML='<p class="alasan" style="margin:0;color:#A85D42">Foto gagal diproses. Coba pilih ulang, atau pakai foto dengan ukuran lebih kecil.</p>';
+    pesanKartu("Foto gagal diproses. Coba pilih ulang atau pakai foto yang lebih kecil.","buruk");
   });
+});
+
+/* ---------- daftar tersimpan ---------- */
+function gambarDaftar(){
+  var wadah=document.getElementById("daftar-sampel");
+  var hit=document.getElementById("hitung");
+  if(!sampel.length){
+    wadah.innerHTML='<div class="kosong-daftar">Belum ada mineral tersimpan. Isi kartu kerja di atas, lalu tekan Simpan Mineral.</div>';
+    hit.innerHTML="Belum ada mineral tersimpan.";
+    return;
+  }
+  hit.innerHTML="Tersimpan: <b>"+sampel.length+"</b> mineral.";
+  var baris=sampel.map(function(s,i){
+    var d=s.data;
+    return '<tr'+(sedangUbah===s.id?' class="sedang"':'')+'>'+
+      '<td>'+(i+1)+'</td>'+
+      '<td>'+(d.kode||"&mdash;")+'</td>'+
+      '<td>'+(d.nama||'<span style="color:#A85D42">belum dinamai</span>')+'</td>'+
+      '<td>'+(d.yakin||"&mdash;")+'</td>'+
+      '<td>'+(s.foto?s.foto.length:0)+'</td>'+
+      '<td class="aksi-sel">'+
+        '<button type="button" class="sekunder kecil" data-ubah="'+s.id+'">Ubah</button>'+
+        '<button type="button" class="sekunder kecil" data-hapus="'+s.id+'">Hapus</button>'+
+      '</td></tr>';
+  }).join("");
+  wadah.innerHTML='<div class="gulir"><table><thead><tr>'+
+    '<th>No.</th><th>Kode</th><th>Dugaan nama</th><th>Keyakinan</th><th>Foto</th><th></th>'+
+    '</tr></thead><tbody>'+baris+'</tbody></table></div>';
+}
+
+document.addEventListener("click",function(ev){
+  var t=ev.target;
+  if(t.dataset && t.dataset.ubah){
+    var s=sampel.filter(function(x){return x.id===t.dataset.ubah;})[0];
+    if(!s) return;
+    if(!kartuKosong() && !confirm("Kartu kerja masih berisi sesuatu yang belum disimpan. Isinya akan diganti. Lanjutkan?")) return;
+    tulisKartu(s.data);
+    fotoKerja=(s.foto||[]).slice();
+    gambarPratinjau();
+    sedangUbah=s.id;
+    document.getElementById("judul-kartu").textContent="Mengubah: "+(s.data.kode||s.data.nama||"mineral tersimpan");
+    document.getElementById("btn-simpan").textContent="Simpan Perubahan";
+    document.getElementById("btn-simpan").className="";
+    gambarDaftar();
+    document.getElementById("kartu-kerja").scrollIntoView({behavior:"smooth",block:"start"});
+  }
+  if(t.dataset && t.dataset.hapus){
+    var s2=sampel.filter(function(x){return x.id===t.dataset.hapus;})[0];
+    if(!s2) return;
+    if(!confirm("Hapus "+(s2.data.kode||s2.data.nama||"mineral ini")+" dari daftar? Tidak bisa dikembalikan.")) return;
+    sampel=sampel.filter(function(x){return x.id!==t.dataset.hapus;});
+    if(sedangUbah===t.dataset.hapus) bersihkanKartu();
+    simpan(); gambarDaftar();
+  }
+});
+
+/* ---------- simpan mineral ---------- */
+function pesanKartu(t,jenis){
+  var e=document.getElementById("status-kartu");
+  e.textContent=t; e.className="status"+(jenis?" "+jenis:"");
+}
+
+document.getElementById("btn-simpan").addEventListener("click",function(){
+  var d=bacaKartu();
+  var terisi=Object.keys(d).filter(function(k){return d[k];}).length;
+  if(terisi<3){
+    pesanKartu("Kartu masih terlalu kosong untuk disimpan. Isi minimal beberapa sifat lebih dulu.","buruk");
+    return;
+  }
+  if(sedangUbah){
+    sampel.forEach(function(s){
+      if(s.id===sedangUbah){ s.data=d; s.foto=fotoKerja.slice(); }
+    });
+    pesanKartu("Perubahan tersimpan.","baik");
+  } else {
+    sampel.push({ id:"s"+Date.now()+Math.floor(Math.random()*1000), data:d, foto:fotoKerja.slice() });
+    pesanKartu("Tersimpan. Kartu siap untuk mineral berikutnya.","baik");
+  }
+  var tombol=this;
+  tombol.textContent="Tersimpan \u2713"; tombol.className="hijau";
+  setTimeout(function(){ bersihkanKartu(); pesanKartu(""); },900);
+  simpan(); gambarDaftar();
+});
+
+document.getElementById("btn-batal").addEventListener("click",function(){
+  if(kartuKosong()){ bersihkanKartu(); return; }
+  if(confirm("Isi kartu kerja akan dihapus. Mineral yang sudah tersimpan tidak terpengaruh. Lanjutkan?")){
+    bersihkanKartu(); pesanKartu("");
+  }
 });
 
 /* ---------- gerbang ---------- */
@@ -374,21 +576,18 @@ function perbaruiGerbang(){
   kotak.className="periksa"+(v1?(v1==="Gelap merata"?" lolos":" gagal"):"");
   var g=document.getElementById("gerbang"),j=document.getElementById("gerbang-judul"),t=document.getElementById("gerbang-teks");
   if(v1==="Gelap merata" && kartuAda==="Ada dan terbaca"){
-    g.className="gerbang aman";
-    j.textContent="Alat siap dipakai.";
+    g.className="gerbang aman"; j.textContent="Alat siap dipakai.";
     t.textContent="Medan gelap merata dan nilai kalibrasi sudah kalian salin. Data yang kalian catat mulai sekarang punya dasar yang bisa dipertanggungjawabkan.";
   } else if(!v1 || !kartuAda){
-    g.className="gerbang";
-    j.textContent="Pemeriksaan belum lengkap";
+    g.className="gerbang"; j.textContent="Pemeriksaan belum lengkap";
     t.textContent="Isi A2 dan A3 sebelum mulai mengamati.";
   } else {
-    g.className="gerbang";
-    j.textContent="Ada yang perlu dilaporkan ke asisten";
+    g.className="gerbang"; j.textContent="Ada yang perlu dilaporkan ke asisten";
     t.textContent="Kalian tetap boleh mengamati, tapi tulis keadaan ini apa adanya. Lembar yang jujur menyebut alatnya bermasalah tidak dikurangi nilainya. Yang dikurangi adalah data yang disajikan seolah sah padahal alatnya belum diperiksa.";
   }
 }
 
-/* ---------- simpan ---------- */
+/* ---------- penyimpanan ---------- */
 function kumpul(){
   var d={isi:{},radio:{},cek:{}};
   document.querySelectorAll("[data-simpan]").forEach(function(e){if(e.id)d.isi[e.id]=e.value;});
@@ -396,88 +595,237 @@ function kumpul(){
   document.querySelectorAll("[data-simpan-cek]").forEach(function(e){d.cek[e.id]=e.checked;});
   return d;
 }
-function simpan(){try{localStorage.setItem(KUNCI,JSON.stringify(kumpul()));}catch(e){}}
+function simpan(){
+  var muat={ umum:kumpul(), sampel:sampel, kerja:bacaKartu() };
+  try{
+    localStorage.setItem(KUNCI,JSON.stringify(muat));
+  }catch(e){
+    /* Penyimpanan penuh, hampir selalu karena foto. Simpan ulang tanpa foto
+       supaya tulisan tidak ikut hilang, lalu beri tahu apa adanya. */
+    try{
+      var tanpa=JSON.parse(JSON.stringify(muat));
+      tanpa.sampel.forEach(function(s){ s.foto=[]; });
+      localStorage.setItem(KUNCI,JSON.stringify(tanpa));
+      pesanKartu("Penyimpanan perangkat penuh. Tulisan kalian aman, tapi foto tidak ikut tersimpan. Jangan tutup halaman sebelum mengirim.","buruk");
+    }catch(e2){}
+  }
+}
+function muat(){
+  document.getElementById("kartu-kerja").innerHTML=kartuIsi();
+  var s=null; try{s=localStorage.getItem(KUNCI);}catch(e){}
+  if(s){
+    try{
+      var d=JSON.parse(s), u=d.umum||{};
+      Object.keys(u.isi||{}).forEach(function(k){var e=document.getElementById(k);if(e)e.value=u.isi[k];});
+      Object.keys(u.radio||{}).forEach(function(k){
+        var e=document.querySelector('input[name="'+k+'"][value="'+u.radio[k]+'"]'); if(e)e.checked=true;});
+      Object.keys(u.cek||{}).forEach(function(k){var e=document.getElementById(k);if(e)e.checked=u.cek[k];});
+      sampel=Array.isArray(d.sampel)?d.sampel:[];
+      if(d.kerja) tulisKartu(d.kerja);
+    }catch(e){}
+  }
+  pasang(); perbaruiGerbang(); gambarDaftar();
+}
 function pasang(){
-  document.querySelectorAll("[data-simpan],[data-simpan-cek]").forEach(function(e){
+  document.querySelectorAll("[data-simpan],[data-simpan-cek],[data-kerja]").forEach(function(e){
     if(e.dataset.pasang)return; e.dataset.pasang="1";
     e.addEventListener("input",simpan); e.addEventListener("change",simpan);
   });
-  document.querySelectorAll("[data-simpan-radio]").forEach(function(e){
+  document.querySelectorAll("[data-simpan-radio],[data-kerja-radio]").forEach(function(e){
     if(e.dataset.pasang)return; e.dataset.pasang="1";
     e.addEventListener("change",function(){perbaruiGerbang();simpan();});
   });
 }
-function muat(){
-  daftar.appendChild(kartu(1)); daftar.appendChild(kartu(2));
-  var s=null; try{s=localStorage.getItem(KUNCI);}catch(e){}
-  if(s){
-    try{
-      var d=JSON.parse(s);
-      Object.keys(d.isi||{}).forEach(function(k){var e=document.getElementById(k);if(e)e.value=d.isi[k];});
-      Object.keys(d.radio||{}).forEach(function(k){
-        var e=document.querySelector('input[name="'+k+'"][value="'+d.radio[k]+'"]'); if(e)e.checked=true;});
-      Object.keys(d.cek||{}).forEach(function(k){var e=document.getElementById(k);if(e)e.checked=d.cek[k];});
-    }catch(e){}
-  }
-  pasang(); perbaruiGerbang();
-}
 
-/* ---------- teks ---------- */
+/* ---------- pembaca nilai umum ---------- */
 function n_(id){var e=document.getElementById(id);return e&&e.value?e.value:"-";}
 function r_(n){return nilaiRadio(n)||"-";}
-function c_(id){var e=document.getElementById(id);return e&&e.checked?"ya":"belum";}
+function kosongkah(v){ return !v || v==="-"; }
+function esc(t){ return String(t==null?"":t).replace(/[&<>]/g,function(c){
+  return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c];}); }
+function polos(t){ return String(t).replace(/<[^>]*>/g,"").replace(/&micro;/g,"u")
+  .replace(/&eacute;/g,"e").replace(/&lambda;/g,"lambda").replace(/&times;/g,"x"); }
 
+function kerangkaA(){
+  return [
+    ["Kartu kalibrasi", r_("kartu")],
+    ["1 skala okuler pada 4x", n_("k4")],
+    ["1 skala okuler pada 10x", n_("k10")],
+    ["1 skala okuler pada 40x", n_("k40")],
+    ["Catatan pada kartu", [n_("k4n"),n_("k10n"),n_("k40n")].filter(function(x){return x!=="-";}).join(" / ")||"-"],
+    ["Medan gelap", r_("v1")],
+    ["Catatan medan gelap", n_("v1b")]
+  ];
+}
+function kerangkaAnatomi(){
+  var an=["Diafragma iris dan kondensor","Polarisator bawah","Meja putar berskala",
+          "Lubang kompensator","Analisator","Lensa Amici-Bertrand",
+          "Okuler dan benang silang","Objektif"];
+  return an.map(function(t,i){ return [t, n_("a1-"+(i+1))]; });
+}
+function statusGerbang(){
+  var v1=r_("v1"), kt=r_("kartu");
+  if(v1==="Gelap merata" && kt==="Ada dan terbaca") return "Alat terperiksa. Data berdasar.";
+  if(v1==="-"||kt==="-") return "Pemeriksaan alat tidak diisi lengkap.";
+  return "Alat bermasalah dan dilaporkan apa adanya. Penilaian mengikuti aturan 3.1 rubrik.";
+}
+
+/* ---------- dokumen cetak ---------- */
+function barisTabel(pasangan){
+  return "<table>"+pasangan.map(function(p){
+    var v=p[1];
+    return "<tr><th>"+esc(polos(p[0]))+"</th><td"+(kosongkah(v)?' class="kosong"':"")+">"+
+           esc(kosongkah(v)?"tidak diisi":v)+"</td></tr>";
+  }).join("")+"</table>";
+}
+function bangunDokumen(){
+  var h=[];
+  h.push('<div class="dok-kop">'+
+    '<p class="lembaga">Program Studi S1 Teknik Geologi &middot; FMIPA &middot; Universitas Negeri Gorontalo</p>'+
+    '<h1>Lembar Kerja 1 &mdash; Mikroskop Polarisasi dan Sifat Optik Mineral</h1>'+
+    '<p class="mk">Praktikum Petrografi (DAL604231) &middot; Semester Ganjil 2026/2027</p></div>');
+  h.push('<div class="blok">'+barisTabel([
+    ["Nama", n_("nama")], ["NIM", n_("nim")], ["Kelompok", n_("kelompok")],
+    ["Tanggal pengamatan", n_("tanggal")], ["Asisten pendamping", n_("asisten")],
+    ["Nomor mikroskop", n_("mikroskop")], ["Nomor sayatan", n_("sayatan")],
+    ["Jumlah mineral diamati", String(sampel.length)]
+  ])+'</div>');
+  h.push('<div class="dok-status"><b>Status pemeriksaan alat</b><br>'+esc(statusGerbang())+'</div>');
+  h.push("<h2>Bagian A &middot; Kesiapan Alat</h2>");
+  h.push('<div class="blok"><h3>Kalibrasi dan pemeriksaan</h3>'+barisTabel(kerangkaA())+'</div>');
+  h.push('<div class="blok"><h3>Fungsi bagian optik</h3>'+barisTabel(kerangkaAnatomi())+'</div>');
+  h.push("<h2>Bagian B &middot; Pengamatan Sifat Optik</h2>");
+  if(!sampel.length){
+    h.push('<p style="font-style:italic;color:#888">Tidak ada mineral tersimpan.</p>');
+  }
+  sampel.forEach(function(s,i){
+    var d=s.data;
+    h.push("<h3>Mineral "+(i+1)+(d.kode?" &middot; "+esc(d.kode):"")+
+           " &middot; objektif "+esc(d.obj||"-")+" &middot; "+((s.foto||[]).length)+" foto sketsa</h3>");
+    BAGIAN.forEach(function(b){
+      h.push('<div class="blok">'+barisTabel(b.butir.map(function(x){
+        return [x.l, d[x.k]];
+      }))+'</div>');
+    });
+  });
+  h.push("<h2>Penutup &middot; Batas Keyakinan</h2>");
+  h.push('<div class="blok">'+barisTabel([
+    ["Prosedur yang belum dikuasai", n_("c1")],
+    ["Sifat dengan keyakinan terendah", n_("c2")],
+    ["Uji lanjutan yang diusulkan", n_("c3")]
+  ])+'</div>');
+  h.push('<div class="dok-paraf">'+
+    '<div><div class="garis"></div>Mahasiswa<br>'+esc(n_("nama"))+'</div>'+
+    '<div><div class="garis"></div>Asisten pendamping<br>'+esc(n_("asisten"))+'</div>'+
+    '<div><div class="garis"></div>Dosen pengampu<br>Alifia Widya W. B., S.T., M.Sc.</div></div>');
+  h.push('<p class="dok-kaki">Dicetak dari lembar kerja daring pada '+
+    esc(new Date().toLocaleString("id-ID"))+
+    '. Salinan ini sah hanya bila menyertakan nomor tanda terima pengiriman.</p>');
+  document.getElementById("dokumen").innerHTML=h.join("");
+}
+
+/* ---------- teks cadangan ---------- */
 function susun(){
   var b=[];
   b.push("LEMBAR KERJA 1 - PRAKTIKUM PETROGRAFI (DAL604231)");
   b.push("Nama: "+n_("nama")+" | NIM: "+n_("nim")+" | Kelompok: "+n_("kelompok"));
   b.push("Tanggal: "+n_("tanggal")+" | Asisten: "+n_("asisten"));
   b.push("Mikroskop: "+n_("mikroskop")+" | Sayatan: "+n_("sayatan"));
+  b.push("Status alat: "+statusGerbang());
+  b.push("Jumlah mineral: "+sampel.length);
   b.push("");
   b.push("== BAGIAN A ==");
-  var an=["Diafragma iris dan kondensor","Polarisator bawah","Meja putar","Lubang kompensator","Analisator","Amici-Bertrand","Okuler dan benang silang","Objektif"];
-  an.forEach(function(t,i){b.push("  "+t+": "+n_("a1-"+(i+1)));});
-  b.push("  Kartu kalibrasi: "+r_("kartu"));
-  b.push("  1 skala okuler -> 4x: "+n_("k4")+" um | 10x: "+n_("k10")+" um | 40x: "+n_("k40")+" um");
-  b.push("  Catatan kartu: "+n_("k4n")+" / "+n_("k10n")+" / "+n_("k40n"));
-  b.push("  Medan gelap: "+r_("v1")+" | catatan: "+n_("v1b"));
-  b.push("  K3: "+["k3-1","k3-2","k3-3","k3-4","k3-5"].map(c_).join(", "));
+  kerangkaA().forEach(function(p){ b.push("  "+p[0]+": "+p[1]); });
+  kerangkaAnatomi().forEach(function(p){ b.push("  "+p[0]+": "+p[1]); });
+  b.push("  K3: "+["k3-1","k3-2","k3-3","k3-4","k3-5"].filter(function(x){
+    var e=document.getElementById(x); return e&&e.checked; }).length+" dari 5");
   b.push("");
   b.push("== BAGIAN B ==");
-  [1,2].forEach(function(n){
-    var p="m"+n+"-";
+  sampel.forEach(function(s,i){
+    var d=s.data;
     b.push("");
-    b.push("-- Mineral "+n+" (objektif "+n_(p+"obj")+") --");
-    b.push("PPL  ukuran: "+n_(p+"ukuran"));
-    b.push("     bentuk: "+n_(p+"bentuk"));
-    b.push("     warna: "+n_(p+"warna"));
-    b.push("     ketembusan: "+r_(p+"tembus"));
-    b.push("     belahan: "+n_(p+"belahan"));
-    b.push("     pecahan: "+n_(p+"pecahan"));
-    b.push("     pita Becke: "+r_(p+"becke"));
-    b.push("     relief: "+n_(p+"relief"));
-    b.push("     pleokroisme: "+n_(p+"pleo"));
-    b.push("     inklusi: "+n_(p+"inklusi"));
-    b.push("XPL  putaran meja: "+r_(p+"iso"));
-    b.push("     warna interferensi: "+n_(p+"warnaint"));
-    b.push("     birefringen: "+n_(p+"bire"));
-    b.push("     gelapan: "+n_(p+"gelapan"));
-    b.push("     kembaran: "+n_(p+"kembar"));
-    b.push("     elongasi: "+r_(p+"elong"));
-    b.push("     Michel-Levy: "+n_(p+"ml"));
-    b.push("KONO gambar sumbu: "+r_(p+"gambar"));
-    b.push("     tanda optik: "+n_(p+"tanda"));
-    b.push("     catatan: "+n_(p+"kono"));
-    b.push("SIMP nama: "+n_(p+"nama")+" | keyakinan: "+r_(p+"yakin"));
-    b.push("     dasar: "+n_(p+"bukti"));
-    b.push("     foto sketsa: "+((berkas["m"+n]||[]).length)+" berkas");
+    b.push("-- Mineral "+(i+1)+(d.kode?" ("+d.kode+")":"")+" | objektif "+(d.obj||"-")+
+           " | foto "+((s.foto||[]).length)+" --");
+    BAGIAN.forEach(function(bg){
+      b.push("  ["+bg.judul+"]");
+      bg.butir.forEach(function(x){ b.push("    "+polos(x.l)+": "+(d[x.k]||"-")); });
+    });
   });
   b.push("");
   b.push("== PENUTUP ==");
-  b.push("Belum dikuasai : "+n_("c1"));
+  b.push("Belum dikuasai  : "+n_("c1"));
   b.push("Keyakinan rendah: "+n_("c2"));
-  b.push("Uji lanjutan   : "+n_("c3"));
+  b.push("Uji lanjutan    : "+n_("c3"));
   return b.join("\n");
+}
+
+/* ---------- badan email ---------- */
+function susunHTML(){
+  var g=statusGerbang();
+  var warna=g.indexOf("berdasar")>-1?"#4F6B45":"#A85D42";
+  function tb(judul,pasangan){
+    return '<h3 style="font:600 13px Arial;margin:16px 0 4px;color:#26303A">'+esc(polos(judul))+'</h3>'+
+      '<table style="border-collapse:collapse;width:100%;font:13px Arial">'+
+      pasangan.map(function(p){
+        var v=p[1],kos=kosongkah(v);
+        return '<tr><td style="border:1px solid #d8d2c6;padding:4px 7px;background:#f4f1ea;width:34%">'+
+          esc(polos(p[0]))+'</td><td style="border:1px solid #d8d2c6;padding:4px 7px'+
+          (kos?';color:#999;font-style:italic':'')+'">'+esc(kos?"tidak diisi":v)+'</td></tr>';
+      }).join("")+'</table>';
+  }
+  var h='<div style="font:14px Arial;color:#26303A;max-width:760px">';
+  h+='<div style="border-left:5px solid '+warna+';padding:8px 12px;background:#f4f1ea;margin-bottom:14px">'+
+     '<div style="font:700 15px Arial">'+esc(n_("nama"))+' &middot; '+esc(n_("nim"))+'</div>'+
+     '<div style="font:13px Arial;color:#5A6773">Kelompok '+esc(n_("kelompok"))+
+     ' &middot; mikroskop '+esc(n_("mikroskop"))+' &middot; sayatan '+esc(n_("sayatan"))+
+     ' &middot; asisten '+esc(n_("asisten"))+'</div>'+
+     '<div style="font:600 13px Arial;color:'+warna+';margin-top:5px">'+esc(g)+
+     ' &middot; '+sampel.length+' mineral</div></div>';
+  h+=tb("Bagian A · kalibrasi dan pemeriksaan",kerangkaA());
+  h+=tb("Bagian A · fungsi bagian optik",kerangkaAnatomi());
+  sampel.forEach(function(s,i){
+    var d=s.data;
+    h+='<h3 style="font:700 14px Arial;margin:22px 0 2px;border-bottom:2px solid #26303A;padding-bottom:3px">'+
+       'Mineral '+(i+1)+(d.kode?' &middot; '+esc(d.kode):'')+' &middot; objektif '+esc(d.obj||"-")+
+       ' &middot; '+((s.foto||[]).length)+' foto</h3>';
+    BAGIAN.forEach(function(b){
+      h+=tb(b.judul,b.butir.map(function(x){ return [x.l,d[x.k]]; }));
+    });
+  });
+  h+=tb("Penutup · batas keyakinan",[
+    ["Prosedur yang belum dikuasai", n_("c1")],
+    ["Sifat dengan keyakinan terendah", n_("c2")],
+    ["Uji lanjutan yang diusulkan", n_("c3")]
+  ]);
+  h+='</div>';
+  return h;
+}
+
+/* ---------- kolom spreadsheet ---------- */
+function susunKolom(){
+  var k=[];
+  function t(nama,nilai){ k.push({k:nama,v:(kosongkah(nilai)?"":String(nilai))}); }
+  t("Nama",n_("nama")); t("NIM",n_("nim")); t("Kelompok",n_("kelompok"));
+  t("Tanggal",n_("tanggal")); t("Asisten",n_("asisten"));
+  t("Mikroskop",n_("mikroskop")); t("Sayatan",n_("sayatan"));
+  t("Status alat",statusGerbang());
+  t("Jumlah mineral",String(sampel.length));
+  kerangkaA().forEach(function(p){ t("A2 "+p[0],p[1]); });
+  kerangkaAnatomi().forEach(function(p){ t("A1 "+p[0],p[1]); });
+  t("K3 tercentang",["k3-1","k3-2","k3-3","k3-4","k3-5"].filter(function(x){
+    var e=document.getElementById(x); return e&&e.checked; }).length+" dari 5");
+  sampel.forEach(function(s,i){
+    var d=s.data, aw="M"+(i+1)+" ";
+    t(aw+"Kode",d.kode); t(aw+"Objektif",d.obj);
+    BAGIAN.forEach(function(b){
+      b.butir.forEach(function(x){ t(aw+b.judul+" "+polos(x.l),d[x.k]); });
+    });
+    t(aw+"Jumlah foto",String((s.foto||[]).length));
+  });
+  t("Penutup belum dikuasai",n_("c1"));
+  t("Penutup keyakinan terendah",n_("c2"));
+  t("Penutup uji lanjutan",n_("c3"));
+  return k;
 }
 
 /* ---------- kirim ---------- */
@@ -489,29 +837,42 @@ document.getElementById("btn-kirim").addEventListener("click",function(){
   if(!document.getElementById("nama").value.trim()||!document.getElementById("nim").value.trim()){
     pesan("Nama dan NIM belum diisi. Lembar tanpa keduanya tidak bisa dinilai.","buruk"); return;
   }
+  if(!sampel.length){
+    pesan("Belum ada mineral tersimpan. Isi kartu kerja lalu tekan Simpan Mineral sebelum mengirim.","buruk"); return;
+  }
+  /* Penjaga terpenting di lembar ini: kartu kerja yang terisi tapi belum
+     disimpan tidak ikut terkirim, dan tanpa peringatan ini mahasiswa tidak
+     akan pernah tahu bahwa satu mineral hilang. */
+  if(!kartuKosong()){
+    if(!confirm("Kartu kerja masih berisi mineral yang belum disimpan, dan mineral itu TIDAK akan ikut terkirim.\n\nTekan Batal untuk kembali dan menyimpannya dulu, atau OK untuk mengirim tanpa mineral tersebut.")) {
+      document.getElementById("kartu-kerja").scrollIntoView({behavior:"smooth",block:"start"});
+      pesan("Pengiriman ditahan. Simpan dulu mineral di kartu kerja.","buruk");
+      return;
+    }
+  }
   if(URL_KIRIM.indexOf("GANTI")===0){
-    pesan("Alamat pengiriman belum dipasang oleh dosen. Pakai tombol cadangan di sebelah.","buruk"); return;
+    pesan("Alamat pengiriman belum dipasang oleh dosen. Pakai tombol cadangan.","buruk"); return;
   }
   var muatan={
-    teks:susun(),
+    teks:susun(), html:susunHTML(), kolom:susunKolom(),
     nama:document.getElementById("nama").value,
     nim:document.getElementById("nim").value,
     kelompok:document.getElementById("kelompok").value,
     mikroskop:document.getElementById("mikroskop").value,
     sayatan:document.getElementById("sayatan").value,
-    data:kumpul(),
-    foto:[]
+    data:kumpul(), foto:[]
   };
-  [1,2].forEach(function(n){
-    (berkas["m"+n]||[]).forEach(function(f,i){
-      muatan.foto.push({label:"Mineral"+n+"_"+(i+1),data:f.data});
+  sampel.forEach(function(s,i){
+    (s.foto||[]).forEach(function(f,j){
+      muatan.foto.push({label:"Mineral"+(i+1)+"_"+(j+1),data:f.data});
     });
   });
   tombol.disabled=true; pesan("Mengirim, jangan tutup halaman...","");
   fetch(URL_KIRIM,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(muatan)})
     .then(function(r){return r.json();})
     .then(function(j){
-      if(j && j.ok){
+      if(j&&j.ok){
+        tombol.textContent="Terkirim \u2713"; tombol.className="hijau";
         pesan("Terkirim. Nomor tanda terima: "+j.tanda+". Catat nomor ini.","baik");
       } else {
         tombol.disabled=false;
@@ -531,12 +892,20 @@ document.getElementById("btn-salin").addEventListener("click",function(){
       .catch(function(){pesan("Salin manual dari kotak di bawah.","");});
   } else pesan("Salin manual dari kotak di bawah.","");
 });
-document.getElementById("btn-cetak").addEventListener("click",function(){window.print();});
+document.getElementById("btn-cetak").addEventListener("click",function(){bangunDokumen();window.print();});
+window.addEventListener("beforeprint",bangunDokumen);
+
 document.getElementById("btn-kosong").addEventListener("click",function(){
-  if(!confirm("Seluruh isian di perangkat ini akan dihapus. Lanjutkan?"))return;
+  if(!confirm("Seluruh isian dan semua mineral tersimpan akan dihapus dari perangkat ini. Tidak bisa dikembalikan. Lanjutkan?"))return;
   try{localStorage.removeItem(KUNCI);}catch(e){}
   location.reload();
 });
+
+if(!KIRIM_AKTIF){
+  var tk=document.getElementById("btn-kirim");
+  tk.disabled=true; tk.textContent="Pengiriman sudah ditutup";
+  pesan("Tenggat pengumpulan sudah lewat. Lembar ini tetap bisa dibaca dan dicetak sebagai bahan belajar, tapi tidak lagi menerima kiriman.","");
+}
 
 muat();
 })();
