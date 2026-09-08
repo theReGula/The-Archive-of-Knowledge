@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pemantauan · Praktikum Petrografi</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+:root{
+  --kertas:#F6F2EA; --kertas-2:#EFE8DB; --tinta:#26303A; --tinta-lembut:#5A6773;
+  --garis:#CFC5B4; --tanah:#A85D42; --lumut:#4F6B45; --oker:#C08B2E; --putih:#FFFDF9;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--kertas);color:var(--tinta);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  font-size:16px;line-height:1.55}
+.wrap{max-width:900px;margin:0 auto;padding:0 16px 80px}
+header{padding:28px 0 0}
+.spektrum{height:7px;border-radius:3px;margin-bottom:20px;
+  background:linear-gradient(90deg,#3B3B3B 0%,#6E6A62 6%,#B9B0A0 12%,#E3D9A8 18%,#E8B23C 24%,#D2622F 30%,#8E2E5A 36%,#3B4E9B 44%,#2E7FA6 52%,#4C9257 60%,#B9AE3C 68%,#C4682F 76%,#8A4470 84%,#5566A0 92%,#7E8C86 100%)}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:1.55rem;font-weight:600;margin:0 0 6px}
+.sub{color:var(--tinta-lembut);font-size:.92rem;margin:0 0 24px}
+
+.tab{display:flex;gap:0;border-bottom:2px solid var(--tinta);margin:22px 0 0}
+.tab button{font-family:inherit;font-size:.92rem;font-weight:650;background:none;border:none;
+  border-bottom:4px solid transparent;margin-bottom:-2px;padding:11px 4px;margin-right:26px;
+  color:var(--tinta-lembut);cursor:pointer}
+.tab button[aria-selected="true"]{color:var(--tinta);border-bottom-color:var(--tanah)}
+
+section{margin:26px 0 0}
+h2{font-family:Georgia,serif;font-size:1.1rem;font-weight:600;margin:22px 0 8px}
+p.alasan{font-size:.9rem;color:var(--tinta-lembut);margin:6px 0 14px;max-width:64ch}
+label{display:block;font-size:.86rem;font-weight:600;margin:0 0 4px}
+input[type=text],input[type=password]{width:100%;background:var(--putih);border:1px solid var(--garis);
+  border-radius:4px;padding:10px;font-family:inherit;font-size:16px;color:var(--tinta)}
+input:focus{outline:2px solid var(--tanah);outline-offset:1px;border-color:var(--tanah)}
+.baris{display:grid;gap:12px;margin-bottom:12px}
+@media(min-width:640px){.baris.dua{grid-template-columns:1fr 1fr}}
+button.aksi{font-family:inherit;font-size:.95rem;font-weight:600;cursor:pointer;border-radius:4px;
+  padding:11px 18px;border:1px solid var(--tinta);background:var(--tinta);color:var(--putih)}
+button.aksi.sekunder{background:transparent;color:var(--tinta)}
+button:disabled{opacity:.45;cursor:not-allowed}
+.status{font-size:.9rem;min-height:1.3em;margin:10px 0}
+.status.baik{color:var(--lumut);font-weight:600}
+.status.buruk{color:var(--tanah);font-weight:600}
+
+.kartu{background:var(--putih);border:1px solid var(--garis);border-left:4px solid var(--garis);
+  padding:15px 16px;margin:12px 0}
+.kartu.baik{border-left-color:var(--lumut)}
+.kartu.tunggu{border-left-color:var(--oker)}
+.kartu.belum{border-left-color:var(--tanah)}
+.kartu h3{margin:0 0 6px;font-size:1rem}
+.kartu p{margin:0 0 4px;font-size:.92rem}
+.nilai{font-size:2rem;font-weight:700;line-height:1.1;margin:8px 0 2px}
+
+.angka-grid{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));margin:14px 0}
+.angka{background:var(--putih);border:1px solid var(--garis);padding:12px 14px}
+.angka b{display:block;font-size:1.7rem;line-height:1.1}
+.angka span{font-size:.82rem;color:var(--tinta-lembut)}
+
+.gulir{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:10px 0}
+table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:520px}
+th,td{border:1px solid var(--garis);padding:7px 8px;text-align:left;vertical-align:top}
+th{background:var(--kertas-2);font-weight:650;font-size:.83rem}
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--garis);
+  font-size:.82rem;color:var(--tinta-lembut)}
+.sembunyi{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="spektrum" role="presentation"></div>
+  <h1>Pemantauan Praktikum Petrografi</h1>
+  <p class="sub">DAL604231 · Semester Ganjil 2026/2027 · Program Studi S1 Teknik Geologi UNG</p>
+</header>
+
+<div class="tab" role="tablist">
+  <button role="tab" id="tab-mhs" aria-selected="true">Praktikan</button>
+  <button role="tab" id="tab-panel" aria-selected="false">Asisten dan dosen</button>
+</div>
+
+<!-- ============ MUKA PRAKTIKAN ============ -->
+<section id="muka-mhs">
+  <p class="alasan">Masukkan NIM untuk melihat apakah lembar kalian sudah masuk dan sudah dinilai. Untuk melihat angka nilainya, sertakan nomor tanda terima yang muncul waktu kalian mengirim. Nomor itu hanya dipegang pengirimnya, dan itulah yang menjaga nilai kalian tidak terbaca orang lain.</p>
+  <div class="baris dua">
+    <div><label for="nim">NIM</label><input type="text" id="nim" autocomplete="off"></div>
+    <div><label for="tanda">Nomor tanda terima <span style="font-weight:400;color:#5A6773">opsional</span></label><input type="text" id="tanda" autocomplete="off" placeholder="LK1-20260908-..."></div>
+  </div>
+  <button type="button" class="aksi" id="btn-cek">Cek status saya</button>
+  <p class="status" id="status-mhs"></p>
+  <div id="hasil-mhs"></div>
+</section>
+
+<!-- ============ MUKA PANEL ============ -->
+<section id="muka-panel" class="sembunyi">
+  <p class="alasan">Halaman ini menampilkan seluruh kelas. Jangan buka di layar yang terlihat mahasiswa, dan jangan bagikan sandinya lewat grup angkatan.</p>
+  <div class="baris dua">
+    <div><label for="kunci">Sandi panel</label><input type="password" id="kunci" autocomplete="off"></div>
+    <div style="display:flex;align-items:flex-end;gap:10px">
+      <button type="button" class="aksi" id="btn-masuk">Masuk</button>
+      <button type="button" class="aksi sekunder sembunyi" id="btn-segar">Muat ulang</button>
+    </div>
+  </div>
+  <p class="status" id="status-panel"></p>
+  <div id="hasil-panel"></div>
+</section>
+
+<footer>
+  Halaman ini hanya membaca. Perubahan nilai dilakukan di Spreadsheet oleh asisten dan dosen.
+</footer>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+/* ====== SATU-SATUNYA BARIS YANG PERLU DIUBAH ======
+   Tempel URL penerapan Apps Script yang sama dengan lembar kerja. */
+var URL_LAYANAN = "https://script.google.com/macros/s/AKfycbyyIx-UhhUOnX5pBV9QpU11L3Ms4xFT9a-rqO520dzbxbEXMdlsLOWr4ZvAXRd2x9UK/exec";
+/* ================================================== */
+
+function el(id){ return document.getElementById(id); }
+function esc(t){ return String(t==null?"":t).replace(/[&<>]/g,function(c){
+  return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c]; }); }
+function pesan(kotak,t,jenis){ var e=el(kotak); e.textContent=t; e.className="status"+(jenis?" "+jenis:""); }
+
+function panggil(muatan){
+  if(URL_LAYANAN.indexOf("GANTI")===0){
+    return Promise.reject(new Error("Alamat layanan belum dipasang oleh dosen."));
+  }
+  return fetch(URL_LAYANAN,{
+    method:"POST",
+    headers:{"Content-Type":"text/plain;charset=utf-8"},
+    body:JSON.stringify(muatan)
+  }).then(function(r){ return r.json(); });
+}
+
+/* ---------- tab ---------- */
+function pindah(ke){
+  var mhs = ke==="mhs";
+  el("tab-mhs").setAttribute("aria-selected",String(mhs));
+  el("tab-panel").setAttribute("aria-selected",String(!mhs));
+  el("muka-mhs").classList.toggle("sembunyi",!mhs);
+  el("muka-panel").classList.toggle("sembunyi",mhs);
+}
+el("tab-mhs").addEventListener("click",function(){pindah("mhs");});
+el("tab-panel").addEventListener("click",function(){pindah("panel");});
+
+/* ---------- muka praktikan ---------- */
+el("btn-cek").addEventListener("click",function(){
+  var nim=el("nim").value.trim();
+  if(!nim){ pesan("status-mhs","NIM belum diisi.","buruk"); return; }
+  var tombol=this; tombol.disabled=true;
+  pesan("status-mhs","Mencari...");
+  el("hasil-mhs").innerHTML="";
+
+  panggil({aksi:"status", nim:nim, tanda:el("tanda").value.trim()})
+    .then(function(j){
+      tombol.disabled=false;
+      if(!j||!j.ok){ pesan("status-mhs",(j&&j.pesan)||"Gagal membaca data.","buruk"); return; }
+      pesan("status-mhs","");
+
+      if(!j.terkirim){
+        el("hasil-mhs").innerHTML='<div class="kartu belum"><h3>Belum ada lembar yang masuk</h3>'+
+          '<p>'+(j.terdaftar
+            ? 'NIM ini terdaftar atas nama '+esc(j.nama)+', tapi belum ada lembar kerja yang diterima.'
+            : 'NIM ini tidak ditemukan di daftar praktikan maupun di daftar kiriman. Periksa lagi angkanya, lalu hubungi asisten kalau tetap tidak ketemu.')+
+          '</p></div>';
+        return;
+      }
+
+      el("hasil-mhs").innerHTML='<div class="kartu"><h3>'+esc(j.nama)+'</h3><p>'+
+        j.baris.length+' lembar diterima.</p></div>' +
+        j.baris.map(function(b){
+          var kelas = b.rilis ? "baik" : "tunggu";
+          var h='<div class="kartu '+kelas+'">';
+          h+='<p><b>Tanda terima</b> '+esc(b.tanda)+' &middot; '+esc(String(b.mineral))+' mineral</p>';
+          h+='<p>Validasi asisten: '+esc(b.statusAsisten)+'</p>';
+          h+='<p>Pemeriksaan dosen: '+esc(b.statusDosen)+'</p>';
+          if(b.skor!==null && b.skor!==undefined && b.skor!==""){
+            h+='<div class="nilai">'+esc(String(b.skor))+' <span style="font-size:1.1rem">'+esc(String(b.huruf||""))+'</span></div>';
+            if(b.catatan) h+='<p style="margin-top:8px">'+esc(b.catatan)+'</p>';
+          } else if(b.rilis){
+            h+='<p style="color:#A85D42;margin-top:8px">Nilai sudah dirilis. Masukkan nomor tanda terima kalian di kolom atas untuk melihat angkanya.</p>';
+          } else {
+            h+='<p style="color:#C08B2E;margin-top:8px">Nilai belum dirilis.</p>';
+          }
+          return h+'</div>';
+        }).join("");
+    })
+    .catch(function(e){
+      tombol.disabled=false;
+      pesan("status-mhs",e.message||"Gagal menghubungi layanan. Periksa jaringan lalu coba lagi.","buruk");
+    });
+});
+
+/* ---------- muka panel ---------- */
+function tabel(judul,kolom,baris,ambil){
+  if(!baris.length) return '<h2>'+judul+'</h2><p class="alasan">Tidak ada.</p>';
+  return '<h2>'+judul+' ('+baris.length+')</h2><div class="gulir"><table><thead><tr>'+
+    kolom.map(function(k){return '<th>'+esc(k)+'</th>';}).join("")+
+    '</tr></thead><tbody>'+
+    baris.map(function(b){
+      return '<tr>'+ambil(b).map(function(v){return '<td>'+esc(v==null?"":String(v))+'</td>';}).join("")+'</tr>';
+    }).join("")+'</tbody></table></div>';
+}
+
+function gambarPanel(j){
+  var r=j.ringkas||{};
+  var h='<div class="angka-grid">'+
+    '<div class="angka"><b>'+(r.terdaftar||0)+'</b><span>terdaftar</span></div>'+
+    '<div class="angka"><b>'+(r.terkirim||0)+'</b><span>sudah mengirim</span></div>'+
+    '<div class="angka"><b>'+(r.dinilai||0)+'</b><span>sudah dinilai</span></div>'+
+    '<div class="angka"><b>'+(r.dirilis||0)+'</b><span>sudah dirilis</span></div></div>';
+
+  h+=tabel("Belum mengirim",["NIM","Nama","Kelompok"],j.belum||[],function(b){
+    return [b.nim,b.nama,b.kelompok]; });
+
+  h+=tabel("Sudah mengirim, belum dinilai",["NIM","Nama","Kelompok","Mineral","Status asisten"],
+    j.menunggu||[],function(b){ return [b.nim,b.nama,b.kelompok,b.mineral,b.statusAsisten]; });
+
+  h+=tabel("Sudah dinilai",["NIM","Nama","Kelompok","Skor","Huruf","Asisten","Rilis"],
+    j.selesai||[],function(b){
+      return [b.nim,b.nama,b.kelompok,b.skor,b.huruf,b.asisten,b.rilis?"Dirilis":"Belum"]; });
+
+  el("hasil-panel").innerHTML=h;
+}
+
+function muatPanel(){
+  var kunci=el("kunci").value;
+  if(!kunci){ pesan("status-panel","Sandi belum diisi.","buruk"); return; }
+  pesan("status-panel","Memuat...");
+  panggil({aksi:"panel", kunci:kunci})
+    .then(function(j){
+      if(!j||!j.ok){ pesan("status-panel",(j&&j.pesan)||"Gagal memuat.","buruk"); return; }
+      pesan("status-panel","Diperbarui "+new Date().toLocaleTimeString("id-ID"),"baik");
+      el("btn-segar").classList.remove("sembunyi");
+      gambarPanel(j);
+    })
+    .catch(function(e){ pesan("status-panel",e.message||"Gagal menghubungi layanan.","buruk"); });
+}
+el("btn-masuk").addEventListener("click",muatPanel);
+el("btn-segar").addEventListener("click",muatPanel);
+
+el("nim").addEventListener("keydown",function(e){ if(e.key==="Enter") el("btn-cek").click(); });
+el("kunci").addEventListener("keydown",function(e){ if(e.key==="Enter") muatPanel(); });
+})();
+</script>
+</body>
+</html>
