@@ -159,7 +159,7 @@ const MATAKULIAH = [
     semesterKe: 'Semester III',
     divisi: 'ccc',
     ringkas: 'Membaca sayatan tipis dengan mikroskop polarisasi. Periksa alat dulu, baru pengamatan.',
-    MINGGU_AKTIF: 3,
+    MINGGU_AKTIF: 4,
     minggu: [
       {
         ke: 1,
