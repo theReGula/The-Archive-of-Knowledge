@@ -159,7 +159,7 @@ const MATAKULIAH = [
     semesterKe: 'Semester III',
     divisi: 'ccc',
     ringkas: 'Membaca sayatan tipis dengan mikroskop polarisasi. Periksa alat dulu, baru pengamatan.',
-    MINGGU_AKTIF: 4,
+    MINGGU_AKTIF: 5,
     minggu: [
       {
         ke: 1,
@@ -174,11 +174,11 @@ const MATAKULIAH = [
           { nama: 'Slide Minggu 3', tipe: 'slide', url: 'https://drive.google.com/file/d/1-dDWJh9TDG3-SV6jUmzlQWFHNo6SBhYZ/view', tersedia: true },
           { nama: 'Cek Nilai disini', tipe: 'cek nilai', url: 'https://the-archive-of-knowledge.netlify.app/petrografi/pantau/', tersedia: true },
           { nama: 'Kuis Kesiapan', tipe: 'kuis', url: '', tersedia: false }] },
-      { ke: 4, judul: 'Identifikasi mineral pembentuk batuan', catatan: 'Lembar kerja diisi langsung di lab lewat HP. Pilih ketembusan cahaya dulu di kepala kartu, karena kolom yang muncul menyesuaikan pilihan itu. Kirim sebelum sesi berakhir, catat nomor tanda terimanya.', berkas: [{ nama: 'Lembar Kerja 4', tipe: 'lk', url: '/petrografi/lk3/', tersedia: true },
-          { nama: 'Slide Acara 4', tipe: 'slide', url: '', tersedia: false }] },
+      { ke: 4, judul: 'Identifikasi mineral pembentuk batuan', catatan: 'Lembar kerja diisi langsung di lab lewat HP. Pilih ketembusan cahaya dulu di kepala kartu, karena kolom yang muncul menyesuaikan pilihan itu. Kirim sebelum sesi berakhir, catat nomor tanda terimanya.', berkas: [{ nama: 'Lembar Kerja 3', tipe: 'lk', url: '/petrografi/lk3/', tersedia: true },
+          { nama: 'Slide Acara 3', tipe: 'slide', url: '', tersedia: false }] },
       { ke: 5, judul: 'Petrografi batuan beku', catatan: 'Isi di HP sambil ngamatin. Pilih jenis batuan dulu (koheren atau piroklastik), kolom di bawahnya ikut menyesuaikan. Bingung istilah? Ketuk ⓘ. Kirim maks. 24 jam setelah sesi, nomor tanda terimanya tersimpan di HP.', berkas: [{ nama: 'Lembar Kerja 4', tipe: 'lk', url: '/petrografi/lk4/', tersedia: true },
           { nama: 'Cek Nilai disini', tipe: 'cek nilai', url: 'https://the-archive-of-knowledge.netlify.app/petrografi/pantau/', tersedia: true },
-          { nama: 'Slide Acara 5', tipe: 'slide', url: '', tersedia: false }] },
+          { nama: 'Slide Acara 4', tipe: 'slide', url: '', tersedia: false }] },
       { ke: 6, judul: '', catatan: '', berkas: [] },
       { ke: 7, judul: '', catatan: '', berkas: [] },
       { ke: 8, judul: '', catatan: '', berkas: [] },
