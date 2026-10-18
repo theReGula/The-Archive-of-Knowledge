@@ -159,7 +159,7 @@ const MATAKULIAH = [
     semesterKe: 'Semester III',
     divisi: 'ccc',
     ringkas: 'Membaca sayatan tipis dengan mikroskop polarisasi. Periksa alat dulu, baru pengamatan.',
-    MINGGU_AKTIF: 5,
+    MINGGU_AKTIF: 6,
     minggu: [
       {
         ke: 1,
@@ -179,7 +179,9 @@ const MATAKULIAH = [
       { ke: 5, judul: 'Petrografi batuan beku', catatan: 'Isi di HP sambil ngamatin. Pilih jenis batuan dulu (koheren atau piroklastik), kolom di bawahnya ikut menyesuaikan. Bingung istilah? Ketuk ⓘ. Kirim maks. 24 jam setelah sesi, nomor tanda terimanya tersimpan di HP.', berkas: [{ nama: 'Lembar Kerja 4', tipe: 'lk', url: '/petrografi/lk4/', tersedia: true },
           { nama: 'Cek Nilai disini', tipe: 'cek nilai', url: 'https://the-archive-of-knowledge.netlify.app/petrografi/pantau/', tersedia: true },
           { nama: 'Slide Acara 4', tipe: 'slide', url: '', tersedia: false }] },
-      { ke: 6, judul: '', catatan: '', berkas: [] },
+      { ke: 6, judul: 'Petrografi batuan sedimen', catatan: 'Pilih jalur klastik atau karbonat di Bagian C. Kalau modul dan lembar kerja berbeda, ikuti lembar kerja dan Lembar Ralat Bab 5.', berkas: [{ nama: 'Lembar Kerja 5', tipe: 'lk', url: '/petrografi/lk5/', tersedia: true },
+          { nama: 'Slide Batuan Sedimen', tipe: 'slide', url: 'https://drive.google.com/file/d/1lLHJYTcHOOgTSVG5ZgXCB91gVJWxXFuM/view?usp=sharing', tersedia: true }, { nama: 'Cek Nilai disini', tipe: 'cek nilai', url: 'https://the-archive-of-knowledge.netlify.app/petrografi/pantau/', tersedia: true },
+          { nama: 'Lembar Ralat Modul Bab 5', tipe: 'lain', url: 'https://drive.google.com/file/d/16J05oFK97udQUMbRuu4VVU07FTD3pdLJ/view?usp=sharing', tersedia: true }] },
       { ke: 7, judul: '', catatan: '', berkas: [] },
       { ke: 8, judul: '', catatan: '', berkas: [] },
       { ke: 9, judul: '', catatan: '', berkas: [] },
