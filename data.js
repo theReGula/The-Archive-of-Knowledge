@@ -159,7 +159,7 @@ const MATAKULIAH = [
     semesterKe: 'Semester III',
     divisi: 'ccc',
     ringkas: 'Membaca sayatan tipis dengan mikroskop polarisasi. Periksa alat dulu, baru pengamatan.',
-    MINGGU_AKTIF: 6,
+    MINGGU_AKTIF: 7,
     minggu: [
       {
         ke: 1,
@@ -182,7 +182,10 @@ const MATAKULIAH = [
       { ke: 6, judul: 'Petrografi batuan sedimen', catatan: 'Pilih jalur klastik atau karbonat di Bagian C. Kalau modul dan lembar kerja berbeda, ikuti lembar kerja dan Lembar Ralat Bab 5.', berkas: [{ nama: 'Lembar Kerja 5', tipe: 'lk', url: '/petrografi/lk5/', tersedia: true },
           { nama: 'Slide Batuan Sedimen', tipe: 'slide', url: 'https://drive.google.com/file/d/1lLHJYTcHOOgTSVG5ZgXCB91gVJWxXFuM/view?usp=sharing', tersedia: true }, { nama: 'Cek Nilai disini', tipe: 'cek nilai', url: 'https://the-archive-of-knowledge.netlify.app/petrografi/pantau/', tersedia: true },
           { nama: 'Lembar Ralat Modul Bab 5', tipe: 'lain', url: 'https://drive.google.com/file/d/16J05oFK97udQUMbRuu4VVU07FTD3pdLJ/view?usp=sharing', tersedia: true }] },
-      { ke: 7, judul: '', catatan: '', berkas: [] },
+            { ke: 7, judul: 'Petrografi batuan metamorf', catatan: 'Pilih jalur berfoliasi atau nonfoliasi di Bagian C. Persen mineral cukup diisi sekali di kartu, tabel komposisi menghitung sendiri. Kalau modul dan lembar kerja berbeda, ikuti lembar kerja dan Lembar Ralat Bab 6.', berkas: [{ nama: 'Lembar Kerja 6', tipe: 'lk', url: '/petrografi/lk6/', tersedia: true },
+          { nama: 'Slide Batuan Metamorf', tipe: 'slide', url: '', tersedia: false },
+          { nama: 'Cek Nilai disini', tipe: 'cek nilai', url: 'https://the-archive-of-knowledge.netlify.app/petrografi/pantau/', tersedia: true },
+          { nama: 'Lembar Ralat Modul Bab 6', tipe: 'lain', url: '', tersedia: false }] },
       { ke: 8, judul: '', catatan: '', berkas: [] },
       { ke: 9, judul: '', catatan: '', berkas: [] },
       { ke: 10, judul: '', catatan: '', berkas: [] },
