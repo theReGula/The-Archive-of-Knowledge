@@ -192,7 +192,7 @@ const MATAKULIAH = [
         catatan: 'Bawa senter HP untuk uji butir opak. Lembar kerja diisi langsung di lab lewat HP. Kirim maksimal 24 jam setelah sesi, catat nomor tanda terimanya.',
         berkas: [
           { nama: 'Lembar Kerja 7', tipe: 'lk', url: '/petrografi/lk7/', tersedia: true },
-          { nama: 'Slide Acara 7', tipe: 'slide', url: 'https://drive.google.com/file/d/1N5sMtGsVxZgX-fg4e9kkDB6-aS8F_pBy/view?usp=sharing', tersedia: true }, { nama: 'Cek Nilai disini', tipe: 'cek nilai', url: 'https://the-archive-of-knowledge.netlify.app/petrografi/pantau/', tersedia: true },
+          { nama: 'Slide Mineral Bijih dan Alterasi Hidrotermal', tipe: 'slide', url: 'https://drive.google.com/file/d/1N5sMtGsVxZgX-fg4e9kkDB6-aS8F_pBy/view?usp=sharing', tersedia: true }, { nama: 'Cek Nilai disini', tipe: 'cek nilai', url: 'https://the-archive-of-knowledge.netlify.app/petrografi/pantau/', tersedia: true },
           { nama: 'Lembar Ralat Modul Bab 7', tipe: 'modul', url: 'https://drive.google.com/file/d/1c2DunCqcoygENjFlev9Rn7B6-ySXM3pq/view?usp=sharing', tersedia: true }
         ]
       },
