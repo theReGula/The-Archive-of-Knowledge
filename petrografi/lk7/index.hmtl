@@ -1,0 +1,1893 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lembar Kerja 7 · Mineral Bijih dan Alterasi Hidrotermal</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+:root{
+  --kertas:#F6F4EF; --kertas-2:#ECE8DF; --tinta:#2B2F36; --tinta-lembut:#5A5A5F;
+  --garis:#CFC7B6; --basal:#7A4B2A; --basal-tua:#5C3820; --basal-muda:#F1E6DD;
+  --tanah:#A23B3B; --oker:#5E7F4F; --putih:#FFFEFB; --salah:#B4483A;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--kertas);color:var(--tinta);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size:16px;line-height:1.55}
+.wrap{max-width:780px;margin:0 auto;padding:0 16px 90px}
+
+header{padding:28px 0 0}
+.spektrum{height:7px;border-radius:3px;margin-bottom:20px;
+  background:linear-gradient(90deg,#7A4B2A 0%,#7A4B2A 20%,#C9A646 20%,#C9A646 40%,#5E7F4F 40%,#5E7F4F 60%,#E6E1D6 60%,#E6E1D6 80%,#6F7C8C 80%,#6F7C8C 100%)}
+h1{font-family:Georgia,"Iowan Old Style","Times New Roman",serif;font-size:1.6rem;font-weight:600;
+  line-height:1.2;margin:0 0 6px;letter-spacing:-.01em}
+.sub{color:var(--tinta-lembut);font-size:.94rem;margin:0 0 4px}
+.meta{color:var(--tinta-lembut);font-size:.84rem;margin:0 0 22px}
+
+section{margin:38px 0 0}
+h2{font-family:Georgia,serif;font-size:1.2rem;font-weight:600;margin:0 0 6px;
+  padding-bottom:8px;border-bottom:2px solid var(--tinta)}
+h3{font-size:1rem;font-weight:650;margin:24px 0 8px}
+h4{font-size:.92rem;font-weight:650;margin:22px 0 8px;color:var(--basal-tua);
+  padding-bottom:4px;border-bottom:1px solid var(--garis)}
+p.alasan{font-size:.9rem;color:var(--tinta-lembut);margin:6px 0 14px;max-width:68ch}
+.pengantar{font-size:.94rem;margin:10px 0 18px;max-width:70ch}
+@media(min-width:640px){
+  p.alasan,.pengantar,.sorot p{text-align:justify;text-justify:inter-word;hyphens:auto}
+}
+
+label{display:block;font-size:.86rem;font-weight:600;margin:0 0 4px}
+label .satuan{font-weight:400;color:var(--tinta-lembut);font-size:.82rem}
+input[type=text],input[type=date],textarea,input[type=file]{
+  width:100%;background:var(--putih);border:1px solid var(--garis);border-radius:4px;
+  padding:10px;font-family:inherit;font-size:16px;color:var(--tinta);line-height:1.4}
+textarea{resize:vertical;min-height:70px}
+textarea.panjang{min-height:150px}
+input:focus,textarea:focus{outline:2px solid var(--basal);outline-offset:1px;border-color:var(--basal)}
+
+.butir{margin:0 0 14px;padding:0}
+.butir.salah{border-left:3px solid var(--salah);padding-left:10px;background:#F8ECEA;border-radius:2px}
+.butir .galat{display:none;font-size:.82rem;color:var(--salah);font-weight:600;margin:4px 0 0}
+.butir.salah .galat{display:block}
+@media(min-width:640px){.grid-dua{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}}
+
+.kartu{background:var(--putih);border:1px solid var(--garis);border-left:3px solid var(--basal);padding:16px;margin:14px 0}
+.kartu-kepala{margin-bottom:6px;padding-bottom:6px}
+.kartu-judul{font-family:Georgia,serif;font-size:1.05rem;font-weight:600;display:block;margin-bottom:10px}
+.blok-rock{background:var(--putih);border:1px solid var(--garis);padding:4px 16px 8px;margin:12px 0}
+
+.pilih{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px}
+.pilih label{display:inline-flex;align-items:center;gap:7px;font-weight:500;font-size:.88rem;
+  background:var(--kertas-2);border:1px solid var(--garis);border-radius:18px;padding:7px 13px;
+  cursor:pointer;margin:0;max-width:100%;line-height:1.35}
+.pilih input{accent-color:var(--basal);margin:0;flex-shrink:0;width:16px;height:16px}
+.pilih label:has(input:checked){background:var(--basal-tua);color:var(--putih);border-color:var(--basal-tua)}
+.pilih label small{opacity:.78;font-weight:400}
+.kelompok-judul{font-size:.74rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--tinta-lembut);margin:10px 0 2px}
+.catatan-butir{font-size:.84rem;color:var(--tinta-lembut);margin:4px 0 0;max-width:68ch}
+details.tips{margin:6px 0 0;font-size:.86rem;max-width:68ch}
+details.tips summary{cursor:pointer;color:var(--basal);font-weight:600;display:inline-block;padding:3px 0;list-style:none}
+details.tips summary::-webkit-details-marker{display:none}
+details.tips p{margin:4px 0 6px;padding:9px 11px;background:var(--basal-muda);border-radius:4px;color:var(--tinta);line-height:1.5}
+details.kamus{margin:2px 0 8px;font-size:.86rem;max-width:68ch}
+details.kamus summary{cursor:pointer;color:var(--basal-tua);font-weight:600;display:inline-block;padding:2px 0;list-style:none}
+details.kamus summary::-webkit-details-marker{display:none}
+details.kamus dl{margin:4px 0 6px;padding:10px 12px;background:var(--putih);border:1px solid var(--garis);border-left:3px solid var(--basal);border-radius:4px}
+details.kamus dt{font-weight:700;color:var(--basal-tua);margin:8px 0 1px}
+details.kamus dt:first-child{margin-top:0}
+details.kamus dd{margin:0;line-height:1.5}
+details.kamus .analogi{display:block;margin-top:3px;color:var(--tinta-lembut)}
+details.kamus .kenali{display:block;margin-top:3px;color:var(--basal-tua)}
+details.contoh{background:var(--putih);border:1px dashed var(--basal);border-radius:4px;padding:10px 14px;margin:12px 0}
+details.contoh summary{cursor:pointer;font-weight:700;color:var(--basal-tua)}
+details.contoh table{min-width:0;margin-top:10px}
+details.contoh td:first-child{width:38%;color:var(--tinta-lembut)}
+.awas{background:#F6E9E7;border-left:4px solid var(--tanah);padding:9px 11px;margin:10px 0 0;font-size:.88rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 20px;padding:0;list-style:none}
+.chips li{background:var(--putih);border:1px solid var(--garis);border-radius:18px;padding:6px 12px;font-size:.88rem;line-height:1.35}
+.pancing{font-size:.86rem;color:var(--basal-tua);background:var(--basal-muda);border-radius:4px;padding:9px 11px;margin:4px 0 8px;line-height:1.6}
+.butir > label{font-size:.9rem}
+.hitung-kata{font-size:.8rem;color:var(--tinta-lembut);margin:4px 0 0}
+.hitung-kata.cukup{color:var(--basal);font-weight:600}
+
+.periksa{background:var(--putih);border:1px solid var(--garis);border-left:4px solid var(--garis);padding:15px 16px;margin:12px 0}
+.periksa.lolos{border-left-color:var(--basal)}
+.periksa.gagal{border-left-color:var(--tanah);background:#F6E9E7}
+.gerbang{border:2px solid var(--tanah);background:#F6E9E7;padding:16px;margin:20px 0 0}
+.gerbang.aman{border-color:var(--basal);background:var(--basal-muda)}
+.gerbang strong{display:block;font-size:.98rem;margin-bottom:5px}
+.gerbang p{margin:0;font-size:.9rem}
+
+ul.centang{list-style:none;padding:0;margin:8px 0}
+ul.centang li{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px dotted var(--garis);font-size:.91rem}
+ul.centang input{margin-top:3px;accent-color:var(--basal);flex-shrink:0;width:19px;height:19px}
+
+.sorot{background:#F6E9E7;border:2px solid var(--tanah);border-left-width:7px;padding:16px 18px;margin:14px 0 20px}
+.sorot .tajuk{display:block;font-size:.82rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--tanah);margin:0 0 9px}
+.sorot p{margin:0 0 9px;font-size:.94rem;line-height:1.55}
+.sorot strong{font-weight:750}
+.sorot .kunci{font-weight:800;text-transform:uppercase;letter-spacing:.02em;font-size:.9rem;display:block;
+  padding-top:9px;border-top:1px solid rgba(162,59,59,.28)}
+
+.tunjuk{border:1px dashed var(--basal);background:var(--basal-muda);padding:14px;margin:12px 0;font-size:.9rem;color:var(--tinta)}
+.tunjuk b{display:block;margin-bottom:4px}
+.penanda{border:1px solid #B9C9B3;border-left:4px solid var(--oker);background:#E5EDE2;padding:12px 14px;margin:14px 0;font-size:.9rem}
+.penanda b{display:block;color:var(--oker);margin-bottom:4px;font-size:.8rem;letter-spacing:.07em;text-transform:uppercase}
+.penanda ul{margin:0;padding-left:18px}
+
+.kurang{border:2px solid var(--salah);background:#F8ECEA;padding:14px 16px;margin:14px 0}
+.kurang b{display:block;margin-bottom:6px;color:var(--salah)}
+.kurang ul{margin:0;padding-left:0;list-style:none;max-height:340px;overflow:auto}
+.kurang li{margin:0 0 4px}
+.kurang button{background:none;border:none;color:var(--tinta);text-align:left;padding:3px 0;font-size:.88rem;
+  font-weight:500;text-decoration:underline;text-decoration-color:rgba(162,59,59,.4);cursor:pointer}
+
+.gulir{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:10px 0}
+table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:460px}
+th,td{border:1px solid var(--garis);padding:8px;text-align:left;vertical-align:top}
+th{background:var(--kertas-2);font-weight:650;font-size:.85rem}
+
+button{font-family:inherit;font-size:.95rem;font-weight:600;cursor:pointer;border-radius:4px;
+  padding:11px 18px;border:1px solid var(--tinta);background:var(--tinta);color:var(--putih)}
+button.sekunder{background:transparent;color:var(--tinta)}
+button.kecil{font-size:.82rem;padding:6px 11px}
+button.basal{background:var(--basal);border-color:var(--basal);color:#fff}
+button:disabled{opacity:.45;cursor:not-allowed}
+.aksi{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+
+.pratinjau{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0}
+.pratinjau img{width:140px;height:140px;object-fit:cover;border:1px solid var(--garis);border-radius:4px;display:block}
+.slot{background:var(--putih);border:1px solid var(--garis);padding:12px 14px;margin:10px 0}
+
+.hitung{font-size:.92rem;color:var(--tinta-lembut);margin:0 0 10px}
+.hitung b{color:var(--tinta)}
+#daftar-sampel td.aksi-sel{white-space:nowrap;display:flex;gap:6px;border:none}
+.kosong-daftar{font-size:.9rem;color:var(--tinta-lembut);border:1px dashed var(--garis);padding:14px;text-align:center;margin:10px 0}
+
+.plot-wadah{background:var(--putih);border:1px solid var(--garis);padding:14px;margin:12px 0}
+.plot-wadah svg{width:100%;height:auto;max-width:540px;display:block;margin:0 auto}
+.plot-cap{font-size:.86rem;color:var(--tinta-lembut);margin:8px 0 0;text-align:center}
+.legenda{columns:2;column-gap:18px;font-size:.78rem;color:var(--tinta-lembut);margin:10px 0 0;padding:0;list-style:none}
+.legenda li{break-inside:avoid;margin:0 0 2px}
+.legenda b{color:var(--tinta);display:inline-block;min-width:2.4em}
+@media(max-width:520px){.legenda{columns:1}}
+
+#ekspor{min-height:200px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px}
+.status{font-size:.9rem;min-height:1.3em;margin:8px 0}
+.status.baik{color:var(--basal);font-weight:600}
+.status.buruk{color:var(--salah);font-weight:600}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--garis);font-size:.83rem;color:var(--tinta-lembut)}
+.sembunyi{display:none!important}
+
+#dokumen{display:none}
+@media print{
+  @page{size:A4;margin:15mm 14mm}
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  html,body{background:#fff!important;color:#2B2F36;font-size:10.5pt;line-height:1.35}
+  .wrap{display:none!important}
+  #dokumen{display:block;font-family:Arial,Helvetica,sans-serif}
+  .dok-kop{border-bottom:3pt solid #5C3820;padding-bottom:7pt;margin-bottom:13pt}
+  .dok-kop .lembaga{font-size:8pt;letter-spacing:.11em;text-transform:uppercase;color:#7A4B2A;font-weight:bold;margin:0 0 4pt}
+  .dok-kop h1{font-size:14.5pt;font-weight:bold;margin:0 0 3pt;color:#2B2F36}
+  .dok-kop .mk{font-size:9.5pt;margin:0;color:#5A5A5F}
+  #dokumen h2{font-size:10pt;font-weight:bold;text-transform:uppercase;letter-spacing:.09em;
+    margin:15pt 0 6pt;padding:4pt 8pt;background:#5C3820;color:#fff;break-after:avoid}
+  #dokumen h3{font-size:9.8pt;font-weight:bold;margin:10pt 0 4pt;padding:3pt 7pt;
+    background:#F1E6DD;color:#5C3820;border-left:3pt solid #7A4B2A;break-after:avoid}
+  #dokumen table{width:100%;border-collapse:collapse;margin:0 0 9pt;font-size:9.3pt;min-width:0}
+  #dokumen th,#dokumen td{border:.6pt solid #CFC7B6;padding:3.5pt 6pt;text-align:left;vertical-align:top}
+  #dokumen th{background:#EEEAE1;color:#5C3820;font-weight:bold;width:36%}
+  #dokumen td{text-align:justify}
+  #dokumen td.kosong{color:#9A9A90;font-style:italic;text-align:left}
+  #dokumen td.isian{height:19pt;background:#FFFEFB}
+  #dokumen td.isian-panjang{height:58pt;background:#FFFEFB}
+  #dokumen td.kotak-sketsa{height:170pt;width:50%;text-align:center;vertical-align:top;font-size:8.5pt;
+    color:#7A4B2A;font-weight:bold;padding-top:4pt;background:#FFFEFB;border:.8pt dashed #9A968C}
+  #dokumen .blok{break-inside:avoid;page-break-inside:avoid;margin-bottom:9pt}
+  #dokumen .dok-diagram{display:grid;grid-template-columns:1fr 1fr;gap:10pt;break-inside:avoid}
+  #dokumen .dok-diagram div{break-inside:avoid;text-align:center;font-size:8.5pt;color:#5C3820;font-weight:bold}
+  #dokumen svg{width:100%;height:auto}
+  #dokumen .dok-sketsa img{width:48%;margin-right:2%;border:.6pt solid #CFC7B6}
+  #dokumen .legenda{columns:2;font-size:7.5pt;list-style:none;padding:0;margin:4pt 0 0;color:#333}
+  .dok-status{border:1pt solid #A23B3B;border-left:5pt solid #A23B3B;background:#F6E9E7;padding:6pt 9pt;margin:0 0 11pt;font-size:9.5pt;color:#7A2B2B}
+  .dok-status b{text-transform:uppercase;letter-spacing:.07em;color:#A23B3B}
+  .dok-paraf{margin-top:18pt;break-inside:avoid;display:table;width:100%}
+  .dok-paraf div{display:table-cell;width:33%;padding-right:14pt;font-size:9pt;vertical-align:top;color:#5C3820}
+  .dok-paraf .garis{border-bottom:.8pt solid #5C3820;height:34pt;margin-bottom:3pt}
+  .dok-kaki{margin-top:15pt;padding-top:6pt;border-top:2pt solid #5C3820;font-size:8pt;color:#5A5A5F}
+  .dok-pita{margin:10pt 0 0;padding:4pt 8pt;background:#F1E6DD;border-left:3pt solid #7A4B2A;
+    font:bold 8.5pt Arial;letter-spacing:.09em;text-transform:uppercase;color:#5C3820}
+  .pecah{page-break-before:always}
+  #dokumen .tabel-mineral{font-size:8.3pt;table-layout:fixed}
+  #dokumen .tabel-mineral th{width:30%;font-size:8pt;line-height:1.25}
+  #dokumen .tabel-mineral th.km{width:17.5%;text-align:center}
+  #dokumen .tabel-mineral td.isian{height:17pt}
+  #dokumen .tabel-mineral td.subjudul{background:#F1E6DD;color:#5C3820;font-weight:bold;font-size:8pt;
+    letter-spacing:.04em;text-transform:uppercase;height:auto;padding:2.5pt 6pt}
+  #dokumen .tabel-mineral tr{break-inside:avoid}
+  #dokumen .opsi{font-weight:normal;color:#5A5A5F;font-size:7.3pt}
+}
+.baris-hitung{display:flex;gap:8px;align-items:stretch}
+.baris-hitung input{flex:1}
+button.tambah{min-width:64px;padding:8px 12px;background:var(--basal);border-color:var(--basal);font-size:1rem}
+.panel-hitung{position:sticky;bottom:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;
+  background:var(--basal-tua);color:#fff;padding:10px 14px;border-radius:6px 6px 0 0;margin:14px 0 0;font-size:.95rem}
+.panel-hitung small{opacity:.8}
+.panel-hitung button{color:#fff;border-color:rgba(255,255,255,.6)}
+input.kedip{animation:kedip .35s ease}
+@keyframes kedip{0%{background:#E8C9C5}100%{background:var(--putih)}}
+
+.tabel-ubah td,.tabel-ubah th{font-size:.84rem}
+.saran{border:1px dashed var(--basal);background:var(--basal-muda);padding:10px 12px;margin:8px 0 14px;font-size:.9rem;border-radius:4px}
+.saran b{color:var(--basal-tua)}
+.tangga{font-size:.86rem;margin:8px 0}
+.tangga td:first-child{width:62%}
+.jenis-kartu{background:var(--basal-muda);border-radius:4px;padding:10px 12px;margin:0 0 6px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="spektrum" role="presentation"></div>
+  <h1>Lembar Kerja 7 · Mineral Bijih dan Alterasi Hidrotermal</h1>
+  <p class="sub">Praktikum Petrografi (DAL604231) · Acara 7 · Bab 7 Modul</p>
+  <p class="meta">Program Studi S1 Teknik Geologi · FMIPA · Universitas Negeri Gorontalo</p>
+</header>
+
+<ul class="chips">
+  <li>📄 1 lembar = 1 sayatan</li>
+  <li>💾 Tersimpan otomatis di HP ini</li>
+  <li>⏰ Kirim maks. 24 jam setelah sesi</li>
+  <li>🔒 Bisa dikirim kalau semua sudah diisi</li>
+</ul>
+
+<div class="awas" style="margin:0 0 18px">📌 Ada bagian modul Bab 7 yang dikoreksi. Kalau modul dan lembar ini beda, ikuti lembar ini dan <b>Lembar Ralat Bab 7</b>. Nomor ralatnya ditulis di 💡 tiap kolom.</div>
+
+<div class="grid-dua" id="wadah-id"></div>
+
+<!-- ============ BAGIAN A ============ -->
+<section>
+  <h2>🔦 Bagian A · Cek Alat Dulu</h2>
+  <p class="alasan">Cek alat sebelum mengamati. Mikroskop nggak pernah ngasih tahu kalau dia lagi salah.</p>
+  <div class="periksa" id="kotak-a"><div id="wadah-a"></div></div>
+
+  <h3>A2 · Keselamatan kerja</h3>
+  <p class="alasan">Centang semua sebelum mulai.</p>
+  <ul class="centang">
+    <li><input type="checkbox" id="k3-1" data-cek><span>Pegang sayatan di tepi kaca. Tangan kering dan bersih.</span></li>
+    <li><input type="checkbox" id="k3-2" data-cek><span>Mau pindah ke objektif 40&times;? Turunkan meja dulu, baru naikkan fokus pelan-pelan.</span></li>
+    <li><input type="checkbox" id="k3-3" data-cek><span>Jangan biarkan lampu menyala penuh terus. Panasnya merusak polarisator.</span></li>
+    <li><input type="checkbox" id="k3-4" data-cek><span>Senter HP diarahkan miring ke sayatan, bukan ke mata atau ke lensa okuler.</span></li>
+    <li><input type="checkbox" id="k3-5" data-cek><span>Ada yang aneh dengan alat? Lapor asisten saat itu juga.</span></li>
+  </ul>
+  <div class="gerbang" id="gerbang">
+    <strong id="gerbang-judul">Cek alat belum diisi</strong>
+    <p id="gerbang-teks">Isi A1 dulu sebelum mulai mengamati.</p>
+  </div>
+</section>
+
+<!-- ============ BAGIAN B ============ -->
+<section>
+  <h2>🔬 Bagian B · Kartu Butir</h2>
+  <div class="sorot">
+    <span class="tajuk">Baca dulu, 30 detik aja ⏱️</span>
+    <p>📇 <strong>1 kartu = 1 jenis butir.</strong> Ada dua jenis kartu: <strong>butir opak</strong> (hitam) dan <strong>mineral ubahan</strong>. Minimal 1 kartu untuk tiap jenis, kecuali sayatan kalian memang nggak punya.</p>
+    <p>⚫ <strong>Butir opak:</strong> uji dulu, nama belakangan. Nama yang boleh dipakai dibatasi bukti. Tanpa senter dari atas, nama paling tinggi adalah "kemungkinan".</p>
+    <p>🟢 <strong>Mineral ubahan:</strong> cukup 1 sampai 3 mineral yang paling banyak atau yang paling menentukan jenis alterasi. Mineral ubahan lain cukup dicentang di Bagian C.</p>
+    <span class="kunci">Amati dulu, baru kasih nama. Kolom nama baru kebuka setelah 4 pengamatan diisi.</span>
+  </div>
+  <div id="wadah-b"></div>
+
+  <details class="contoh" id="contoh-kartu"></details>
+  <div class="kartu" id="kartu-kerja"></div>
+  <div class="aksi">
+    <button type="button" id="btn-simpan">Simpan Kartu</button>
+    <button type="button" class="sekunder" id="btn-batal">Kosongkan kartu</button>
+  </div>
+  <p class="status" id="status-kartu"></p>
+
+  <h3>Kartu yang sudah tersimpan</h3>
+  <p class="hitung" id="hitung">Belum ada kartu tersimpan.</p>
+  <div id="daftar-sampel"></div>
+</section>
+
+<!-- ============ BAGIAN C ============ -->
+<section>
+  <h2>🧩 Bagian C · Ubahan per Bagian Batuan</h2>
+  <p class="alasan">Fluida nggak menyerang semua mineral sama rata. Catat tiap bagian batuan: masih ada atau nggak, berubah jadi apa, dan seberapa habis. Dari tabel ini kelihatan jenis alterasi, seberapa kuat, dan sebarannya.</p>
+  <div id="wadah-c"></div>
+  <div id="ringkas-c"></div>
+  <div class="penanda sembunyi" id="penanda-c"></div>
+</section>
+
+<section>
+  <h2>🧵 Bagian D · Tekstur dan Urutan Pembentukan</h2>
+  <p class="alasan">Kenali teksturnya dulu, mekanismenya belakangan. Lalu cari hubungan antarmineral atau antarurat: siapa memotong, siapa mengganti, siapa mengisi rongga.</p>
+  <div id="wadah-d"></div>
+  <div id="urutan-d"></div>
+  <div class="penanda sembunyi" id="penanda-d"></div>
+</section>
+
+<section>
+  <h2>📊 Bagian E · Jenis Alterasi, Intensitas, dan Sebaran</h2>
+  <p class="alasan">Persen tiap butir sudah ada di kartu. Tabel di bawah cuma menjumlah. Kalau totalnya bukan 100, yang dibetulkan angka di kartunya.</p>
+  <div id="wadah-e"></div>
+  <div id="tabel-e"></div>
+  <div class="penanda sembunyi" id="penanda-e"></div>
+</section>
+
+<section>
+  <h2>🏷️ Bagian F · Batuan Asal dan Deskripsi Laporan</h2>
+  <p class="alasan">Batuan asal dibaca dari sisa tekstur yang belum terhapus. Deskripsi ditulis seperti laporan eksplorasi: ringkas, ada angka, dan jujur soal batas alat.</p>
+  <div id="wadah-f"></div>
+  <div class="penanda sembunyi" id="penanda-f"></div>
+</section>
+
+<section>
+  <h2>🌋 Bagian G · Cerita Sistem Hidrotermal</h2>
+  <p class="alasan">Pilih jawabannya, lalu centang <strong>apa yang kalian lihat</strong> yang bikin yakin. Buktinya harus dari sayatan kalian sendiri (Bagian B sampai F). Satu sayatan sering belum cukup. "Belum bisa ditentukan" itu jawaban yang sah.</p>
+  <div id="wadah-g"></div>
+  <div class="penanda sembunyi" id="penanda-g"></div>
+</section>
+
+<section>
+  <h2>✏️ Bagian H · Sketsa</h2>
+  <p class="alasan">Gambar tangan di buku, lalu foto. Wajib sketsa PPL dan XPL. Kalau ada butir opak, tambah satu sketsa kecil area butir opak waktu disenter dari atas. Di gambarnya harus ada:</p>
+  <ul class="chips">
+    <li>📏 Skala bersatuan</li><li>➕ Arah benang silang</li><li>PPL, XPL, atau senter</li>
+    <li>🔍 Perbesaran</li><li>🏷️ Kode sayatan</li><li>Label: Qz, Pl, Kfs, Bt, Hbl, Chl, Ep, Cal, Ser, Cly, Alu, Adl, Py, Ccp, Mag, Hem, Opq</li>
+  </ul>
+  <div class="slot butir" id="f-sketsa-ppl">
+    <label for="foto-ppl">Sketsa PPL</label>
+    <input type="file" id="foto-ppl" accept="image/*">
+    <div class="pratinjau" id="pra-ppl"></div>
+    <p class="galat">Sketsa PPL belum diunggah.</p>
+  </div>
+  <div class="slot butir" id="f-sketsa-xpl">
+    <label for="foto-xpl">Sketsa XPL</label>
+    <input type="file" id="foto-xpl" accept="image/*">
+    <div class="pratinjau" id="pra-xpl"></div>
+    <p class="galat">Sketsa XPL belum diunggah.</p>
+  </div>
+  <div class="slot butir" id="f-sketsa-senter">
+    <label for="foto-senter">Sketsa butir opak saat disenter dari atas <span class="satuan" id="ket-senter">(wajib kalau ada butir opak)</span></label>
+    <input type="file" id="foto-senter" accept="image/*">
+    <div class="pratinjau" id="pra-senter"></div>
+    <p class="galat">Sketsa senter belum diunggah.</p>
+  </div>
+</section>
+
+<!-- ============ PENUTUP ============ -->
+<section>
+  <h2>🤔 Penutup · Seberapa Yakin Kalian?</h2>
+  <div class="sorot">
+    <span class="tajuk">Wajib diisi ✍️</span>
+    <p>Lembar nggak bisa dikirim tanpa bagian ini. <strong>Minimal 15 kata berbeda</strong> per jawaban.</p>
+    <p>Ngaku belum yakin itu bukan kelemahan. Petrograf yang baik tahu batas kesimpulannya, dan kesimpulan yang tahu batasnya bisa dicek orang lain.</p>
+    <span class="kunci">Bagian ini ikut menentukan nilai interpretasi.</span>
+  </div>
+  <div id="wadah-penutup"></div>
+</section>
+
+<!-- ============ KIRIM ============ -->
+<section>
+  <h2>📤 Kirim</h2>
+  <p class="alasan">Tombol kirim ngecek semua isian dulu. Kalau ada yang kurang, daftarnya muncul di bawah. Ketuk buat langsung loncat ke kolomnya. Setelah terkirim, simpan nomor tanda terimanya 📸.</p>
+  <div class="tunjuk sembunyi" id="tanda-lalu"></div>
+  <div class="kurang sembunyi" id="kurang"></div>
+  <div class="aksi">
+    <button type="button" id="btn-kirim">Kirim ke Dosen</button>
+    <button type="button" class="sekunder" id="btn-cetak">Cetak laporan sementara</button>
+    <button type="button" class="sekunder" id="btn-borang">Cetak borang kosong</button>
+    <button type="button" class="sekunder" id="btn-salin">Cadangan: salin sebagai teks</button>
+  </div>
+  <p class="status" id="status"></p>
+  <textarea id="ekspor" placeholder="Teks cadangan muncul di sini." readonly></textarea>
+  <div class="aksi"><button type="button" class="sekunder" id="btn-kosong">Kosongkan seluruh lembar</button></div>
+</section>
+
+<footer>Praktikum Petrografi DAL604231 &middot; Lembar Kerja 7 &middot; Semester Ganjil 2026/2027</footer>
+</div>
+
+<div id="dokumen" aria-hidden="true"></div>
+
+<script>
+(function(){
+"use strict";
+
+/* ====== SATU-SATUNYA BARIS YANG PERLU DIUBAH ======
+   Tempel URL penerapan Apps Script yang sama dengan LK sebelumnya. */
+var URL_KIRIM = "https://script.google.com/macros/s/AKfycbw2whfsgzeI4ahdGCwp_tkhQsKMofH5nhCk7L-4s1-h5jEVjNHYd__GvGW_r6DF0Drm/exec";
+var KIRIM_AKTIF = true;
+/* ================================================== */
+
+var LEMBAR = "LK7";
+var KUNCI = "petrografi-lk7-v1";
+var MIN = { bukti:8, batas:15, narasi:40 };
+var TOLAK = ["-","--","---",".","..","...","?","x","tidak tahu","tdk tahu","gatau","ga tau","gak tau",
+             "belum","kosong","n/a","na","nihil","tidak","ok","oke"];
+
+function $(id){ return document.getElementById(id); }
+function esc(t){ return String(t==null?"":t).replace(/[&<>"]/g,function(c){
+  return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+function polos(t){ return String(t==null?"":t).replace(/<[^>]*>/g,"").replace(/&micro;/g,"µ")
+  .replace(/&eacute;/g,"é").replace(/&times;/g,"×").replace(/&amp;/g,"&").replace(/&middot;/g,"·"); }
+function angka(v){ var s=String(v==null?"":v).trim().replace(",","."); if(s==="")return null;
+  var n=Number(s); return isFinite(n)?n:null; }
+function kataUnik(t){
+  var w=String(t||"").toLowerCase().replace(/[^\p{L}\p{N}\s]/gu," ").split(/\s+/)
+    .filter(function(x){ return x.length>=2 || /\d/.test(x); });
+  var s={}; w.forEach(function(x){ s[x]=1; }); return Object.keys(s).length;
+}
+function bulat(n){ return Math.round(n*10)/10; }
+function kamusHtml(daftar){
+  if(!daftar || !daftar.length) return "";
+  var isi=daftar.map(function(k){
+    var e=KAMUS[k]; if(!e) return "";
+    return "<dt>"+k+"</dt><dd>"+e[0]+(e[1]?'<span class="analogi">'+e[1]+'</span>':'')+
+      (e[2]?'<span class="kenali">🔍 <b>Kenali dari:</b> '+e[2]+'</span>':'')+"</dd>";
+  }).join("");
+  var ringkas=daftar.length>5 ? daftar.slice(0,3).join(", ")+", dan "+(daftar.length-3)+" lainnya" : daftar.join(", ");
+  return '<details class="kamus"><summary>ⓘ Arti istilah: '+ringkas+'</summary><dl>'+isi+'</dl></details>';
+}
+
+/* ===========================================================================
+   SKEMA LK7
+   Satu sumber untuk tampilan, validasi, penyimpanan, dokumen cetak, email,
+   dan kolom spreadsheet. Jenis isian:
+     pilih   satu pilihan          ganda   boleh lebih dari satu
+     singkat isian pendek          angka   0 sampai 100
+     tanggal                        bukti   minimum 8 kata berbeda
+     batas   minimum 15 kata        narasi  minimum 40 kata
+   Kunci tampilan:
+     l  label pendek: dipakai di daftar kekurangan, cetak, email, dan kolom Sheets
+     q  pertanyaan yang tampil di layar (kalau ada); l tetap jadi nama kolom
+     n  penjelasan tambahan, dilipat di balik "💡 Bingung? Ketuk di sini"
+     p  kalimat pancingan yang selalu tampil di atas kotak isian
+     c  contoh di dalam kotak isian (placeholder)
+   Nomor "Ralat no." merujuk Lembar Ralat Modul Bab 7.
+   =========================================================================== */
+
+var KAMUS = {
+  /* --- optik dan uji --- */
+  "PPL":["Analisator dikeluarkan. Dipakai buat lihat warna, relief, bentuk, dan apakah butir tembus cahaya."],
+  "XPL":["Analisator dimasukkan. Dipakai buat lihat warna interferensi. Butir opak tetap hitam di PPL maupun XPL."],
+  "Opak":["Butir yang <b>nggak meneruskan cahaya sama sekali</b>: hitam di PPL, hitam di XPL, tetap hitam waktu meja diputar. Opak itu sifat optik. Bijih itu istilah ekonomi. Nggak semua bijih opak (sfalerit tembus cahaya), dan nggak semua opak itu bijih (Ralat no. 3)."],
+  "Isotrop":["Gelap terus di XPL, <b>tapi tembus cahaya di PPL</b>. Contoh: garnet, gelas. Beda dengan opak, yang hitam juga di PPL (Ralat no. 9)."],
+  "Relief":["Seberapa menonjol batas butir dibanding sekitarnya. Sfalerit dan garnet tinggi, kuarsa dan feldspar rendah."],
+  "Senter dari atas":["Lampu mikroskop dimatikan, lalu sayatan disinari senter HP <b>miring dari atas</b>. Butir opak memantulkan cahaya dengan warna khasnya. Ini versi kasar dari mikroskop cahaya pantul.",
+    "🔦 Kayak lihat kilap logam di batu pakai senter: warnanya kelihatan, detailnya belum.",
+    "pirit kuning kuningan pucat, kalkopirit kuning lebih tua agak kehijauan, magnetit abu-abu gelap, hematit abu-abu kemerahan, arsenopirit putih keperakan."],
+  "Pinggir tembus cahaya":["Di bagian butir yang sangat tipis, beberapa mineral opak mulai meneruskan cahaya. Hematit jadi <b>merah darah</b> di pinggir yang tipis. Ini cahaya yang menembus, bukan refleksi internal (Ralat no. 5)."],
+  "Penampang kubus":["Pirit sering berbentuk kubus atau piritohedron. Di sayatan penampangnya persegi, persegi panjang, atau segi lima."],
+  "Penampang oktahedral":["Magnetit berbentuk oktahedron. Di sayatan penampangnya segitiga, belah ketupat, atau persegi. Karena bisa persegi juga, bentuk saja belum cukup buat membedakan pirit dari magnetit."],
+
+  /* --- mineral --- */
+  "Serisit":["Muskovit berbutir sangat halus, biasanya mengganti feldspar. Di XPL kelihatan seperti taburan serpihan cerah.",
+    "✨ Kayak glitter di atas feldspar."],
+  "Mineral lempung":["Kaolinit, illit, smektit, dan sejenisnya. Butirnya terlalu halus buat dibedakan di mikroskop. Jenisnya ditentukan pakai <b>XRD atau SWIR</b> (Ralat no. 1). Di sayatan cukup tulis \"mineral lempung\".",
+    "🌫️ Kayak debu keruh yang menutupi feldspar."],
+  "Warna anomali":["Warna interferensi biru tua keunguan (biru Berlin) atau cokelat-ungu. Ciri klorit. Ini birefringence rendah."],
+  "Epidot":["Kuning kehijauan seperti pistasio di PPL, relief tinggi, warna interferensi cerah berbercak di XPL."],
+  "Biotit sekunder":["Biotit <b>halus dan bergerombol</b> yang tumbuh dari fluida, biasanya mengganti hornblende atau massa dasar. Biotit primer berupa kristal tunggal yang lebih besar dan rapi."],
+  "Adularia":["K-feldspar hidrotermal berbentuk <b>belah ketupat</b>, bening, relief rendah. Penciri epitermal sulfidasi rendah."],
+  "Alunit":["Sulfat K-Al bening, bentuk bilah atau kubus semu, relief sedang. Penciri fluida sangat asam (argilik lanjut)."],
+  "Kalsedon":["Kuarsa yang sangat halus, sering berserat atau berpita. Terbentuk dari fluida yang cepat jenuh silika, dekat permukaan."],
+
+  /* --- jenis alterasi --- */
+  "Potasik":["Biotit sekunder dan/atau <b>K-feldspar</b> ubahan, ± magnetit. Bagian terpanas porfiri, sekitar 450–650 °C, dengan fluida yang mendekati netral (Ralat no. 2 dan 16)."],
+  "Filik":["Disebut juga serisitik atau QSP: <b>serisit + kuarsa + pirit</b> mengganti feldspar. Suhu sedang, di bawah sekitar 350 °C (Ralat no. 16)."],
+  "Propilitik":["<b>Klorit + epidot + kalsit</b> ± albit, mengganti mineral mafik dan plagioklas. Halo luar sistem, suhu lebih rendah."],
+  "Argilik":["<b>Mineral lempung</b> mengganti feldspar. Feldspar jadi keruh. Jenis lempungnya butuh XRD atau SWIR (Ralat no. 1)."],
+  "Argilik lanjut":["Kuarsa (sering berongga), <b>alunit</b>, ± pirofilit, dikit, kaolinit. Fluida sangat asam. Ada di bagian atas sistem porfiri dan di epitermal sulfidasi tinggi (Ralat no. 17)."],
+  "Silisik":["Kuarsa halus <b>mengganti batuan</b>, butirnya mozaik. Beda dengan urat kuarsa yang <b>mengisi celah</b> dan berdinding tegas (Ralat no. 19)."],
+  "Skarn":["Garnet, piroksen, ± epidot, vesuvianit, terbentuk waktu fluida dari intrusi bereaksi dengan batuan karbonat. Batuannya <b>dapat unsur baru</b> dari fluida."],
+  "Hornfels":["Batuan yang cuma <b>dipanaskan</b> intrusi. Kimianya tetap, mineralnya tumbuh ulang. Bandingkan dengan skarn yang dapat unsur baru."],
+  "Retrograde":["Mineral metamorf diganti mineral bergugus OH waktu batuan mendingin: garnet atau biotit jadi klorit, plagioklas jadi serisit."],
+
+  /* --- tekstur --- */
+  "Diseminasi":["Butir bijih <b>tersebar</b> di dalam batuan, bukan terkumpul di urat. Pada porfiri ini bentuk utama bijih, letaknya di bagian dalam sistem (Ralat no. 8)."],
+  "Penggantian":["Mineral baru tumbuh <b>di tempat</b> mineral lama. Bentuk batuannya bisa tetap, isinya berganti."],
+  "Pseudomorf":["Mineral baru yang <b>meniru bentuk</b> mineral yang digantinya. Contoh: klorit berbentuk prisma hornblende. Ini salah satu petunjuk batuan asal, bukan satu-satunya (Ralat no. 11).",
+    "🏚️ Kayak rumah yang semua batanya diganti, tapi denahnya sama."],
+  "Pinggir urat terubah":["Batuan di kanan-kiri urat ikut berubah, misalnya jadi serisit. Ini tanda fluidanya bergerak lewat urat itu. Disebut juga <b>halo</b> atau <b>selvage</b>."],
+  "Stockwork":["Banyak urat halus yang <b>saling memotong</b> membentuk jaring.",
+    "🕸️ Kayak jaring laba-laba."],
+  "Comb":["Kristal kuarsa tumbuh <b>tegak dari dinding urat</b> ke tengah. Tandanya rongga terbuka cukup lama. Tekstur ini nggak mengukur tekanan fluida (Ralat no. 13).",
+    "🪮 Kayak gigi sisir."],
+  "Crustiform":["Urat yang tersusun dari <b>pita-pita sejajar dinding</b>, lapis demi lapis."],
+  "Koloform":["Pita halus <b>membulat</b> seperti ginjal, dari silika yang awalnya berupa gel."],
+  "Lattice-bladed":["Bilah-bilah tipis yang <b>bersilangan</b>. Awalnya kalsit bilah yang terbentuk waktu fluida mendidih, lalu diganti kuarsa.",
+    "🪵 Kayak tumpukan bilah kayu tipis yang saling silang."],
+  "Vuggy":["Kuarsa <b>berongga</b>: mineral lain larut oleh fluida sangat asam, yang tersisa kuarsa dan lubang. Khas argilik lanjut."],
+  "Breksi hidrotermal":["Batuan pecah lalu celahnya diisi mineral dari fluida. Penyebabnya banyak: tekanan fluida, uap, magma, sesar. Breksi belum tentu berarti fluida mendidih atau kadarnya tinggi (Ralat no. 14)."],
+  "Overprinting":["Satu jenis ubahan <b>menumpang</b> di atas ubahan lain. Yang menumpang lebih muda.",
+    "🖍️ Kayak gambar yang dicoret ulang: coretan baru di atas yang lama."],
+  "Tekstur relik":["Sisa tekstur batuan asal yang belum terhapus: bentuk fenokris, massa dasar, pecahan gelas, butir klastik."],
+
+  /* --- intensitas dan sebaran --- */
+  "Intensitas":["<b>Seberapa banyak</b> mineral asal yang sudah habis diganti. Lemah, sedang, kuat, intens (Ralat no. 23)."],
+  "Sebaran ubahan":["<b>Di mana saja</b> ubahannya. Menyeluruh: semua bagian batuan berubah. Hanya mineral tertentu: misalnya cuma mafik yang jadi klorit. Mengikuti urat: ubahan cuma di sepanjang urat atau retakan. Di deck disebut pervasif, selektif, dan terkontrol urat (Ralat no. 23)."],
+
+  /* --- sistem --- */
+  "Porfiri":["Sistem di sekitar intrusi porfiri. Dari dalam ke luar: potasik, filik, propilitik. Argilik lanjut di bagian atas."],
+  "Sulfidasi rendah":["Epitermal dengan fluida mendekati netral. Penciri: <b>adularia</b>, illit, kuarsa berpita, kalsit bilah. Contoh dekat kita: Hulawa."],
+  "Sulfidasi tinggi":["Epitermal dengan fluida sangat asam. Penciri: <b>alunit</b>, kuarsa berongga, pirofilit, dikit, enargit."],
+  "Hipogen":["Terbentuk dari fluida hidrotermal yang naik dari bawah."],
+  "Supergen":["Terbentuk dekat permukaan oleh air hujan yang mengoksidasi sulfida. Hematit dan goetit di rekahan dangkal sering supergen (Ralat no. 15)."],
+  "Paragenesa":["Urutan pembentukan mineral. Tiga aturan: yang <b>memotong</b> lebih muda, yang <b>mengganti</b> lebih muda, yang <b>mengisi rongga</b> paling akhir."]
+};
+
+var IDENTITAS = [{ butir:[
+  { k:"nama", l:"Nama lengkap", t:"singkat" },
+  { k:"nim", l:"NIM", t:"singkat" },
+  { k:"kelompok", l:"Kelompok", t:"singkat" },
+  { k:"tanggal", l:"Tanggal praktikum", t:"tanggal" },
+  { k:"asisten", l:"Asisten pendamping", t:"singkat" },
+  { k:"mikroskop", l:"Nomor mikroskop", t:"singkat" },
+  { k:"sayatan", l:"Kode sampel atau nomor sayatan", t:"singkat" },
+  { k:"objektif", l:"Objektif yang paling banyak dipakai", t:"singkat", c:"4x, 10x, atau 40x" }
+]}];
+
+var BAGIAN_A = [{ judul:"A1 · Cek medan gelap, skala, dan senter",
+  catatan:"Kosongkan meja, masukkan analisator, nyalakan lampu penuh. Harusnya gelap rata. Lalu ukur diameter medan pandang buat menaksir ukuran butir.",
+  butir:[
+  { k:"v1", l:"Hasil pemeriksaan medan gelap", q:"Medan gelapnya gimana?", t:"pilih", o:["Gelap merata","Masih ada cahaya bocor"] },
+  { k:"v1b", l:"Warna sisa dan tindakan", q:"Warna apa yang masih kelihatan, dan apa yang kalian lakukan?", t:"singkat",
+    jika:function(d){ return d.v1==="Masih ada cahaya bocor"; } },
+  { k:"vfov", l:"Diameter medan pandang pada objektif 4x", q:"Diameter medan pandang di objektif 4× berapa mm?", t:"singkat", c:"misalnya 4,5 mm",
+    n:"Ukur pakai mikrometer objektif kalau ada. Kalau nggak ada, tanya asisten angka yang dipakai lab. Butir yang kira-kira 1/10 medan pandang berarti ukurannya diameter ÷ 10." },
+  { k:"vfov10", l:"Diameter medan pandang pada objektif 10x", q:"Diameter medan pandang di objektif 10× berapa mm?", t:"singkat", c:"misalnya 1,8 mm" },
+  { k:"vsenter", l:"Senter dari atas", q:"Senter apa yang kalian pakai buat uji butir opak?", kamus:["Senter dari atas"], t:"pilih",
+    o:["Senter HP","Lampu senter lain","Nggak ada senter"],
+    n:"Matikan lampu bawah mikroskop. Sinari sayatan miring dari atas, kira-kira 30–45°, lalu lihat lewat okuler di objektif 4× atau 10×. Warna dari senter HP cuma perkiraan kasar." }
+]}];
+
+/* ---------------- kartu butir: opak atau mineral ubahan ---------------- */
+var NAMA_OPAK = ["Mineral opak","Kemungkinan pirit","Pirit (ditafsirkan)","Kemungkinan kalkopirit","Kemungkinan magnetit","Magnetit (ditafsirkan)",
+  "Kemungkinan arsenopirit","Hematit (ditafsirkan)","Sulfida, jenisnya belum bisa dibedakan","Oksida besi (limonit atau goetit)","Sfalerit (ditafsirkan)","Lainnya"];
+var NAMA_UBAH = ["Serisit","Mineral lempung","Klorit","Epidot","Kalsit atau karbonat lain","Kuarsa ubahan","Kalsedon","Biotit sekunder",
+  "K-feldspar ubahan","Adularia","Albit","Aktinolit","Alunit","Zeolit","Garnet","Piroksen kalk-silikat","Vesuvianit","Lainnya"];
+
+var KARTU = [
+  { kode:"m-jenis", judul:"Jenis kartu", jenisGrup:true, butir:[
+    { k:"jenis", l:"Jenis kartu", q:"Kartu ini untuk butir apa?", t:"pilih", o:["Butir opak","Mineral ubahan"],
+      ket:["hitam di PPL","hasil ubahan oleh fluida"] }
+  ]},
+  /* ---- butir opak: lima uji ---- */
+  { kode:"m-opak", judul:"Lima uji butir opak", jenis:"opak", kamus:["Opak","Isotrop"], butir:[
+    { k:"ouji", l:"Uji 1 · Opak atau bukan", q:"Uji 1 · Di PPL dan XPL, waktu meja diputar 360°, butirnya gimana?", t:"pilih",
+      o:["Hitam di PPL dan XPL, tetap hitam waktu diputar","Tembus cahaya kuning madu sampai cokelat, gelap di XPL","Bening atau berwarna di PPL, gelap di XPL","Ragu"],
+      ket:["opak","kemungkinan sfalerit, bukan opak","isotrop, bukan opak: pindah ke kartu mineral",""],
+      n:"Opak dan isotrop itu beda. Isotrop masih meneruskan cahaya di PPL, opak nggak sama sekali (Ralat no. 9)." },
+    { k:"otepi", l:"Uji 2 · Pinggir yang tipis", q:"Uji 2 · Lampu bawah dibuat terang. Pinggir butir yang tipis gimana?", kamus:["Pinggir tembus cahaya"], t:"pilih",
+      o:["Tetap hitam","Merah darah","Cokelat","Noda kuning-cokelat tanpa bentuk"],
+      ket:["","hematit","","limonit atau goetit"],
+      n:"Merah di pinggir hematit adalah cahaya yang menembus bagian tipis, bukan refleksi internal (Ralat no. 5)." },
+    { k:"obentuk", l:"Uji 3 · Bentuk penampang", q:"Uji 3 · Bentuk penampangnya?", kamus:["Penampang kubus","Penampang oktahedral"], t:"pilih",
+      o:["Persegi, persegi panjang, atau segi lima","Segitiga atau belah ketupat","Prisma memanjang dengan ujung runcing","Bilah tipis","Tak beraturan, mengisi celah","Bintik sangat halus"],
+      ket:["kubus: pirit","oktahedral: magnetit","arsenopirit","hematit, ilmenit","kalkopirit sering begini","terlalu kecil untuk dibaca"],
+      n:"Penampang persegi bisa dari pirit maupun magnetit. Bentuk saja belum cukup. Pakai uji 5 juga." },
+    { k:"osebar", l:"Uji 4 · Cara hadir", q:"Uji 4 · Butirnya hadir di mana?", kamus:["Diseminasi"], t:"pilih",
+      o:["Tersebar merata","Tersebar bergerombol","Di dalam urat","Inklusi di mineral mafik","Mengganti mineral lain","Di sepanjang retakan"],
+      ket:["","","","sering magnetit primer","","sering oksida supergen"],
+      n:"Bijih tersebar tidak selalu berarti bagian luar sistem. Di porfiri, bijih tersebar justru ada di bagian dalam (Ralat no. 8)." },
+    { k:"osenter", l:"Uji 5 · Senter dari atas", q:"Uji 5 · Disenter miring dari atas, warna pantulnya?", kamus:["Senter dari atas"], t:"pilih",
+      o:["Kuning kuningan pucat, berkilau","Kuning lebih tua, agak kehijauan","Abu-abu gelap, kusam","Abu-abu kemerahan","Putih keperakan","Nggak jelas","Nggak dicoba"],
+      ket:["pirit","kalkopirit","magnetit","hematit","arsenopirit","",""],
+      n:"Kalau butirnya kecil, pirit dan kalkopirit bisa tertukar. Pilih \"nggak jelas\" kalau ragu. Itu lebih baik dari menebak." }
+  ]},
+  { kode:"m-opak-idn", judul:"Nama butir opak", jenis:"opak", idn:true,
+    catatan:'Nama dibatasi bukti. <span id="tangga-live"></span>', butir:[
+    { k:"onama", l:"Nama butir opak", q:"Nama yang paling sesuai bukti?", t:"pilih", o:NAMA_OPAK,
+      n:"Aturan naik nama: uji opak saja → \"mineral opak\". Bentuk khas <b>atau</b> warna senter yang cocok → \"kemungkinan ...\". Bentuk khas <b>dan</b> warna senter yang cocok → \"... (ditafsirkan)\". Kepastian penuh butuh mikroskop cahaya pantul." },
+    { k:"onamaL", l:"Nama butir opak lainnya", t:"singkat", c:"misalnya ilmenit",
+      jika:function(d){ return d.onama==="Lainnya"; } },
+    { k:"oukuran", l:"Ukuran butir", q:"Ukuran butirnya kira-kira berapa mm?", t:"singkat", c:"misalnya 0,1–0,4 mm" },
+    { k:"opersen", l:"Persen di seluruh sayatan", q:"Kira-kira berapa persen butir ini di seluruh sayatan?", s:"angka 0 sampai 100", t:"angka", c:"misalnya 3" },
+    { k:"otetangga", l:"Mineral di sekitarnya", q:"Butir ini paling sering bersama mineral apa?", s:"boleh lebih dari satu", t:"ganda", eksklusif:"Nggak ada pasangan jelas",
+      o:["Serisit","Kuarsa ubahan","Klorit","Epidot","Kalsit","Mineral lempung","Biotit sekunder","Mineral mafik primer","Nggak ada pasangan jelas"],
+      n:"Pasangannya membantu tafsiran. Pirit bersama serisit dan kuarsa khas filik. Magnetit di dalam hornblende biasanya magnetit primer." },
+    { k:"ociri", l:"Ciri penentu dan pembanding", q:"🔎 Kenapa nama ini, dan kenapa belum bisa lebih pasti?", t:"bukti",
+      c:"Persegi dan disenter kuning kuningan, tapi ..." }
+  ]},
+  /* ---- mineral ubahan ---- */
+  { kode:"m-ubah-ppl", judul:"PPL", jenis:"ubah", kamus:["PPL","Relief"], butir:[
+    { k:"uwarna", l:"Warna di PPL", t:"pilih",
+      o:["Bening","Hijau pucat","Hijau","Kuning-hijau pistasio","Cokelat, serpihan halus","Keruh, cokelat berdebu"],
+      ket:["serisit, kuarsa, kalsit, adularia, alunit","klorit, aktinolit","klorit","epidot","biotit sekunder","mineral lempung"] },
+    { k:"urelief", l:"Relief", t:"pilih",
+      o:["Rendah","Sedang","Tinggi","Berubah waktu meja diputar"],
+      ket:["kuarsa, adularia, lempung","serisit, klorit, alunit","epidot, garnet, piroksen","kalsit, karbonat"] },
+    { k:"ubentuk", l:"Bentuk butir", q:"Bentuk butirnya?", t:"pilih",
+      o:["Serpihan sangat halus","Lembaran","Prisma atau jarum","Butir setara halus, mozaik","Belah ketupat","Roset atau kipas","Tanpa bentuk, seperti debu"],
+      ket:["serisit","klorit, biotit sekunder","epidot, aktinolit","kuarsa ubahan","adularia, kalsit","klorit, zeolit","mineral lempung"] }
+  ]},
+  { kode:"m-ubah-xpl", judul:"XPL dan letak", jenis:"ubah", kamus:["XPL","Warna anomali"], butir:[
+    { k:"uxpl", l:"Warna interferensi", t:"pilih",
+      o:["Serpihan cerah warna-warni","Abu-abu sampai putih","Biru tua keunguan atau cokelat-ungu","Cerah berbercak","Putih krem pucat","Tertutup warna mineral","Suram, hampir gelap","Gelap terus"],
+      ket:["serisit","kuarsa, adularia, alunit","klorit","epidot","kalsit","biotit sekunder","mineral lempung","garnet (isotrop)"] },
+    { k:"uletak", l:"Letak", q:"Mineral ini ada di mana?", kamus:["Pseudomorf"], t:"pilih",
+      o:["Mengganti fenokris, bentuk lamanya masih utuh","Mengganti sebagian butir","Mengganti massa dasar","Mengisi urat","Mengisi rongga","Di pinggir urat"],
+      ket:["pseudomorf","di tepi atau retakan","","","","halo urat"] }
+  ]},
+  { kode:"m-ubah-idn", judul:"Nama mineral ubahan", jenis:"ubah", idn:true, butir:[
+    { k:"unama", l:"Nama mineral ubahan", t:"pilih", o:NAMA_UBAH, kamus:["Serisit","Mineral lempung","Biotit sekunder","Adularia","Alunit","Kalsedon"],
+      n:"Kaolinit, illit, dan smektit nggak bisa dibedakan di mikroskop. Pilih \"mineral lempung\", lalu tulis dugaan jenisnya di kolom ciri kalau ada (Ralat no. 1)." },
+    { k:"unamaL", l:"Nama mineral ubahan lainnya", t:"singkat", c:"misalnya titanit",
+      jika:function(d){ return d.unama==="Lainnya"; } },
+    { k:"upersen", l:"Persen di seluruh sayatan", q:"Kira-kira berapa persen mineral ini di seluruh sayatan?", s:"angka 0 sampai 100", t:"angka", c:"misalnya 15" },
+    { k:"uciri", l:"Ciri penentu dan pembanding", q:"🔎 Mirip mineral apa? Apa yang bikin kalian yakin ini bukan itu?", t:"bukti",
+      c:"Mirip serisit, tapi ..." }
+  ]}
+];
+
+/* ---------------- tingkat batuan ---------------- */
+var BAGIAN_B = [{ judul:"Ada atau nggak?", butir:[
+  { k:"badaopak", l:"Ada butir opak", q:"Di sayatan ini ada butir opak?", kamus:["Opak"], t:"pilih", o:["Ada","Nggak ada"],
+    n:"Kalau ada, minimal 1 kartu butir opak." },
+  { k:"badaubah", l:"Ada mineral ubahan", q:"Di sayatan ini ada mineral ubahan?", t:"pilih", o:["Ada","Nggak ada, batuan masih segar"],
+    n:"Kalau ada, minimal 1 kartu mineral ubahan. Maksimal 3 sudah cukup." }
+]}];
+
+var GANTI = ["Masih segar","Serisit","Mineral lempung","Klorit","Epidot","Kalsit atau karbonat","Kuarsa","Albit","K-feldspar","Biotit sekunder",
+  "Aktinolit","Alunit","Garnet atau piroksen","Opak","Oksida besi"];
+var BARIS_C = [
+  ["pl","Fenokris plagioklas"],
+  ["kf","Fenokris K-feldspar"],
+  ["mf","Mineral mafik","hornblende, piroksen, biotit"],
+  ["md","Massa dasar atau gelas"],
+  ["ln","Butir lain batuan asal","kuarsa, kalsit, butir klastik, mineral metamorf"]
+];
+var HABIS = ["Sebagian kecil","Sebagian besar","Habis, tinggal bekas bentuknya"];
+var BAGIAN_C = BARIS_C.map(function(r, i){
+  var k=r[0];
+  return { judul:"C"+(i+1)+" · "+r[1]+(r[2]?" ("+r[2]+")":""), kode:k, butir:[
+    { k:"c"+k+"ada", l:r[1]+" · ada di sayatan", q:"Ada di sayatan ini?", t:"pilih", o:["Ada","Nggak ada"] },
+    { k:"c"+k+"jadi", l:r[1]+" · berubah menjadi", q:"Berubah menjadi apa?", s:"boleh lebih dari satu", t:"ganda", eksklusif:"Masih segar", lainnya:true, o:GANTI,
+      jika:function(d){ return d["c"+k+"ada"]==="Ada"; } },
+    { k:"c"+k+"habis", l:r[1]+" · seberapa habis", q:"Seberapa habis?", t:"pilih", o:HABIS,
+      jika:function(d){ return d["c"+k+"ada"]==="Ada" && d["c"+k+"jadi"] && d["c"+k+"jadi"]!=="Masih segar"; } }
+  ]};
+}).concat([
+  { judul:"C6 · Urat dan pinggirnya", kamus:["Pinggir urat terubah"], butir:[
+    { k:"curat", l:"Urat", q:"Ada urat?", t:"pilih", o:["Ada","Nggak ada"] },
+    { k:"curatisi", l:"Urat · isi", q:"Uratnya berisi apa?", s:"boleh lebih dari satu", t:"ganda", lainnya:true,
+      o:["Kuarsa","Kalsedon","Kalsit","Opak","Adularia","Klorit","Epidot","Alunit","Zeolit"],
+      jika:function(d){ return d.curat==="Ada"; } },
+    { k:"curatlebar", l:"Urat · lebar", q:"Lebar urat terbesar berapa mm?", t:"singkat", c:"misalnya 0,5 mm",
+      jika:function(d){ return d.curat==="Ada"; } },
+    { k:"curatpinggir", l:"Urat · pinggir", q:"Batuan di pinggir urat ikut berubah?", t:"pilih", o:["Ikut berubah","Sama dengan batuan sekitarnya"],
+      jika:function(d){ return d.curat==="Ada"; } },
+    { k:"curatpjadi", l:"Urat · pinggir berubah menjadi", q:"Pinggir urat berubah menjadi apa?", s:"boleh lebih dari satu", t:"ganda", lainnya:true, o:GANTI.slice(1),
+      jika:function(d){ return d.curat==="Ada" && d.curatpinggir==="Ikut berubah"; } }
+  ]}
+]);
+
+var BAGIAN_D = [
+  { judul:"D1 · Tekstur", butir:[
+    { k:"dtekstur", l:"Tekstur yang terlihat", q:"Tekstur apa saja yang kelihatan?", s:"boleh lebih dari satu", t:"ganda", eksklusif:"Belum ada yang jelas",
+      kamus:["Diseminasi","Penggantian","Pseudomorf","Pinggir urat terubah","Stockwork","Comb","Crustiform","Koloform","Lattice-bladed","Vuggy","Breksi hidrotermal","Overprinting"],
+      o:["Tersebar (diseminasi)","Penggantian","Pseudomorf","Urat atau urat halus","Pinggir urat terubah","Jaring urat (stockwork)","Comb","Berpita (crustiform)","Koloform","Bilah bersilangan (lattice-bladed)","Berongga (vuggy)","Breksi","Ubahan menumpang (overprinting)","Belum ada yang jelas"],
+      n:"Satu sayatan bisa punya beberapa tekstur. Comb artinya rongga terbuka cukup lama, bukan tekanan rendah (Ralat no. 13). Breksi belum tentu berarti fluida mendidih (Ralat no. 14)." },
+    { k:"dtempat", l:"Tempat tekstur paling jelas", q:"Tekstur yang paling jelas kelihatan di mana?", t:"singkat", c:"misalnya di urat kuarsa bagian kiri sayatan",
+      jika:function(d){ return d.dtekstur && d.dtekstur!=="Belum ada yang jelas"; } }
+  ]},
+  { judul:"D2 · Siapa lebih muda?", kamus:["Paragenesa"],
+    catatan:"Cari dua benda yang bersentuhan: urat dengan urat, mineral dengan mineral, atau urat dengan zona ubahan. Tulis seperti kalimat: <b>A</b> memotong <b>B</b>.", butir:[
+    { k:"dhub", l:"Hubungan yang terlihat", q:"Ada hubungan potong-memotong, ganti-mengganti, atau isi rongga yang kelihatan?", t:"pilih", o:["Ada","Nggak ada yang terlihat"] },
+    { k:"djml", l:"Jumlah hubungan", q:"Berapa hubungan yang mau kalian tulis?", t:"pilih", o:["1","2","3"],
+      jika:function(d){ return d.dhub==="Ada"; } }
+  ].concat([1,2,3].reduce(function(a,i){
+    var j=function(d){ return d.dhub==="Ada" && Number(d.djml||0)>=i; };
+    return a.concat([
+      { k:"dA"+i, l:"Hubungan "+i+" · A", q:"Hubungan "+i+" · A", t:"singkat", c:i===1?"urat kuarsa-pirit":"", jika:j },
+      { k:"dR"+i, l:"Hubungan "+i+" · jenis", q:"A ... B (pilih hubungannya)", t:"pilih", o:["memotong","mengganti","mengisi rongga di","menyelimuti"], jika:j },
+      { k:"dB"+i, l:"Hubungan "+i+" · B", q:"Hubungan "+i+" · B", t:"singkat", c:i===1?"klorit di bekas hornblende":"", jika:j }
+    ]);
+  },[])).concat([
+    { k:"durut", l:"Urutan dari paling tua ke paling muda", q:"Jadi urutannya, dari paling tua ke paling muda?", t:"singkat",
+      c:"hornblende → klorit → urat kuarsa-pirit → kalsit",
+      jika:function(d){ return d.dhub==="Ada"; },
+      n:"Pakai tanda → di antara tiap tahap. Lihat saran urutan di bawah, tapi kalian yang memutuskan." }
+  ])}
+];
+
+var BAGIAN_E = [
+  { judul:"E1 · Komposisi", butir:[
+    { k:"eprimer", l:"Mineral asal yang masih segar (persen)", q:"Berapa persen mineral asal yang masih segar?", t:"angka", c:"misalnya 40",
+      n:"Plagioklas, hornblende, kuarsa, atau mineral batuan asal lain yang belum berubah. Mereka nggak punya kartu, jadi persennya ditulis di sini." },
+    { k:"elain", l:"Lain-lain atau tak teridentifikasi (persen)", q:"Berapa persen sisanya: mineral ubahan tanpa kartu atau yang belum dikenali?", t:"angka", c:"misalnya 10",
+      n:"Isi 0 kalau semua sudah tercatat. Total di tabel harus 100." }
+  ]},
+  { judul:"E2 · Jenis alterasi", kamus:["Potasik","Filik","Propilitik","Argilik","Argilik lanjut","Silisik","Skarn","Retrograde"],
+    butir:[
+    { k:"ejenis", l:"Jenis alterasi", q:"Himpunan mineral ubahannya termasuk jenis apa?", s:"boleh lebih dari satu kalau ada yang menumpang", t:"ganda", eksklusif:"Belum bisa ditentukan",
+      o:["Potasik","Filik","Propilitik","Argilik","Argilik lanjut","Silisik","Skarn","Retrograde batuan metamorf","Belum bisa ditentukan"],
+      ket:["biotit sekunder, K-feldspar, ± magnetit","serisit + kuarsa + pirit","klorit + epidot + kalsit","lempung mengganti feldspar","kuarsa berongga, alunit","kuarsa halus mengganti batuan","garnet, piroksen","klorit, serisit mengganti mineral metamorf",""],
+      jika:function(d){ return d.badaubah==="Ada"; },
+      n:"Jenis alterasi ditentukan dari <b>himpunan</b>, bukan satu mineral. Klorit saja belum tentu propilitik." },
+    { k:"ebukti", l:"E2 · Bukti", q:"👀 Himpunan apa yang kalian lihat di sayatan?", t:"ganda", lainnya:true,
+      o:["Biotit sekunder halus bergerombol","K-feldspar ubahan","Serisit + kuarsa di bekas feldspar","Pirit bersama serisit","Klorit + epidot + kalsit","Mineral lempung keruh di feldspar","Alunit","Kuarsa berongga","Kuarsa halus mozaik mengganti massa dasar","Garnet atau piroksen bersama kalsit","Klorit mengganti garnet atau biotit metamorf","Ciri penentunya nggak kelihatan di sayatan"],
+      jika:function(d){ return d.badaubah==="Ada"; } },
+    { k:"emuda", l:"Jenis alterasi yang menumpang", q:"Ada lebih dari satu jenis. Mana yang menumpang (lebih muda), dan apa buktinya?", kamus:["Overprinting"], t:"bukti",
+      c:"Serisit menumpang di atas klorit, karena ...",
+      jika:function(d){ return d.badaubah==="Ada" && (d.ejenis||"").split(", ").filter(function(x){ return x && x!=="Belum bisa ditentukan"; }).length>1; } }
+  ]},
+  { judul:"E3 · Intensitas dan sebaran ubahan", kamus:["Intensitas","Sebaran ubahan"], butir:[
+    { k:"eint", l:"Intensitas", q:"Seberapa banyak mineral asal yang sudah habis?", t:"pilih",
+      o:["Lemah","Sedang","Kuat","Intens"],
+      ket:["mineral asal sebagian besar segar","banyak berubah, tekstur asal masih jelas","mineral asal hampir habis","tekstur asal sulit dikenali"],
+      jika:function(d){ return d.badaubah==="Ada"; } },
+    { k:"esebar", l:"Sebaran ubahan", q:"Ubahannya ada di mana saja?", t:"pilih",
+      o:["Menyeluruh","Hanya mineral tertentu","Mengikuti urat atau retakan"],
+      ket:["semua bagian batuan berubah","misalnya cuma mafik yang jadi klorit","cuma di sepanjang urat atau retakan"],
+      jika:function(d){ return d.badaubah==="Ada"; },
+      n:"Intensitas dan sebaran itu dua hal berbeda. Batuan bisa berubah kuat tapi hanya di mineral tertentu (Ralat no. 23)." }
+  ]}
+];
+
+var BAGIAN_F = [
+  { judul:"F1 · Batuan asal", kamus:["Tekstur relik"], butir:[
+    { k:"fasal", l:"Batuan asal", q:"Batuan ini dulunya apa?", t:"pilih",
+      o:["Andesit atau diorit","Dasit, riolit, atau granit","Basal atau gabro","Tuf atau batuan piroklastik","Batugamping","Batupasir","Batuan metamorf","Breksi","Belum bisa ditentukan"] },
+    { k:"fasalb", l:"F1 · Bukti", q:"👀 Sisa tekstur apa yang kalian lihat?", t:"ganda", lainnya:true,
+      o:["Bentuk fenokris masih kelihatan","Kembar plagioklas masih tersisa","Massa dasar halus di antara fenokris","Kuarsa primer bipiramida atau berteluk","Pecahan gelas atau fragmen","Butir klastik membundar","Sisa kalsit atau fosil","Foliasi","Ciri penentunya nggak kelihatan di sayatan"],
+      n:"Pseudomorf bukan satu-satunya petunjuk batuan asal (Ralat no. 11). Kuarsa berteluk di batuan vulkanik biasanya hasil pelarutan magma, belum tentu ulah fluida (Ralat no. 10)." }
+  ]},
+  { judul:"F2 · Laporan", butir:[
+    { k:"fnama", l:"Nama untuk laporan", q:"Nama batuan untuk laporan?", t:"singkat", c:"andesit porfiri, terubah propilitik kuat",
+      n:"Format: batuan asal, lalu jenis alterasi dan intensitas. Sama seperti kolom log sheet di deck." },
+    { k:"fdesk", l:"Deskripsi laporan", q:"Tulis deskripsi sayatan ini seperti laporan eksplorasi", t:"narasi",
+      p:"Urutannya:<br>① <b>Batuan asal</b> dan sisa teksturnya<br>② <b>Ubahan</b>: jenis, intensitas, sebaran, mineral ubahan dengan persen<br>③ <b>Butir opak</b>: persen, ukuran (mm), bentuk, cara hadir, nama sesuai bukti<br>④ <b>Urat dan urutan</b> pembentukan<br>⑤ <b>Batas alat</b>: apa yang belum bisa dipastikan dari cahaya transmisi",
+      c:"Andesit porfiri dengan fenokris plagioklas yang ... Butir opak ±3%, 0,1–0,4 mm, ..." }
+  ]}
+];
+
+var LIHAT = "👀 Apa yang kalian lihat di sayatan yang bikin yakin?";
+var TAK_TERLIHAT = "Ciri penentunya nggak kelihatan di sayatan";
+var BAGIAN_G = [
+  { judul:"G1 · Sistem", kamus:["Porfiri","Sulfidasi rendah","Sulfidasi tinggi","Skarn"], butir:[
+    { k:"g1", l:"G1 · Sistem", q:"Sistem yang paling cocok?", t:"pilih",
+      o:["Porfiri","Epitermal sulfidasi rendah","Epitermal sulfidasi tinggi","Skarn","Urat di batuan metamorf","Belum bisa ditentukan dari satu sayatan"],
+      ket:["potasik, filik, propilitik","adularia, kuarsa berpita, kalsit bilah","alunit, kuarsa berongga","garnet, piroksen di karbonat","urat memotong foliasi",""] },
+    { k:"g1b", l:"G1 · Bukti", q:LIHAT, t:"ganda", lainnya:true,
+      o:["Biotit sekunder atau K-feldspar ubahan","Serisit + kuarsa + pirit","Klorit + epidot + kalsit","Adularia","Kuarsa berpita, koloform, atau bilah bersilangan","Alunit atau kuarsa berongga","Garnet atau piroksen bersama kalsit","Urat memotong foliasi","Jaring urat (stockwork)",TAK_TERLIHAT] },
+    { k:"g2", l:"G2 · Posisi dalam sistem", q:"Kira-kira sayatan ini dari bagian mana sistemnya?", t:"pilih",
+      o:["Inti","Dekat inti","Pinggir atau jauh dari inti","Bagian atas","Jalur fluida","Belum bisa ditentukan"],
+      ket:["potasik","filik","propilitik","argilik lanjut","urat atau silisik",""],
+      jika:function(d){ return d.g1 && d.g1.indexOf("Belum bisa")!==0; },
+      n:"Inti porfiri paling panas, tapi fluidanya mendekati netral. Fluida paling asam ada di bagian atas, di zona argilik lanjut (Ralat no. 16)." }
+  ]},
+  { judul:"G2 · Pertanyaan khusus", catatan:"Kolom di bawah cuma muncul kalau sayatan kalian punya mineralnya.", butir:[
+    { k:"g3", l:"G3 · Asal oksida besi", q:"Oksida besi di sayatan ini terbentuk dari mana?", kamus:["Hipogen","Supergen"], t:"pilih",
+      o:["Hipogen","Supergen","Belum bisa dibedakan"],
+      ket:["dari fluida hidrotermal","oksidasi dekat permukaan",""],
+      jika:function(d){ return adaOksida(d); },
+      n:"Noda yang mengikuti retakan halus dan rongga bekas pirit biasanya supergen (Ralat no. 15)." },
+    { k:"g4", l:"G4 · Skarn atau hornfels", q:"Ada garnet atau piroksen. Ini skarn atau hornfels?", kamus:["Skarn","Hornfels"], t:"pilih",
+      o:["Skarn","Hornfels","Belum bisa dibedakan"],
+      ket:["dapat unsur baru dari fluida","cuma dipanaskan",""],
+      jika:function(d){ return adaKalkSilikat(d); } },
+    { k:"g5", l:"G5 · Urat atau silisifikasi", q:"Kuarsa ubahan yang kalian lihat itu urat atau silisifikasi?", kamus:["Silisik"], t:"pilih",
+      o:["Urat","Silisifikasi","Keduanya"],
+      ket:["dinding tegas, mengisi celah","mozaik halus mengganti batuan",""],
+      jika:function(d){ return adaKuarsaUbahan(d); },
+      n:"Urat mengisi celah. Silisifikasi mengganti batuan. Jangan disamakan (Ralat no. 19)." }
+  ]},
+  { judul:"G3 · Yang belum cocok", butir:[
+    { k:"g6", l:"Hal yang bertentangan", q:"Apa yang bertentangan dengan jawaban kalian, atau belum bisa dijelaskan?", t:"batas",
+      c:"Kami pilih sulfidasi rendah, tapi adularia belum kelihatan, jadi ..." }
+  ]}
+];
+
+var PENUTUP = [{ butir:[
+  { k:"c1", l:"Kesimpulan paling yakin dan buktinya",
+    q:"💪 Kesimpulan mana yang paling kalian yakini? Bukti apa yang menopangnya?", t:"batas" },
+  { k:"c2", l:"Yang belum bisa dipastikan dari cahaya transmisi",
+    q:"🔍 Apa yang belum bisa dipastikan dengan mikroskop cahaya transmisi dan senter? Kenapa?", t:"batas" },
+  { k:"c3", l:"Uji lanjutan dan dampaknya",
+    q:"🔄 Uji apa yang dibutuhkan (cahaya pantul, XRD, SWIR, atau lainnya), dan apa yang berubah kalau hasilnya beda?", t:"batas",
+    c:"Kalau XRD menunjukkan lempungnya kaolinit, ..." }
+]}];
+
+var BAGIAN_BATUAN = [
+  { id:"ID", huruf:"Identitas", wadah:"wadah-id", grup:IDENTITAS },
+  { id:"A",  huruf:"A", wadah:"wadah-a", grup:BAGIAN_A },
+  { id:"B",  huruf:"B", wadah:"wadah-b", grup:BAGIAN_B },
+  { id:"C",  huruf:"C", wadah:"wadah-c", grup:BAGIAN_C },
+  { id:"D",  huruf:"D", wadah:"wadah-d", grup:BAGIAN_D },
+  { id:"E",  huruf:"E", wadah:"wadah-e", grup:BAGIAN_E },
+  { id:"F",  huruf:"F", wadah:"wadah-f", grup:BAGIAN_F },
+  { id:"G",  huruf:"G", wadah:"wadah-g", grup:BAGIAN_G },
+  { id:"P",  huruf:"Penutup", wadah:"wadah-penutup", grup:PENUTUP }
+];
+
+
+/* ===========================================================================
+   PEMBANTU DOMAIN
+   =========================================================================== */
+var sampel=[], sedangUbah=null, fotoSketsa={ppl:null,xpl:null,senter:null}, sudahCoba=false, sudahCobaKartu=false;
+
+function jenisKartu(d){ return d.jenis==="Butir opak" ? "opak" : (d.jenis==="Mineral ubahan" ? "ubah" : ""); }
+function namaKartu(d){
+  var j=jenisKartu(d);
+  if(j==="opak") return d.onama==="Lainnya" ? (d.onamaL||"Lainnya") : (d.onama||"");
+  if(j==="ubah") return d.unama==="Lainnya" ? (d.unamaL||"Lainnya") : (d.unama||"");
+  return "";
+}
+function persenKartu(d){ return angka(jenisKartu(d)==="opak" ? d.opersen : d.upersen); }
+function kartuJenis(j){ return sampel.filter(function(s){ return jenisKartu(s.data)===j; }); }
+function adaUbah(nama){ return sampel.some(function(s){ return jenisKartu(s.data)==="ubah" && s.data.unama===nama; }); }
+function adaOpakNama(pola){ return sampel.some(function(s){ return jenisKartu(s.data)==="opak" && pola.test(s.data.onama||""); }); }
+function pecah(v){ return String(v||"").split(", ").filter(function(x){ return x; }); }
+function ada(d, k, opsi){ return pecah(d[k]).indexOf(opsi)>-1; }
+function adaSalah(d, k, daftar){ return daftar.some(function(o){ return ada(d,k,o); }); }
+
+/* Semua mineral ubahan yang dicatat di Bagian C: baris batuan, isi urat, dan pinggir urat. */
+var URAT_KE_GANTI = { "Kuarsa":"Kuarsa","Kalsedon":"Kuarsa","Kalsit":"Kalsit atau karbonat","Opak":"Opak","Adularia":"K-feldspar",
+  "Klorit":"Klorit","Epidot":"Epidot","Alunit":"Alunit","Zeolit":"Zeolit" };
+function gantiSemua(d){
+  var s={};
+  BARIS_C.forEach(function(r){ if(d["c"+r[0]+"ada"]==="Ada") pecah(d["c"+r[0]+"jadi"]).forEach(function(x){ if(x!=="Masih segar") s[x]=1; }); });
+  if(d.curat==="Ada"){
+    pecah(d.curatisi).forEach(function(x){ if(URAT_KE_GANTI[x]) s[URAT_KE_GANTI[x]]=1; });
+    if(d.curatpinggir==="Ikut berubah") pecah(d.curatpjadi).forEach(function(x){ s[x]=1; });
+  }
+  return s;
+}
+var UBAH_KE_GANTI = { "Serisit":"Serisit","Mineral lempung":"Mineral lempung","Klorit":"Klorit","Epidot":"Epidot",
+  "Kalsit atau karbonat lain":"Kalsit atau karbonat","Kuarsa ubahan":"Kuarsa","Kalsedon":"Kuarsa","Biotit sekunder":"Biotit sekunder",
+  "K-feldspar ubahan":"K-feldspar","Adularia":"K-feldspar","Albit":"Albit","Aktinolit":"Aktinolit","Alunit":"Alunit","Zeolit":"Zeolit",
+  "Garnet":"Garnet atau piroksen","Piroksen kalk-silikat":"Garnet atau piroksen","Vesuvianit":"Garnet atau piroksen" };
+/* Mineral ubahan ada kalau punya kartu atau tercatat di Bagian C. */
+function punya(namaGanti, d){
+  if(gantiSemua(d)[namaGanti]) return true;
+  return sampel.some(function(s){ return jenisKartu(s.data)==="ubah" && UBAH_KE_GANTI[s.data.unama]===namaGanti; });
+}
+function adaOksida(d){ return adaOpakNama(/Hematit|Oksida besi/) || !!gantiSemua(d)["Oksida besi"]; }
+function adaKalkSilikat(d){ return punya("Garnet atau piroksen", d); }
+function adaKuarsaUbahan(d){ return punya("Kuarsa", d); }
+
+/* Tangga nama butir opak: nama yang boleh dipakai, dari bukti di lima uji. */
+function namaDiizinkan(d){
+  var ok={"Mineral opak":1,"Lainnya":1};
+  if(d.otepi==="Noda kuning-cokelat tanpa bentuk") ok["Oksida besi (limonit atau goetit)"]=1;
+  if(d.ouji==="Tembus cahaya kuning madu sampai cokelat, gelap di XPL"){
+    delete ok["Mineral opak"]; ok["Sfalerit (ditafsirkan)"]=1; return ok;
+  }
+  if(d.ouji!=="Hitam di PPL dan XPL, tetap hitam waktu diputar") return ok;
+  var kubus=d.obentuk==="Persegi, persegi panjang, atau segi lima", okta=d.obentuk==="Segitiga atau belah ketupat",
+      prisma=d.obentuk==="Prisma memanjang dengan ujung runcing", s=d.osenter||"";
+  var kuning=s==="Kuning kuningan pucat, berkilau", tua=s==="Kuning lebih tua, agak kehijauan", abu=s==="Abu-abu gelap, kusam",
+      merah=s==="Abu-abu kemerahan", perak=s==="Putih keperakan";
+  if(kubus||kuning) ok["Kemungkinan pirit"]=1;
+  if(kubus&&kuning) ok["Pirit (ditafsirkan)"]=1;
+  if(tua) ok["Kemungkinan kalkopirit"]=1;
+  if(kuning||tua) ok["Sulfida, jenisnya belum bisa dibedakan"]=1;
+  if(okta||abu) ok["Kemungkinan magnetit"]=1;
+  if(okta&&abu) ok["Magnetit (ditafsirkan)"]=1;
+  if(prisma||perak) ok["Kemungkinan arsenopirit"]=1;
+  if(d.otepi==="Merah darah"||merah) ok["Hematit (ditafsirkan)"]=1;
+  return ok;
+}
+function daftarDiizinkan(d){ return NAMA_OPAK.filter(function(n){ return namaDiizinkan(d)[n] && n!=="Lainnya"; }); }
+
+/* ===========================================================================
+   PENYAJI UMUM
+   =========================================================================== */
+function labelDari(x, d){ return typeof x.l==="function" ? x.l(d||{}) : x.l; }
+function opsiHtml(nama, opsi, ket, jenis){
+  return '<div class="pilih">'+opsi.map(function(o,i){
+    var k=(ket&&ket[i])?' <small>('+ket[i]+')</small>':'';
+    return '<label><input type="'+jenis+'" name="'+nama+'" value="'+esc(o)+'"> '+esc(o)+k+'</label>';
+  }).join('')+'</div>';
+}
+function renderButir(x, pre){
+  var id=pre+x.k;
+  var sat=x.s?' <span class="satuan">'+x.s+'</span>':'';
+  var h='<div class="butir" id="f-'+id+'" data-butir="'+x.k+'">';
+  var lbl='<span id="lbl-'+id+'">'+(x.q||labelDari(x,{}))+'</span>'+sat;
+  var km=kamusHtml(x.kamus);
+  if(x.t==="pilih"){
+    h+='<label>'+lbl+'</label>'+km+opsiHtml(id,x.o,x.ket,"radio");
+  } else if(x.t==="ganda"){
+    h+='<label>'+lbl+'</label>'+km+opsiHtml(id,x.o,x.ket,"checkbox");
+    if(x.lainnya){
+      h+=opsiHtml(id,["Lainnya"],null,"checkbox");
+      h+='<div id="wl-'+id+'" class="sembunyi"><input type="text" id="'+id+'-lain" placeholder="Sebutkan yang lainnya"></div>';
+    }
+  } else if(x.t==="bukti"||x.t==="batas"||x.t==="narasi"){
+    h+='<label for="'+id+'">'+lbl+'</label>'+km+(x.p?'<div class="pancing">'+x.p+'</div>':'')+
+       '<textarea id="'+id+'"'+(x.t==="narasi"?' class="panjang"':'')+
+       (x.c?' placeholder="'+esc(x.c)+'"':'')+'></textarea>'+
+       '<p class="hitung-kata" id="hk-'+id+'"></p>';
+  } else if(x.t==="tanggal"){
+    h+='<label for="'+id+'">'+lbl+'</label><input type="date" id="'+id+'">';
+  } else {
+    h+='<label for="'+id+'">'+lbl+'</label>'+km+'<input type="text" id="'+id+'"'+(x.t==="angka"?' inputmode="decimal"':'')+(x.c?' placeholder="'+esc(x.c)+'"':'')+'>';
+  }
+  if(x.n) h+='<details class="tips"><summary>💡 Bingung? Ketuk di sini</summary><p>'+x.n+'</p></details>';
+  h+='<p class="galat"></p></div>';
+  return h;
+}
+function renderGrup(g, pre){
+  var h='<div class="grup"'+(g.idn?' data-idn="1"':'')+(g.jenis?' data-jenis="'+g.jenis+'"':'')+'>';
+  if(g.judul) h+='<h4>'+g.judul+'</h4>';
+  h+=kamusHtml(g.kamus);
+  if(g.catatan) h+='<p class="alasan" style="margin:2px 0 12px">'+g.catatan+'</p>';
+  g.butir.forEach(function(x){ h+=renderButir(x,pre); });
+  return h+'</div>';
+}
+function bacaButir(x, pre, d){
+  var id=pre+x.k;
+  if(x.t==="pilih"){
+    var e=document.querySelector('input[name="'+id+'"]:checked'); d[x.k]=e?e.value:"";
+  } else if(x.t==="ganda"){
+    var c=[]; document.querySelectorAll('input[name="'+id+'"]:checked').forEach(function(e){ c.push(e.value); });
+    d[x.k]=c.join(", ");
+    if(x.lainnya){ var l=$(id+"-lain"); d[x.k+"Lain"]=l?l.value.trim():""; }
+  } else {
+    var el=$(id); d[x.k]=el?el.value.trim():"";
+  }
+}
+function tulisButir(x, pre, d){
+  var id=pre+x.k, v=d[x.k]||"";
+  if(x.t==="pilih"){
+    document.querySelectorAll('input[name="'+id+'"]').forEach(function(e){ e.checked=(e.value===v); });
+  } else if(x.t==="ganda"){
+    var dipilih=v?v.split(", "):[];
+    document.querySelectorAll('input[name="'+id+'"]').forEach(function(e){ e.checked=dipilih.indexOf(e.value)>-1; });
+    if(x.lainnya){ var l=$(id+"-lain"); if(l) l.value=d[x.k+"Lain"]||""; }
+  } else {
+    var el=$(id); if(el) el.value=v;
+  }
+}
+function semua(grupList){ var a=[]; grupList.forEach(function(g){ g.butir.forEach(function(x){ a.push({x:x,g:g}); }); }); return a; }
+
+function minKata(t){ return t==="bukti"?MIN.bukti : t==="batas"?MIN.batas : t==="narasi"?MIN.narasi : 0; }
+function cekButir(x, d){
+  var v=d[x.k]||"";
+  if(x.t==="pilih") return v?"":"belum dipilih";
+  if(x.t==="ganda"){
+    if(!v) return "belum dipilih";
+    var arr=v.split(", ");
+    if(x.eksklusif && arr.indexOf(x.eksklusif)>-1 && arr.length>1)
+      return "pilih '"+x.eksklusif+"' atau pilihan lain, bukan keduanya";
+    if(x.lainnya && arr.indexOf("Lainnya")>-1 && !(d[x.k+"Lain"]||"").trim()) return "keterangan 'Lainnya' masih kosong";
+    return "";
+  }
+  if(x.t==="angka"){
+    if(!v) return "masih kosong";
+    var n=angka(v); if(n===null) return "harus berupa angka";
+    if(n<0||n>100) return "harus di antara 0 dan 100";
+    return "";
+  }
+  if(x.t==="singkat"||x.t==="tanggal"){
+    if(!v) return "masih kosong";
+    if(TOLAK.indexOf(v.toLowerCase())>-1) return "jawaban ini tidak diterima, tulis isinya";
+    return "";
+  }
+  var m=minKata(x.t);
+  if(!v) return "masih kosong";
+  var k=kataUnik(v);
+  if(k<m) return "baru "+k+" dari "+m+" kata berbeda";
+  return "";
+}
+function normalTeks(t){ return String(t||"").toLowerCase().replace(/\s+/g," ").trim(); }
+function perbaruiHitungKata(grupList, pre, d){
+  semua(grupList).forEach(function(o){
+    var m=minKata(o.x.t); if(!m) return;
+    var el=$("hk-"+pre+o.x.k); if(!el) return;
+    var k=kataUnik(d[o.x.k]); el.textContent=k+" dari "+m+" kata berbeda"+(k>=m?" ✓":"");
+    el.classList.toggle("cukup",k>=m);
+  });
+}
+function perbaruiLainnya(grupList, pre, d){
+  semua(grupList).forEach(function(o){
+    if(!o.x.lainnya) return;
+    var w=$("wl-"+pre+o.x.k); if(w) w.classList.toggle("sembunyi", pecah(d[o.x.k]).indexOf("Lainnya")<0);
+  });
+}
+
+/* ===========================================================================
+   KARTU BUTIR
+   =========================================================================== */
+function bacaKartu(){ var d={}; semua(KARTU).forEach(function(o){ bacaButir(o.x,"w-",d); }); return d; }
+function tulisKartu(d){ semua(KARTU).forEach(function(o){ tulisButir(o.x,"w-",d); }); }
+function berlakuKartu(o, d){
+  if(o.g.jenis && o.g.jenis!==jenisKartu(d)) return false;
+  return !o.x.jika || o.x.jika(d);
+}
+function jumlahAmat(d){
+  var n=0, total=0;
+  semua(KARTU).forEach(function(o){
+    if(o.g.idn || o.g.jenisGrup || !berlakuKartu(o,d)) return;
+    total++; if(d[o.x.k]) n++;
+  });
+  return {n:n,total:total};
+}
+var MIN_AMAT=4;
+function adaPengamatanKartu(d){ var a=jumlahAmat(d); return a.total>0 && a.n>=Math.min(MIN_AMAT,a.total); }
+function kartuKosong(){ var d=bacaKartu(); return !Object.keys(d).some(function(k){ return d[k]; }); }
+function renderKartu(){
+  var h='<div class="kartu-kepala"><span class="kartu-judul" id="judul-kartu">Kartu kerja</span></div>';
+  var kunci=false;
+  KARTU.forEach(function(g){
+    if(g.jenisGrup){ h+='<div class="jenis-kartu">'+renderGrup(g,"w-")+'</div><div class="tunjuk" id="pilih-jenis"><b>☝️ Pilih jenis kartunya dulu.</b>Kolom pengamatan muncul sesudah ini.</div>'; return; }
+    if(g.idn && !kunci){ h+='<div class="tunjuk kunci-idn sembunyi" id="kunci-idn"><b>🔒 Kolom nama masih terkunci.</b>Isi minimal '+MIN_AMAT+' pengamatan di atas dulu. Nama itu kesimpulan, bukan titik awal.</div>'; kunci=true; }
+    h+=renderGrup(g,"w-");
+  });
+  $("kartu-kerja").innerHTML=h;
+}
+function perbaruiKartu(){
+  var d=bacaKartu(), j=jenisKartu(d), buka=adaPengamatanKartu(d);
+  $("pilih-jenis").classList.toggle("sembunyi",!!j);
+  $("kunci-idn").classList.toggle("sembunyi",!j||buka);
+  document.querySelectorAll("#kartu-kerja .grup[data-jenis]").forEach(function(el){
+    var cocok=el.dataset.jenis===j;
+    el.classList.toggle("sembunyi", !cocok || (el.dataset.idn==="1" && !buka));
+  });
+  semua(KARTU).forEach(function(o){
+    var el=$("f-w-"+o.x.k); if(!el) return;
+    el.classList.toggle("sembunyi", !!o.x.jika && !o.x.jika(d));
+  });
+  var t=$("tangga-live");
+  if(t) t.innerHTML=j==="opak" ? 'Dengan bukti sekarang, nama yang boleh dipakai: <b>'+esc(daftarDiizinkan(d).join(", ").toLowerCase())+'</b>, atau "lainnya".' : "";
+  perbaruiLainnya(KARTU,"w-",d);
+  perbaruiHitungKata(KARTU,"w-",d);
+  if(sudahCobaKartu) tandaiKartu(d);
+}
+var BOLEH_GANDA = ["Mineral opak","Sulfida, jenisnya belum bisa dibedakan","Lainnya"];
+function galatKartu(d){
+  var out=[], j=jenisKartu(d), buka=adaPengamatanKartu(d);
+  semua(KARTU).forEach(function(o){
+    if(!berlakuKartu(o,d)) return;
+    if(o.g.idn && !buka) return;
+    var e=cekButir(o.x,d); if(e) out.push({id:"f-w-"+o.x.k, teks:labelDari(o.x,d)+": "+e, butir:o.x.k, err:e});
+  });
+  if(j && !buka) out.push({id:"kartu-kerja",teks:"Nama masih terkunci, isi pengamatan dulu"});
+  if(j==="opak"){
+    if(d.ouji==="Bening atau berwarna di PPL, gelap di XPL")
+      out.push({id:"f-w-ouji", teks:"Uji 1: butir ini bukan opak", butir:"ouji",
+        err:"butir yang tembus cahaya di PPL bukan opak. Kalau ini mineral ubahan, ganti jenis kartu. Kalau mineral asal, cukup dicatat di Bagian C."});
+    if(d.onama && !namaDiizinkan(d)[d.onama])
+      out.push({id:"f-w-onama", teks:"Nama butir opak: bukti belum cukup untuk "+d.onama.toLowerCase(), butir:"onama",
+        err:"bukti belum cukup untuk nama ini. Yang didukung bukti kalian: "+daftarDiizinkan(d).join(", ").toLowerCase()+"."});
+    if(d.ociri && normalTeks(d.ociri)===normalTeks(CONTOH_CIRI))
+      out.push({id:"f-w-ociri", teks:"Ciri pembanding: sama persis dengan contoh", butir:"ociri", err:"ini kalimat contoh. Tulis dari pengamatan kalian sendiri, ya."});
+  }
+  var nm=j==="opak"?d.onama:(j==="ubah"?d.unama:"");
+  if(nm && BOLEH_GANDA.indexOf(nm)<0 && sampel.some(function(s){ return s.id!==sedangUbah && jenisKartu(s.data)===j && namaKartu(s.data)===nm; }))
+    out.push({id:"f-w-"+(j==="opak"?"onama":"unama"), teks:"Nama: "+nm+" sudah punya kartu", butir:(j==="opak"?"onama":"unama"),
+      err:"nama ini sudah punya kartu. Satu kartu = satu jenis butir. Ubah kartu yang lama saja."});
+  return out;
+}
+function tandaiKartu(d){
+  var g=galatKartu(d), peta={};
+  g.forEach(function(x){ if(x.butir && !peta[x.butir]) peta[x.butir]=x.err; });
+  semua(KARTU).forEach(function(o){
+    var el=$("f-w-"+o.x.k); if(!el) return;
+    var e=peta[o.x.k]; el.classList.toggle("salah",!!e);
+    el.querySelector(".galat").textContent=e?("⚠️ "+e):"";
+  });
+}
+
+/* ---------- contoh kartu terisi ---------- */
+var CONTOH_CIRI = "Persegi dan kuning kuningan waktu disenter, jadi pirit. Kalkopirit kecil di sekitarnya belum bisa dipisahkan tanpa cahaya pantul.";
+var CONTOH_KARTU = [
+  ["Jenis kartu","Butir opak"],
+  ["Uji 1 · Opak atau bukan","Hitam di PPL dan XPL, tetap hitam waktu diputar"],["Uji 2 · Pinggir yang tipis","Tetap hitam"],
+  ["Uji 3 · Bentuk penampang","Persegi, persegi panjang, atau segi lima"],["Uji 4 · Cara hadir","Tersebar bergerombol"],
+  ["Uji 5 · Senter dari atas","Kuning kuningan pucat, berkilau"],
+  ["Nama butir opak","Pirit (ditafsirkan)"],["Ukuran butir","0,1–0,3 mm"],["Persen","2"],["Mineral di sekitarnya","Serisit, Kuarsa ubahan"],
+  ["Ciri pembanding","<i>"+CONTOH_CIRI+"</i>"]
+];
+function gambarContoh(){
+  $("contoh-kartu").innerHTML='<summary>📋 Lihat contoh kartu butir opak yang sudah diisi</summary>'+
+    '<p class="awas">⚠️ <b>Ini cuma contoh cara ngisi.</b> Butir di sayatan kalian bisa beda bentuk, warna senter, dan persennya. Kolom ciri yang sama persis dengan contoh ini <b>otomatis ditolak</b>.</p>'+
+    '<table>'+CONTOH_KARTU.map(function(r){ return '<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>'; }).join("")+'</table>'+
+    '<p class="pancing">Aturan naik nama: uji opak saja → <b>mineral opak</b>. Bentuk khas <b>atau</b> warna senter yang cocok → <b>kemungkinan ...</b>. Bentuk khas <b>dan</b> warna senter yang cocok → <b>... (ditafsirkan)</b>.</p>';
+}
+
+/* ---------- nomor tanda terima, disimpan di HP ---------- */
+function bacaTanda(){ try{ var a=JSON.parse(localStorage.getItem(KUNCI+"-tanda")||"[]"); return Array.isArray(a)?a:[]; }catch(e){ return []; } }
+function simpanTanda(tanda, d){
+  var a=bacaTanda(); a.unshift({tanda:tanda, waktu:new Date().toLocaleString("id-ID"), sayatan:d.sayatan||""});
+  try{ localStorage.setItem(KUNCI+"-tanda",JSON.stringify(a.slice(0,10))); }catch(e){}
+  gambarTanda();
+}
+function gambarTanda(){
+  var a=bacaTanda(), el=$("tanda-lalu");
+  if(!a.length){ el.classList.add("sembunyi"); el.innerHTML=""; return; }
+  el.classList.remove("sembunyi");
+  el.innerHTML='<b>🧾 Nomor tanda terima yang tersimpan di HP ini</b>'+a.map(function(x){
+    return '<div><code>'+esc(x.tanda)+'</code> · sayatan '+esc(x.sayatan||"-")+' · '+esc(x.waktu)+'</div>'; }).join("");
+}
+function bersihkanKartu(){
+  tulisKartu({}); sedangUbah=null; sudahCobaKartu=false;
+  document.querySelectorAll("#kartu-kerja .butir.salah").forEach(function(el){ el.classList.remove("salah"); });
+  $("judul-kartu").textContent="Kartu kerja";
+  var b=$("btn-simpan"); b.textContent="Simpan Kartu"; b.className="";
+  perbaruiKartu(); gambarDaftar();
+}
+function pesanKartu(t,j){ var e=$("status-kartu"); e.textContent=t; e.className="status"+(j?" "+j:""); }
+
+$("btn-simpan").addEventListener("click",function(){
+  var d=bacaKartu(); sudahCobaKartu=true;
+  var g=galatKartu(d);
+  if(!jenisKartu(d)) g.unshift({id:"f-w-jenis",teks:"Jenis kartu belum dipilih"});
+  if(g.length){
+    tandaiKartu(d);
+    pesanKartu("Kartunya belum lengkap ("+g.length+" kolom). Isi dulu yang bertanda merah, ya.","buruk");
+    var el=$(g[0].id); if(el) el.scrollIntoView({behavior:"smooth",block:"center"});
+    return;
+  }
+  var bersih={};
+  semua(KARTU).forEach(function(o){ if(berlakuKartu(o,d)){ bersih[o.x.k]=d[o.x.k]; if(o.x.lainnya) bersih[o.x.k+"Lain"]=d[o.x.k+"Lain"]; } });
+  if(sedangUbah){
+    sampel.forEach(function(s){ if(s.id===sedangUbah) s.data=bersih; });
+    pesanKartu("Perubahan tersimpan.","baik");
+  } else {
+    sampel.push({ id:"s"+Date.now()+Math.floor(Math.random()*1000), data:bersih });
+    pesanKartu("Tersimpan ✓ Kartu siap buat butir berikutnya.","baik");
+  }
+  var b=this; b.textContent="Tersimpan ✓"; b.className="basal";
+  setTimeout(function(){ bersihkanKartu(); pesanKartu(""); },900);
+  simpan(); gambarDaftar(); perbaruiBatuan();
+});
+$("btn-batal").addEventListener("click",function(){
+  if(kartuKosong() || confirm("Isi kartu kerja akan dihapus. Kartu yang sudah tersimpan tidak terpengaruh. Lanjutkan?")){
+    bersihkanKartu(); pesanKartu(""); simpan();
+  }
+});
+
+function gambarDaftar(){
+  var w=$("daftar-sampel"), hit=$("hitung");
+  if(!sampel.length){
+    w.innerHTML='<div class="kosong-daftar">Belum ada kartu tersimpan. Isi kartu kerja di atas, lalu tekan Simpan Kartu.</div>';
+    hit.innerHTML="Belum ada kartu tersimpan."; return;
+  }
+  var no=kartuJenis("opak").length, nu=kartuJenis("ubah").length;
+  hit.innerHTML="Tersimpan: <b>"+no+"</b> butir opak · <b>"+nu+"</b> mineral ubahan"+(nu>3?" · cukup 3 mineral ubahan yang paling menentukan":"");
+  w.innerHTML='<div class="gulir"><table><thead><tr><th>No.</th><th>Jenis</th><th>Nama</th><th>Persen</th><th></th></tr></thead><tbody>'+
+    sampel.map(function(s,i){ var d=s.data;
+      return '<tr><td>'+(i+1)+'</td><td>'+(jenisKartu(d)==="opak"?"Butir opak":"Mineral ubahan")+'</td><td>'+esc(namaKartu(d))+'</td><td>'+esc(persenKartu(d)===null?"":persenKartu(d))+
+        '</td><td class="aksi-sel"><button type="button" class="sekunder kecil" data-ubah="'+s.id+
+        '">Ubah</button><button type="button" class="sekunder kecil" data-hapus="'+s.id+'">Hapus</button></td></tr>';
+    }).join("")+'</tbody></table></div>';
+}
+document.addEventListener("click",function(ev){
+  var t=ev.target; if(!t.dataset) return;
+  if(t.dataset.ubah){
+    var s=sampel.filter(function(x){ return x.id===t.dataset.ubah; })[0]; if(!s) return;
+    if(!kartuKosong() && !confirm("Kartu kerja masih berisi sesuatu yang belum disimpan. Isinya akan diganti. Lanjutkan?")) return;
+    tulisKartu(s.data); sedangUbah=s.id;
+    $("judul-kartu").textContent="Mengubah: "+(namaKartu(s.data)||"kartu tersimpan");
+    var b=$("btn-simpan"); b.textContent="Simpan Perubahan"; b.className="";
+    perbaruiKartu(); $("kartu-kerja").scrollIntoView({behavior:"smooth",block:"start"});
+  }
+  if(t.dataset.hapus){
+    var s2=sampel.filter(function(x){ return x.id===t.dataset.hapus; })[0]; if(!s2) return;
+    if(!confirm("Hapus "+(namaKartu(s2.data)||"kartu ini")+" dari daftar? Tidak bisa dikembalikan.")) return;
+    sampel=sampel.filter(function(x){ return x.id!==t.dataset.hapus; });
+    if(sedangUbah===t.dataset.hapus) bersihkanKartu();
+    simpan(); gambarDaftar(); perbaruiBatuan();
+  }
+  if(t.dataset.lompat){
+    var el=$(t.dataset.lompat); if(!el) return;
+    el.scrollIntoView({behavior:"smooth",block:"center"});
+    var inp=el.querySelector("input,textarea"); if(inp) setTimeout(function(){ try{inp.focus({preventScroll:true});}catch(e){} },400);
+  }
+});
+
+/* ===========================================================================
+   TINGKAT BATUAN
+   =========================================================================== */
+function renderBatuan(){
+  BAGIAN_BATUAN.forEach(function(b){
+    var h=""; b.grup.forEach(function(g){ h+=renderGrup(g,"r-"); });
+    $(b.wadah).innerHTML=h;
+  });
+}
+function bacaBatuan(){ var d={}; BAGIAN_BATUAN.forEach(function(b){ semua(b.grup).forEach(function(o){ bacaButir(o.x,"r-",d); }); }); return d; }
+function tulisBatuan(d){ BAGIAN_BATUAN.forEach(function(b){ semua(b.grup).forEach(function(o){ tulisButir(o.x,"r-",d); }); }); }
+function berlakuBatuan(o, d){ return !o.x.jika || o.x.jika(d); }
+function perbaruiBatuan(){
+  var d=bacaBatuan();
+  BAGIAN_BATUAN.forEach(function(b){
+    semua(b.grup).forEach(function(o){
+      var el=$("f-r-"+o.x.k); if(!el) return;
+      el.classList.toggle("sembunyi", !berlakuBatuan(o,d));
+    });
+    perbaruiLainnya(b.grup,"r-",d);
+    perbaruiHitungKata(b.grup,"r-",d);
+  });
+  $("ket-senter").textContent = d.badaopak==="Ada" ? "(wajib, karena ada butir opak)" : "(boleh dilewati, karena nggak ada butir opak)";
+  perbaruiGerbang(d);
+  gambarRingkasC(d); gambarUrutanD(d); gambarTabelE(d);
+  gambarPenandaC(d); gambarPenandaD(d); gambarPenandaE(d); gambarPenandaF(d); gambarPenandaG(d);
+  if(sudahCoba) tandaiBatuan();
+}
+function perbaruiGerbang(d){
+  var kotak=$("kotak-a");
+  kotak.className="periksa"+(d.v1?(d.v1==="Gelap merata"?" lolos":" gagal"):"");
+  var g=$("gerbang"), j=$("gerbang-judul"), t=$("gerbang-teks");
+  if(d.v1==="Gelap merata"){ g.className="gerbang aman"; j.textContent="✅ Alat siap dipakai."; t.textContent="Medan gelap rata. Data yang kalian catat mulai sekarang bisa dipercaya."; }
+  else if(!d.v1){ g.className="gerbang"; j.textContent="Cek alat belum diisi"; t.textContent="Isi A1 dulu sebelum mulai mengamati."; }
+  else { g.className="gerbang"; j.textContent="⚠️ Lapor ke asisten dulu"; t.textContent="Kalian tetap boleh mengamati, tapi tulis keadaannya apa adanya. Jujur soal alat yang bermasalah nggak bikin nilai berkurang."; }
+}
+function statusGerbang(){
+  var d=bacaBatuan();
+  if(d.v1==="Gelap merata") return "Alat terperiksa. Data berdasar.";
+  if(!d.v1) return "Pemeriksaan alat tidak diisi.";
+  return "Alat bermasalah dan dilaporkan apa adanya. Penilaian mengikuti aturan kejujuran pada rubrik.";
+}
+
+/* ===========================================================================
+   BAGIAN C · ringkasan dan saran
+   =========================================================================== */
+var SKOR_HABIS = { "Sebagian kecil":1, "Sebagian besar":2, "Habis, tinggal bekas bentuknya":3 };
+var URUT_INT = ["Lemah","Sedang","Kuat","Intens"];
+function barisC(d){
+  return BARIS_C.map(function(r){
+    var k=r[0], adaB=d["c"+k+"ada"]==="Ada", jadi=pecah(d["c"+k+"jadi"]);
+    var berubah=adaB && jadi.length && jadi.indexOf("Masih segar")<0;
+    return { kode:k, nama:r[1], ada:adaB, jadi:jadi, berubah:berubah, skor:berubah?(SKOR_HABIS[d["c"+k+"habis"]]||0):0, habis:d["c"+k+"habis"]||"" };
+  });
+}
+function saranC(d){
+  var rows=barisC(d), ada=rows.filter(function(r){ return r.ada; }), ubah=ada.filter(function(r){ return r.berubah; });
+  var pinggir=d.curat==="Ada" && d.curatpinggir==="Ikut berubah";
+  var sebar="";
+  if(ada.length){
+    if(!ubah.length) sebar=pinggir?"Mengikuti urat atau retakan":"";
+    else if(ubah.length===ada.length) sebar="Menyeluruh";
+    else sebar="Hanya mineral tertentu";
+  }
+  var intn="";
+  if(ada.length && ubah.length){
+    var rata=ada.reduce(function(a,r){ return a+r.skor; },0)/ada.length;
+    intn=rata<0.75?"Lemah":(rata<1.5?"Sedang":(rata<2.4?"Kuat":"Intens"));
+  } else if(ada.length && pinggir) intn="Lemah";
+  return { rows:rows, ada:ada, ubah:ubah, sebar:sebar, intn:intn };
+}
+function gambarRingkasC(d){
+  var s=saranC(d), w=$("ringkas-c");
+  if(!s.ada.length){ w.innerHTML=""; return; }
+  w.innerHTML='<h4>Ringkasan Bagian C</h4><div class="gulir"><table class="tabel-ubah"><thead><tr><th>Bagian batuan</th><th>Berubah menjadi</th><th>Seberapa habis</th></tr></thead><tbody>'+
+    s.ada.map(function(r){ return '<tr><td>'+esc(r.nama)+'</td><td>'+esc(r.jadi.join(", ")||"-")+'</td><td>'+esc(r.berubah?r.habis:"masih segar")+'</td></tr>'; }).join("")+
+    (d.curat==="Ada"?'<tr><td>Urat</td><td>isi: '+esc(d.curatisi||"-")+(d.curatpinggir==="Ikut berubah"?'; pinggir: '+esc(d.curatpjadi||"-"):'')+'</td><td></td></tr>':'')+
+    '</tbody></table></div>'+
+    ((s.sebar||s.intn)?'<div class="saran">🧭 <b>Saran dari tabel ini</b> (kalian yang memutuskan di Bagian E):'+
+      (s.intn?'<br>Intensitas kira-kira <b>'+s.intn.toLowerCase()+'</b>.':'')+
+      (s.sebar?'<br>Sebaran ubahan: <b>'+s.sebar.toLowerCase()+'</b>.':'')+'</div>':'');
+}
+function gambarPenandaC(d){
+  var p=[], s=saranC(d), g=gantiSemua(d);
+  if(d.badaubah==="Nggak ada, batuan masih segar" && (s.ubah.length || (d.curat==="Ada" && d.curatpinggir==="Ikut berubah")))
+    p.push("Di Bagian B kalian bilang batuan masih segar, tapi di sini ada bagian yang berubah.");
+  if(d.badaubah==="Ada" && s.ada.length && !s.ubah.length && !(d.curat==="Ada" && d.curatpinggir==="Ikut berubah") && !(d.curat==="Ada"))
+    p.push("Di Bagian B ada mineral ubahan, tapi di sini semua bagian batuan masih segar dan nggak ada urat.");
+  kartuJenis("ubah").forEach(function(k){
+    var m=UBAH_KE_GANTI[k.data.unama];
+    if(m && !g[m]) p.push("Kartu "+k.data.unama.toLowerCase()+" belum muncul di tabel ini. Mineral ini mengganti bagian batuan yang mana?");
+    if(k.data.uletak==="Mengisi urat" && d.curat!=="Ada") p.push("Kartu "+namaKartu(k.data).toLowerCase()+" mengisi urat, tapi di C6 uratnya \"nggak ada\".");
+  });
+  kartuJenis("opak").forEach(function(k){
+    if(k.data.osebar==="Di dalam urat" && d.curat!=="Ada") p.push("Kartu "+namaKartu(k.data).toLowerCase()+" ada di dalam urat, tapi di C6 uratnya \"nggak ada\".");
+  });
+  isiPenanda($("penanda-c"), p);
+}
+
+/* ===========================================================================
+   BAGIAN D · urutan dari hubungan
+   =========================================================================== */
+function relasi(d){
+  if(d.dhub!=="Ada") return [];
+  var n=Number(d.djml||0), out=[];
+  for(var i=1;i<=n;i++){ if(d["dA"+i] && d["dB"+i] && d["dR"+i]) out.push({muda:d["dA"+i].trim(), tua:d["dB"+i].trim(), r:d["dR"+i]}); }
+  return out;
+}
+function urutkan(rel){
+  var nama=[], masuk={}, sisi={};
+  function tambah(x){ var k=normalTeks(x); if(!(k in masuk)){ masuk[k]=0; sisi[k]=[]; nama.push(x); } return k; }
+  rel.forEach(function(r){ var a=tambah(r.tua), b=tambah(r.muda); sisi[a].push(b); masuk[b]++; });
+  var antre=nama.filter(function(x){ return masuk[normalTeks(x)]===0; }), hasil=[];
+  var asli={}; nama.forEach(function(x){ asli[normalTeks(x)]=x; });
+  while(antre.length){
+    var x=antre.shift(), k=normalTeks(x); hasil.push(x);
+    sisi[k].forEach(function(y){ masuk[y]--; if(masuk[y]===0) antre.push(asli[y]); });
+  }
+  return hasil.length===nama.length ? hasil : null;
+}
+function gambarUrutanD(d){
+  var w=$("urutan-d"), rel=relasi(d);
+  if(!rel.length){ w.innerHTML=""; return; }
+  var u=urutkan(rel);
+  w.innerHTML='<div class="saran">🧭 <b>Dari hubungan yang kalian tulis:</b><br>'+
+    rel.map(function(r){ return esc(r.muda)+' '+esc(r.r)+' '+esc(r.tua)+' → <b>'+esc(r.muda)+'</b> lebih muda'; }).join("<br>")+
+    (u?'<br>Saran urutan, tua ke muda: <b>'+esc(u.join(" → "))+'</b>':'<br>⚠️ Hubungannya saling bertentangan: ada yang jadi lebih tua sekaligus lebih muda. Cek lagi.')+'</div>';
+}
+function posisi(urut, nama){
+  var n=normalTeks(nama);
+  for(var i=0;i<urut.length;i++){ var s=normalTeks(urut[i]); if(s && (s.indexOf(n)>-1 || n.indexOf(s)>-1)) return i; }
+  return -1;
+}
+var TEKSTUR_URAT = ["Urat atau urat halus","Pinggir urat terubah","Jaring urat (stockwork)","Comb","Berpita (crustiform)","Koloform","Bilah bersilangan (lattice-bladed)"];
+function gambarPenandaD(d){
+  var p=[];
+  if(adaSalah(d,"dtekstur",TEKSTUR_URAT) && d.curat!=="Ada") p.push("D1: ada tekstur urat, tapi di C6 uratnya \"nggak ada\".");
+  if(d.curat==="Ada" && d.dtekstur && !ada(d,"dtekstur","Urat atau urat halus")) p.push("D1: di C6 ada urat, tapi \"urat atau urat halus\" belum dicentang.");
+  if(ada(d,"dtekstur","Pinggir urat terubah") && d.curatpinggir && d.curatpinggir!=="Ikut berubah") p.push("D1: pinggir urat terubah dicentang, tapi di C6 pinggir uratnya sama dengan batuan sekitarnya.");
+  if(ada(d,"dtekstur","Tersebar (diseminasi)") && !kartuJenis("opak").some(function(k){ return /^Tersebar/.test(k.data.osebar||""); }))
+    p.push("D1: diseminasi dicentang, tapi belum ada kartu butir opak yang tersebar.");
+  if(ada(d,"dtekstur","Pseudomorf") && !kartuJenis("ubah").some(function(k){ return /bentuk lamanya masih utuh/.test(k.data.uletak||""); }))
+    p.push("D1: pseudomorf dicentang, tapi belum ada kartu mineral ubahan yang mengganti fenokris dengan bentuk lama utuh.");
+  if(ada(d,"dtekstur","Berongga (vuggy)") && !punya("Kuarsa",d)) p.push("D1: kuarsa berongga dicentang, tapi kuarsa ubahan belum tercatat di kartu atau Bagian C.");
+  var rel=relasi(d);
+  if(rel.length && d.durut){
+    var urut=d.durut.split(/→|->|>|,/).map(function(x){ return x.trim(); }).filter(function(x){ return x; });
+    rel.forEach(function(r){
+      var a=posisi(urut,r.muda), b=posisi(urut,r.tua);
+      if(a>-1 && b>-1 && a<b) p.push("Urutan: \""+r.muda+"\" "+r.r+" \""+r.tua+"\", jadi harusnya lebih muda, tapi di urutan kalian dia ditulis lebih dulu.");
+    });
+    if(!/→|->|>/.test(d.durut)) p.push("Urutan: pakai tanda → di antara tiap tahap.");
+  }
+  isiPenanda($("penanda-d"), p);
+}
+
+/* ===========================================================================
+   BAGIAN E · komposisi, jenis, intensitas, sebaran
+   =========================================================================== */
+function komposisi(d){
+  var baris=sampel.map(function(s){ return { nama:namaKartu(s.data), jenis:jenisKartu(s.data), persen:persenKartu(s.data) }; });
+  var opak=baris.filter(function(b){ return b.jenis==="opak"; }).reduce(function(a,b){ return a+(b.persen||0); },0);
+  var ubah=baris.filter(function(b){ return b.jenis==="ubah"; }).reduce(function(a,b){ return a+(b.persen||0); },0);
+  var primer=angka(d.eprimer), lain=angka(d.elain);
+  return { baris:baris, opak:bulat(opak), ubah:bulat(ubah), primer:primer, lain:lain, total:bulat(opak+ubah+(primer||0)+(lain||0)) };
+}
+function gambarTabelE(d){
+  var w=$("tabel-e"), k=komposisi(d);
+  if(!k.baris.length){ w.innerHTML='<div class="kosong-daftar">Tabel ini terisi sendiri dari persen di kartu Bagian B.</div>'; return; }
+  w.innerHTML='<div class="gulir"><table><thead><tr><th>Kelompok</th><th>Isi</th><th>Persen</th></tr></thead><tbody>'+
+    '<tr><td>Butir opak</td><td>'+esc(k.baris.filter(function(b){ return b.jenis==="opak"; }).map(function(b){ return b.nama+" "+(b.persen===null?"-":b.persen); }).join("; ")||"-")+'</td><td>'+k.opak+'</td></tr>'+
+    '<tr><td>Mineral ubahan berkartu</td><td>'+esc(k.baris.filter(function(b){ return b.jenis==="ubah"; }).map(function(b){ return b.nama+" "+(b.persen===null?"-":b.persen); }).join("; ")||"-")+'</td><td>'+k.ubah+'</td></tr>'+
+    '<tr><td>Mineral asal yang masih segar</td><td>dari E1</td><td>'+(k.primer===null?"-":k.primer)+'</td></tr>'+
+    '<tr><td>Lain-lain atau tak teridentifikasi</td><td>dari E1</td><td>'+(k.lain===null?"-":k.lain)+'</td></tr>'+
+    '<tr><th>Total</th><th></th><th>'+k.total+'</th></tr></tbody></table></div>';
+}
+var SYARAT_JENIS = {
+  "Potasik":[["Biotit sekunder","K-feldspar"],"biotit sekunder atau K-feldspar ubahan"],
+  "Filik":[["Serisit"],"serisit"],
+  "Propilitik":[["Klorit","Epidot","Kalsit atau karbonat"],"klorit, epidot, atau kalsit"],
+  "Argilik":[["Mineral lempung"],"mineral lempung"],
+  "Argilik lanjut":[["Alunit"],"alunit (atau kuarsa berongga)"],
+  "Silisik":[["Kuarsa"],"kuarsa ubahan"],
+  "Skarn":[["Garnet atau piroksen"],"garnet atau piroksen"],
+  "Retrograde batuan metamorf":[["Klorit","Serisit","Epidot","Aktinolit"],"klorit, serisit, epidot, atau aktinolit"]
+};
+var BUKTI_E = {
+  "Biotit sekunder halus bergerombol":["Biotit sekunder"],"K-feldspar ubahan":["K-feldspar"],"Serisit + kuarsa di bekas feldspar":["Serisit"],
+  "Klorit + epidot + kalsit":["Klorit","Epidot","Kalsit atau karbonat"],"Mineral lempung keruh di feldspar":["Mineral lempung"],
+  "Alunit":["Alunit"],"Kuarsa halus mozaik mengganti massa dasar":["Kuarsa"],"Garnet atau piroksen bersama kalsit":["Garnet atau piroksen"],
+  "Klorit mengganti garnet atau biotit metamorf":["Klorit"],"Kuarsa berongga":["Kuarsa"]
+};
+function isiPenanda(el, p){
+  if(!p.length){ el.classList.add("sembunyi"); el.innerHTML=""; return; }
+  el.classList.remove("sembunyi");
+  el.innerHTML="<b>⚠️ Cek lagi</b><ul>"+p.map(function(x){ return "<li>"+esc(x)+"</li>"; }).join("")+"</ul>";
+}
+function gambarPenandaE(d){
+  var p=[], k=komposisi(d), s=saranC(d);
+  if(sampel.length && k.primer!==null && k.lain!==null && Math.abs(k.total-100)>1)
+    p.push("Total komposisi "+k.total+"%, bukan 100%. Cek lagi persen di kartu atau di E1.");
+  pecah(d.ejenis).forEach(function(j){
+    var sy=SYARAT_JENIS[j]; if(!sy) return;
+    var cukup=sy[0].some(function(m){ return punya(m,d); }) || (j==="Argilik lanjut" && ada(d,"dtekstur","Berongga (vuggy)"));
+    if(!cukup) p.push("E2: "+j.toLowerCase()+" butuh "+sy[1]+", tapi belum tercatat di kartu atau Bagian C.");
+    if(j==="Propilitik" && cukup && sy[0].filter(function(m){ return punya(m,d); }).length<2)
+      p.push("E2: propilitik itu himpunan. Baru satu dari klorit, epidot, dan kalsit yang tercatat.");
+    if(j==="Filik" && cukup && !adaOpakNama(/pirit|Sulfida/i)) p.push("E2: filik biasanya bersama pirit. Ada butir opak yang bisa jadi pirit?");
+  });
+  Object.keys(BUKTI_E).forEach(function(b){
+    if(ada(d,"ebukti",b) && !BUKTI_E[b].some(function(m){ return punya(m,d); }))
+      p.push("E2: kalian centang “"+b+"”, tapi mineralnya belum tercatat di kartu atau Bagian C.");
+  });
+  if(ada(d,"ebukti",TAK_TERLIHAT) && d.ejenis && d.ejenis!=="Belum bisa ditentukan")
+    p.push("E2: jenisnya sudah dipilih, tapi buktinya dicentang “nggak kelihatan di sayatan”. Pilih salah satu.");
+  if(pecah(d.ejenis).filter(function(x){ return x!=="Belum bisa ditentukan"; }).length>1 && !ada(d,"dtekstur","Ubahan menumpang (overprinting)"))
+    p.push("E2: ada dua jenis alterasi. Kalau satu menumpang yang lain, centang \"ubahan menumpang\" di D1.");
+  if(d.eint && s.intn && Math.abs(URUT_INT.indexOf(d.eint)-URUT_INT.indexOf(s.intn))>=2)
+    p.push("E3: intensitas "+d.eint.toLowerCase()+", tapi tabel Bagian C lebih dekat ke "+s.intn.toLowerCase()+".");
+  if(d.esebar && s.sebar && d.esebar!==s.sebar)
+    p.push("E3: sebaran "+d.esebar.toLowerCase()+", tapi tabel Bagian C menunjukkan "+s.sebar.toLowerCase()+". Boleh beda kalau kalian punya alasan.");
+  isiPenanda($("penanda-e"), p);
+}
+
+/* ===========================================================================
+   BAGIAN F dan G · penanda
+   =========================================================================== */
+var KATA_JENIS = { "Potasik":["potasik"],"Filik":["filik","serisitik"],"Propilitik":["propilitik"],"Argilik":["argilik"],
+  "Argilik lanjut":["argilik lanjut"],"Silisik":["silisik","silisifikasi"],"Skarn":["skarn"],"Retrograde batuan metamorf":["retrograde"] };
+function gambarPenandaF(d){
+  var p=[], t=(d.fdesk||"").toLowerCase(), n=(d.fnama||"").toLowerCase();
+  if(t.length>40){
+    if(t.indexOf("%")<0 && !/persen/.test(t)) p.push("Deskripsi: belum ada angka persen.");
+    if(!/\bmm\b|mikron|µm/.test(t)) p.push("Deskripsi: belum ada ukuran butir (mm).");
+    if(d.badaopak==="Ada" && !/opak|pirit|magnetit|hematit|sulfida|kalkopirit|sfalerit|arsenopirit|oksida/.test(t)) p.push("Deskripsi: butir opak belum disebut.");
+    if(adaOpakNama(/^Kemungkinan|^Mineral opak|^Sulfida/) && !/kemungkinan|belum|ditafsirkan|dugaan|cahaya pantul/.test(t))
+      p.push("Deskripsi: kartu butir opak kalian masih \"kemungkinan\" atau \"mineral opak\", tapi deskripsinya belum menyebut batas itu.");
+  }
+  if(n.length>=3){
+    pecah(d.ejenis).forEach(function(j){
+      var kata=KATA_JENIS[j]; if(kata && !kata.some(function(x){ return n.indexOf(x)>-1; })) p.push("Nama laporan belum memuat jenis alterasi "+j.toLowerCase()+".");
+    });
+    if(d.eint && n.indexOf(d.eint.toLowerCase())<0) p.push("Nama laporan belum memuat intensitas ("+d.eint.toLowerCase()+").");
+  }
+  if(d.fasal==="Batuan metamorf" && d.fasalb && !ada(d,"fasalb","Foliasi")) p.push("F1: batuan metamorf, tapi foliasi belum dicentang sebagai bukti.");
+  if(ada(d,"fasalb",TAK_TERLIHAT) && d.fasal && d.fasal!=="Belum bisa ditentukan") p.push("F1: batuan asal sudah dipilih, tapi buktinya dicentang “nggak kelihatan di sayatan”.");
+  isiPenanda($("penanda-f"), p);
+}
+var BUKTI_G = {
+  "Biotit sekunder atau K-feldspar ubahan":function(d){ return punya("Biotit sekunder",d)||punya("K-feldspar",d); },
+  "Serisit + kuarsa + pirit":function(d){ return punya("Serisit",d); },
+  "Klorit + epidot + kalsit":function(d){ return punya("Klorit",d)||punya("Epidot",d)||punya("Kalsit atau karbonat",d); },
+  "Adularia":function(d){ return adaUbah("Adularia")||ada(d,"curatisi","Adularia"); },
+  "Kuarsa berpita, koloform, atau bilah bersilangan":function(d){ return adaSalah(d,"dtekstur",["Berpita (crustiform)","Koloform","Bilah bersilangan (lattice-bladed)"]); },
+  "Alunit atau kuarsa berongga":function(d){ return punya("Alunit",d)||ada(d,"dtekstur","Berongga (vuggy)"); },
+  "Garnet atau piroksen bersama kalsit":function(d){ return punya("Garnet atau piroksen",d); },
+  "Urat memotong foliasi":function(d){ return d.curat==="Ada" && ada(d,"fasalb","Foliasi"); },
+  "Jaring urat (stockwork)":function(d){ return ada(d,"dtekstur","Jaring urat (stockwork)"); }
+};
+var POSISI_JENIS = { "Inti":"Potasik","Dekat inti":"Filik","Pinggir atau jauh dari inti":"Propilitik","Bagian atas":"Argilik lanjut" };
+function gambarPenandaG(d){
+  var p=[];
+  Object.keys(BUKTI_G).forEach(function(b){
+    if(ada(d,"g1b",b) && !BUKTI_G[b](d)) p.push("G1: kalian centang “"+b+"”, tapi belum tercatat di kartu, Bagian C, atau Bagian D.");
+  });
+  var jn=pecah(d.ejenis);
+  if(d.g1==="Epitermal sulfidasi rendah" && !(BUKTI_G["Adularia"](d)||BUKTI_G["Kuarsa berpita, koloform, atau bilah bersilangan"](d)))
+    p.push("G1: sulfidasi rendah, tapi adularia atau kuarsa berpita belum tercatat.");
+  if(d.g1==="Epitermal sulfidasi tinggi" && !BUKTI_G["Alunit atau kuarsa berongga"](d))
+    p.push("G1: sulfidasi tinggi, tapi alunit atau kuarsa berongga belum tercatat.");
+  if(d.g1==="Porfiri" && !jn.some(function(j){ return ["Potasik","Filik","Propilitik"].indexOf(j)>-1; }))
+    p.push("G1: porfiri, tapi di E2 belum ada potasik, filik, atau propilitik.");
+  if(d.g1==="Skarn" && !punya("Garnet atau piroksen",d)) p.push("G1: skarn, tapi garnet atau piroksen belum tercatat.");
+  if(d.g1==="Urat di batuan metamorf" && d.fasal!=="Batuan metamorf") p.push("G1: urat di batuan metamorf, tapi batuan asal di F1 bukan batuan metamorf.");
+  if(POSISI_JENIS[d.g2] && jn.indexOf(POSISI_JENIS[d.g2])<0) p.push("G2: posisi "+d.g2.toLowerCase()+" biasanya ditandai "+POSISI_JENIS[d.g2].toLowerCase()+", tapi jenis itu belum dipilih di E2.");
+  if(d.g2==="Jalur fluida" && d.curat!=="Ada" && jn.indexOf("Silisik")<0) p.push("G2: jalur fluida, tapi belum ada urat atau silisik.");
+  if(d.g4==="Skarn" && d.fasal && ["Batugamping","Belum bisa ditentukan"].indexOf(d.fasal)<0) p.push("G4: skarn biasanya terbentuk di batuan karbonat. Batuan asal di F1 "+d.fasal.toLowerCase()+".");
+  if(ada(d,"g1b",TAK_TERLIHAT) && d.g1 && d.g1.indexOf("Belum bisa")!==0) p.push("G1: jawabannya pasti, tapi buktinya dicentang “nggak kelihatan di sayatan”. Pilih salah satu.");
+  isiPenanda($("penanda-g"), p);
+}
+
+
+/* ===========================================================================
+   SKETSA
+   =========================================================================== */
+var SLOT = ["ppl","xpl","senter"];
+var NAMA_SLOT = { ppl:"Sketsa PPL", xpl:"Sketsa XPL", senter:"Sketsa senter dari atas" };
+function kecilkan(file){
+  return new Promise(function(res,rej){
+    var fr=new FileReader();
+    fr.onload=function(){
+      var img=new Image();
+      img.onload=function(){
+        var maks=1400,w=img.width,h=img.height;
+        if(w>maks||h>maks){ var s=maks/Math.max(w,h); w=Math.round(w*s); h=Math.round(h*s); }
+        var c=document.createElement("canvas"); c.width=w; c.height=h;
+        c.getContext("2d").drawImage(img,0,0,w,h);
+        res(c.toDataURL("image/jpeg",0.75));
+      };
+      img.onerror=function(){ rej(new Error("gambar tidak terbaca")); };
+      img.src=fr.result;
+    };
+    fr.onerror=function(){ rej(new Error("berkas tidak terbaca")); };
+    fr.readAsDataURL(file);
+  });
+}
+function gambarSketsa(){
+  SLOT.forEach(function(k){
+    var f=fotoSketsa[k];
+    $("pra-"+k).innerHTML=f?'<img src="'+f.data+'" alt="'+NAMA_SLOT[k]+'">':'';
+  });
+}
+SLOT.forEach(function(k){
+  $("foto-"+k).addEventListener("change",function(ev){
+    var file=ev.target.files[0]; if(!file) return;
+    $("pra-"+k).innerHTML='<p class="alasan" style="margin:0">Memproses foto...</p>';
+    kecilkan(file).then(function(dt){
+      fotoSketsa[k]={nama:file.name,data:dt}; gambarSketsa(); simpanSketsa(); if(sudahCoba) tandaiBatuan();
+    }).catch(function(){ $("pra-"+k).innerHTML='<p class="status buruk">Foto gagal diproses. Coba pilih ulang.</p>'; });
+  });
+});
+function sketsaWajib(d){ return { ppl:true, xpl:true, senter:d.badaopak==="Ada" }; }
+
+/* ===========================================================================
+   KELENGKAPAN
+   =========================================================================== */
+function galatBatuan(){
+  var d=bacaBatuan(), out=[], panjang=[];
+  BAGIAN_BATUAN.forEach(function(b){
+    semua(b.grup).forEach(function(o){
+      if(!berlakuBatuan(o,d)) return;
+      var e=cekButir(o.x,d), lbl=polos(labelDari(o.x,d));
+      if(e) out.push({id:"f-r-"+o.x.k, teks:(b.huruf==="Identitas"?"Identitas":(b.huruf==="Penutup"?"Penutup":"Bagian "+b.huruf))+" · "+lbl+": "+e, butir:o.x.k, err:e});
+      if(minKata(o.x.t) && d[o.x.k]) panjang.push({k:o.x.k, t:normalTeks(d[o.x.k]), lbl:lbl});
+    });
+  });
+  var lihat={};
+  panjang.forEach(function(p){
+    if(lihat[p.t]) out.push({id:"f-r-"+p.k, teks:p.lbl+": sama persis dengan kolom “"+lihat[p.t]+"”", butir:p.k});
+    else lihat[p.t]=p.lbl;
+  });
+  var no=kartuJenis("opak").length, nu=kartuJenis("ubah").length, depan=[];
+  if(d.badaopak==="Ada" && !no) depan.push({id:"kartu-kerja", teks:"Bagian B · Ada butir opak, tapi belum ada kartu butir opak"});
+  if(d.badaopak==="Nggak ada" && no) depan.push({id:"f-r-badaopak", teks:"Bagian B · Ada "+no+" kartu butir opak, tapi jawabannya \"nggak ada\"", butir:"badaopak", err:"bertentangan dengan kartu yang tersimpan"});
+  if(d.badaubah==="Ada" && !nu) depan.push({id:"kartu-kerja", teks:"Bagian B · Ada mineral ubahan, tapi belum ada kartu mineral ubahan"});
+  if(d.badaubah==="Nggak ada, batuan masih segar" && nu) depan.push({id:"f-r-badaubah", teks:"Bagian B · Ada "+nu+" kartu mineral ubahan, tapi jawabannya \"masih segar\"", butir:"badaubah", err:"bertentangan dengan kartu yang tersimpan"});
+  if(!saranC(d).ada.length && BARIS_C.every(function(r){ return d["c"+r[0]+"ada"]; }))
+    depan.push({id:"f-r-cplada", teks:"Bagian C · Semua bagian batuan dijawab \"nggak ada\". Minimal satu bagian harus ada."});
+  out=depan.concat(out);
+  var wajib=sketsaWajib(d);
+  SLOT.forEach(function(k){ if(wajib[k] && !fotoSketsa[k]) out.push({id:"f-sketsa-"+k, teks:"Bagian H · "+NAMA_SLOT[k]+" belum diunggah", butir:"sketsa-"+k}); });
+  return out;
+}
+function tandaiBatuan(){
+  var g=galatBatuan(), peta={}, d=bacaBatuan(), wajib=sketsaWajib(d);
+  g.forEach(function(x){ if(x.butir && !peta[x.butir]) peta[x.butir]=x.err; });
+  BAGIAN_BATUAN.forEach(function(b){
+    semua(b.grup).forEach(function(o){
+      var el=$("f-r-"+o.x.k); if(!el) return;
+      var e=peta[o.x.k]; el.classList.toggle("salah",!!e);
+      el.querySelector(".galat").textContent=e?("⚠️ "+e):"";
+    });
+  });
+  SLOT.forEach(function(k){ $("f-sketsa-"+k).classList.toggle("salah",!!wajib[k] && !fotoSketsa[k]); });
+  var box=$("kurang");
+  if(!g.length){ box.classList.add("sembunyi"); box.innerHTML=""; return g; }
+  box.classList.remove("sembunyi");
+  box.innerHTML="<b>Masih ada "+g.length+" yang belum lengkap 👇 Ketuk untuk langsung ke kolomnya:</b><ul>"+
+    g.map(function(x){ return '<li><button type="button" data-lompat="'+x.id+'">'+esc(x.teks)+'</button></li>'; }).join("")+"</ul>";
+  return g;
+}
+
+/* ===========================================================================
+   PENYIMPANAN
+   =========================================================================== */
+function kumpulCek(){ var c={}; document.querySelectorAll("[data-cek]").forEach(function(e){ c[e.id]=e.checked; }); return c; }
+function simpan(){
+  var muat={ batuan:bacaBatuan(), cek:kumpulCek(), sampel:sampel, kerja:bacaKartu() };
+  try{ localStorage.setItem(KUNCI,JSON.stringify(muat)); }catch(e){}
+}
+function simpanSketsa(){
+  try{ localStorage.setItem(KUNCI+"-sketsa",JSON.stringify(fotoSketsa)); }
+  catch(e){ pesan("Penyimpanan perangkat penuh. Tulisan kalian aman, tapi foto sketsa tidak ikut tersimpan. Jangan tutup halaman sebelum mengirim.","buruk"); }
+}
+function muat(){
+  renderKartu(); renderBatuan();
+  var s=null; try{ s=localStorage.getItem(KUNCI); }catch(e){}
+  if(s){
+    try{
+      var d=JSON.parse(s);
+      if(d.batuan) tulisBatuan(d.batuan);
+      Object.keys(d.cek||{}).forEach(function(k){ var e=$(k); if(e) e.checked=d.cek[k]; });
+      sampel=Array.isArray(d.sampel)?d.sampel:[];
+      if(d.kerja) tulisKartu(d.kerja);
+    }catch(e){}
+  }
+  try{
+    var sk=JSON.parse(localStorage.getItem(KUNCI+"-sketsa")||"null");
+    if(sk) fotoSketsa={ppl:sk.ppl||null,xpl:sk.xpl||null,senter:sk.senter||null};
+  }catch(e){}
+  gambarSketsa(); gambarDaftar(); perbaruiKartu(); perbaruiBatuan();
+  gambarContoh(); gambarTanda();
+}
+function eksklusif(input){
+  var nama=input.name; if(!nama) return;
+  var pre=nama.indexOf("w-")===0?"w-":"r-", k=nama.slice(2);
+  var x=null; semua(pre==="w-"?KARTU:[].concat.apply([],BAGIAN_BATUAN.map(function(b){ return b.grup; })))
+    .forEach(function(o){ if(o.x.k===k) x=o.x; });
+  if(!x || x.t!=="ganda" || !x.eksklusif || !input.checked) return;
+  document.querySelectorAll('input[name="'+nama+'"]').forEach(function(e){
+    if(input.value===x.eksklusif){ if(e!==input) e.checked=false; }
+    else if(e.value===x.eksklusif) e.checked=false;
+  });
+}
+function diKartu(el){ return !!(el.closest && el.closest("#kartu-kerja")); }
+document.addEventListener("change",function(ev){
+  var t=ev.target; if(t.type==="file") return;
+  if(t.type==="checkbox" && t.name) eksklusif(t);
+  if(diKartu(t)) perbaruiKartu(); else perbaruiBatuan();
+  simpan();
+});
+document.addEventListener("input",function(ev){
+  var t=ev.target; if(t.type==="file"||t.id==="ekspor") return;
+  if(diKartu(t)) perbaruiKartu(); else perbaruiBatuan();
+  simpan();
+});
+
+/* ===========================================================================
+   KELUARAN: teks, email, spreadsheet, dokumen cetak
+   =========================================================================== */
+function nilaiTampil(x, d){
+  var v=d[x.k]||"";
+  if(x.lainnya && (d[x.k+"Lain"]||"")) v=v.replace("Lainnya","Lainnya: "+d[x.k+"Lain"]);
+  return v;
+}
+function barisBerlaku(grupList, d, cekFn){
+  var out=[];
+  grupList.forEach(function(g){
+    var rows=[];
+    g.butir.forEach(function(x){ if(cekFn({x:x,g:g},d)) rows.push([polos(labelDari(x,d)), nilaiTampil(x,d)]); });
+    if(rows.length) out.push({judul:g.judul||"", rows:rows});
+  });
+  return out;
+}
+function kartuBaris(d){ return barisBerlaku(KARTU.filter(function(g){ return !g.jenisGrup; }),d,berlakuKartu); }
+function batuanSeksi(id){
+  var b=BAGIAN_BATUAN.filter(function(x){ return x.id===id; })[0];
+  return barisBerlaku(b.grup, bacaBatuan(), berlakuBatuan);
+}
+function jumlahK3(){ return ["k3-1","k3-2","k3-3","k3-4","k3-5"].filter(function(x){ var e=$(x); return e&&e.checked; }).length; }
+function barisKomposisi(d){
+  var k=komposisi(d);
+  return [["Butir opak (dari kartu)",k.opak+"%"],["Mineral ubahan berkartu",k.ubah+"%"],
+    ["Mineral asal yang masih segar",(k.primer===null?"-":k.primer)+"%"],["Lain-lain",(k.lain===null?"-":k.lain)+"%"],["Total",k.total+"%"]];
+}
+function barisSaran(d){
+  var s=saranC(d), u=urutkan(relasi(d));
+  return [["Saran intensitas dari Bagian C",s.intn||"-"],["Saran sebaran dari Bagian C",s.sebar||"-"],["Saran urutan dari hubungan D2",u?u.join(" → "):"-"]];
+}
+var SEKSI=[["C","UBAHAN PER BAGIAN BATUAN"],["D","TEKSTUR DAN URUTAN"],["E","JENIS ALTERASI, INTENSITAS, SEBARAN"],["F","BATUAN ASAL DAN DESKRIPSI"],["G","CERITA SISTEM"],["P","BATAS KEYAKINAN"]];
+function ringkasJudul(d){ return "Jenis: "+(d.ejenis||"-")+" | Intensitas: "+(d.eint||"-")+" | Sebaran: "+(d.esebar||"-")+" | Nama: "+(d.fnama||"-"); }
+
+function susun(){
+  var d=bacaBatuan(), b=[];
+  b.push("LEMBAR KERJA 7 - MINERAL BIJIH DAN ALTERASI HIDROTERMAL - PRAKTIKUM PETROGRAFI (DAL604231)");
+  batuanSeksi("ID").forEach(function(s){ s.rows.forEach(function(r){ b.push(r[0]+": "+r[1]); }); });
+  b.push("Status alat: "+statusGerbang());
+  b.push("Kartu: "+kartuJenis("opak").length+" butir opak, "+kartuJenis("ubah").length+" mineral ubahan");
+  b.push(ringkasJudul(d));
+  b.push(""); b.push("== BAGIAN A ==");
+  batuanSeksi("A").forEach(function(s){ s.rows.forEach(function(r){ b.push("  "+r[0]+": "+r[1]); }); });
+  b.push("  K3 tercentang: "+jumlahK3()+" dari 5");
+  b.push(""); b.push("== BAGIAN B · KARTU BUTIR ==");
+  batuanSeksi("B").forEach(function(s){ s.rows.forEach(function(r){ b.push("  "+r[0]+": "+r[1]); }); });
+  sampel.forEach(function(s,i){
+    b.push(""); b.push("-- Kartu "+(i+1)+" ("+(jenisKartu(s.data)==="opak"?"butir opak":"mineral ubahan")+"): "+(namaKartu(s.data)||"-")+" --");
+    kartuBaris(s.data).forEach(function(g){ b.push("  ["+g.judul+"]"); g.rows.forEach(function(r){ b.push("    "+r[0]+": "+r[1]); }); });
+  });
+  SEKSI.forEach(function(p){
+    b.push(""); b.push("== "+(p[0]==="P"?"PENUTUP":"BAGIAN "+p[0])+" · "+p[1]+" ==");
+    batuanSeksi(p[0]).forEach(function(s){ if(s.judul) b.push("  ["+s.judul+"]"); s.rows.forEach(function(r){ b.push("    "+r[0]+": "+r[1]); }); });
+    if(p[0]==="E") barisKomposisi(d).concat(barisSaran(d)).forEach(function(r){ b.push("    "+r[0]+": "+r[1]); });
+  });
+  b.push(""); b.push("Sketsa: "+SLOT.map(function(k){ return NAMA_SLOT[k]+" "+(fotoSketsa[k]?"ada":"tidak ada"); }).join(", "));
+  return b.join("\n");
+}
+function susunHTML(){
+  var d=bacaBatuan(), g=statusGerbang(), warna=g.indexOf("berdasar")>-1?"#7A4B2A":"#A23B3B";
+  function tb(judul,rows){
+    return (judul?'<h3 style="font:600 13px Arial;margin:16px 0 4px;color:#2B2F36">'+esc(judul)+'</h3>':'')+
+      '<table style="border-collapse:collapse;width:100%;font:13px Arial">'+rows.map(function(r){
+        var kos=!r[1];
+        return '<tr><td style="border:1px solid #CFC7B6;padding:4px 7px;background:#EEEAE1;width:38%">'+esc(r[0])+
+          '</td><td style="border:1px solid #CFC7B6;padding:4px 7px'+(kos?';color:#999;font-style:italic':'')+'">'+
+          esc(kos?"tidak diisi":r[1])+'</td></tr>'; }).join("")+'</table>';
+  }
+  function bagian(judul){ return '<h2 style="font:700 14px Arial;margin:24px 0 4px;padding:5px 9px;background:#5C3820;color:#fff">'+esc(judul)+'</h2>'; }
+  var h='<div style="font:14px Arial;color:#2B2F36;max-width:760px">';
+  h+='<div style="border-left:5px solid '+warna+';padding:8px 12px;background:#EEEAE1;margin-bottom:14px">'+
+     '<div style="font:700 15px Arial">'+esc(d.nama||"")+' &middot; '+esc(d.nim||"")+'</div>'+
+     '<div style="font:13px Arial;color:#5A5A5F">Kelompok '+esc(d.kelompok||"")+' &middot; mikroskop '+esc(d.mikroskop||"")+
+     ' &middot; sayatan '+esc(d.sayatan||"")+' &middot; asisten '+esc(d.asisten||"")+'</div>'+
+     '<div style="font:600 13px Arial;color:'+warna+';margin-top:5px">'+esc(g)+' &middot; '+esc(ringkasJudul(d))+'</div></div>';
+  h+=bagian("Bagian A · Kesiapan alat");
+  batuanSeksi("A").forEach(function(s){ h+=tb(s.judul,s.rows.concat([["K3 tercentang",jumlahK3()+" dari 5"]])); });
+  h+=bagian("Bagian B · Kartu butir");
+  batuanSeksi("B").forEach(function(s){ h+=tb(s.judul,s.rows); });
+  sampel.forEach(function(s,i){
+    h+='<h3 style="font:700 13px Arial;margin:16px 0 2px;border-bottom:2px solid #5C3820;padding-bottom:3px">Kartu '+(i+1)+' &middot; '+(jenisKartu(s.data)==="opak"?"Butir opak":"Mineral ubahan")+' &middot; '+esc(namaKartu(s.data))+'</h3>';
+    kartuBaris(s.data).forEach(function(g){ h+=tb(g.judul,g.rows); });
+  });
+  [["C","Bagian C · Ubahan per bagian batuan"],["D","Bagian D · Tekstur dan urutan"],["E","Bagian E · Jenis alterasi, intensitas, sebaran"],
+   ["F","Bagian F · Batuan asal dan deskripsi"],["G","Bagian G · Cerita sistem"],["P","Penutup · Batas keyakinan"]].forEach(function(p){
+    h+=bagian(p[1]); batuanSeksi(p[0]).forEach(function(s){ h+=tb(s.judul,s.rows); });
+    if(p[0]==="E") h+=tb("Komposisi dan saran otomatis",barisKomposisi(d).concat(barisSaran(d)));
+  });
+  return h+'</div>';
+}
+function susunUmum(){
+  var d=bacaBatuan(), k=[], km=komposisi(d), s=saranC(d), u=urutkan(relasi(d));
+  function t(n,v){ k.push({k:n,v:v==null?"":String(v)}); }
+  t("Nama",d.nama); t("NIM",d.nim); t("Kelompok",d.kelompok); t("Tanggal",d.tanggal); t("Asisten",d.asisten);
+  t("Mikroskop",d.mikroskop); t("Sayatan utama",d.sayatan); t("Objektif",d.objektif);
+  t("Status alat",statusGerbang()); t("Jumlah kartu opak",kartuJenis("opak").length); t("Jumlah kartu ubahan",kartuJenis("ubah").length);
+  t("A Medan gelap",d.v1); t("A Catatan medan gelap",d.v1b); t("A Diameter medan pandang 4x",d.vfov); t("A Diameter medan pandang 10x",d.vfov10);
+  t("A Senter",d.vsenter); t("A K3 tercentang",jumlahK3()+" dari 5");
+  t("E Komposisi dari kartu", km.baris.map(function(b){ return b.nama+" "+(b.persen===null?"-":b.persen); }).join("; "));
+  t("E Total persen", km.total);
+  t("Saran intensitas dari C", s.intn); t("Saran sebaran dari C", s.sebar); t("Saran urutan dari D2", u?u.join(" → "):"");
+  BAGIAN_BATUAN.forEach(function(b){
+    if(b.id==="ID"||b.id==="A") return;
+    semua(b.grup).forEach(function(o){
+      var lbl=polos(labelDari(o.x,{}));
+      var nama=(b.id==="P"?"Penutup":b.id)+" "+lbl;
+      t(nama, berlakuBatuan(o,d)?d[o.x.k]:"");
+      if(o.x.lainnya) t(nama+" (lainnya)", berlakuBatuan(o,d)?d[o.x.k+"Lain"]:"");
+    });
+  });
+  return k;
+}
+function susunMineral(){
+  return sampel.map(function(s,i){
+    var d=s.data, butir=[{k:"Jenis kartu", v:d.jenis||""}];
+    semua(KARTU).forEach(function(o){
+      if(o.g.jenisGrup) return;
+      butir.push({ k:"Kartu "+o.g.judul+" "+polos(labelDari(o.x,d)), v:berlakuKartu(o,d)?(nilaiTampil(o.x,d)):"" });
+    });
+    return { urut:i+1, kode:namaKartu(d), objektif:bacaBatuan().objektif||"", foto:0, butir:butir };
+  });
+}
+
+/* ---------- dokumen cetak ---------- */
+function tabelDok(rows,kosong,panjang){
+  return "<table>"+rows.map(function(r){
+    if(kosong) return "<tr><th>"+esc(r[0])+'</th><td class="'+(panjang&&panjang(r[0],r[2])?"isian-panjang":"isian")+'">&nbsp;</td></tr>';
+    return "<tr><th>"+esc(r[0])+"</th><td"+(r[1]?"":' class="kosong"')+">"+esc(r[1]||"tidak diisi")+"</td></tr>";
+  }).join("")+"</table>";
+}
+function semuaBaris(grupList){
+  return grupList.map(function(g){
+    return { judul:g.judul||"", rows:g.butir.map(function(x){
+      var l=polos(x.q||labelDari(x,{}));
+      if(x.t==="pilih"||x.t==="ganda") l+=" ("+x.o.join(" / ")+(x.lainnya?" / Lainnya":"")+")";
+      return [l,"",x.t]; }) };
+  });
+}
+function tabelKartuKosong(jenis, judul){
+  var grup=KARTU.filter(function(g){ return g.jenis===jenis; });
+  var kol='<th class="km">Kartu 1</th><th class="km">Kartu 2</th><th class="km">Kartu 3</th>';
+  var isi='<td class="isian"></td><td class="isian"></td><td class="isian"></td>';
+  return "<h3>"+judul+"</h3>"+'<table class="tabel-mineral"><tr><th>Butir</th>'+kol+'</tr>'+
+    semuaBaris(grup).map(function(g){
+      return '<tr><td colspan="4" class="subjudul">'+esc(g.judul)+'</td></tr>'+
+        g.rows.map(function(r){
+          var i=r[0].indexOf(" ("), lbl=i>0?esc(r[0].slice(0,i))+' <span class="opsi">'+esc(r[0].slice(i+1))+'</span>':esc(r[0]);
+          return '<tr'+(r[2]==="bukti"?' style="height:46pt"':'')+'><th>'+lbl+'</th>'+isi+'</tr>';
+        }).join("");
+    }).join("")+'</table>';
+}
+function bangunDokumen(kosong){
+  var d=bacaBatuan(), h=[], panjangTeks=function(l,t){ return t==="narasi"||t==="batas"||t==="bukti"; };
+  h.push('<div class="dok-kop"><p class="lembaga">Program Studi S1 Teknik Geologi &middot; FMIPA &middot; Universitas Negeri Gorontalo</p>'+
+    '<h1>Lembar Kerja 7 &middot; Mineral Bijih dan Alterasi Hidrotermal</h1><p class="mk">Praktikum Petrografi (DAL604231) &middot; Acara 7 &middot; Semester Ganjil 2026/2027</p></div>');
+  if(kosong){
+    h.push('<div class="blok">'+tabelDok(semuaBaris(IDENTITAS)[0].rows,true)+'</div>');
+    h.push("<h2>Bagian A &middot; Kesiapan alat</h2>"+tabelDok(semuaBaris(BAGIAN_A)[0].rows,true));
+    h.push("<h2>Bagian B &middot; Kartu butir</h2>"+tabelDok(semuaBaris(BAGIAN_B)[0].rows,true));
+    h.push(tabelKartuKosong("opak","Butir opak"));
+    h.push('<p class="dok-pita">Aturan naik nama: uji opak saja → mineral opak. Bentuk khas ATAU warna senter → kemungkinan. Bentuk khas DAN warna senter → ditafsirkan.</p>');
+    h.push('<div class="pecah"></div>'+tabelKartuKosong("ubah","Mineral ubahan (1 sampai 3)"));
+    h.push('<h2 class="pecah">Bagian C &middot; Ubahan per bagian batuan</h2>');
+    h.push('<table><tr><th>Bagian batuan</th><th style="width:12%">Ada?</th><th style="width:36%">Berubah menjadi</th><th style="width:22%">Seberapa habis</th></tr>'+
+      BARIS_C.map(function(r){ return '<tr><td>'+esc(r[1])+(r[2]?' <span class="opsi">('+esc(r[2])+')</span>':'')+'</td><td class="isian"></td><td class="isian"></td><td class="isian"></td></tr>'; }).join("")+
+      '<tr><td>Urat: isi, lebar, pinggir</td><td class="isian"></td><td class="isian"></td><td class="isian"></td></tr></table>');
+    h.push('<p class="dok-pita">Seberapa habis: sebagian kecil / sebagian besar / habis, tinggal bekas bentuknya</p>');
+    [["D","Tekstur dan urutan pembentukan",BAGIAN_D],["E","Jenis alterasi, intensitas, sebaran",BAGIAN_E],["F","Batuan asal dan deskripsi laporan",BAGIAN_F],["G","Cerita sistem hidrotermal",BAGIAN_G]].forEach(function(p){
+      h.push("<h2>Bagian "+p[0]+" &middot; "+p[1]+"</h2>");
+      semuaBaris(p[2]).forEach(function(g){ h.push('<div class="blok">'+(g.judul?"<h3>"+esc(g.judul)+"</h3>":"")+tabelDok(g.rows,true,panjangTeks)+'</div>'); });
+    });
+    h.push('<h2>Bagian H &middot; Sketsa</h2><table><tr><td class="kotak-sketsa">Sketsa PPL</td><td class="kotak-sketsa">Sketsa XPL</td></tr><tr><td class="kotak-sketsa">Sketsa senter dari atas (butir opak)</td><td class="kotak-sketsa"></td></tr></table>');
+    h.push("<h2>Penutup &middot; Batas keyakinan</h2>"+tabelDok(semuaBaris(PENUTUP)[0].rows,true,function(){ return true; }));
+  } else {
+    h.push('<div class="blok">'+tabelDok(batuanSeksi("ID")[0].rows.concat([["Kartu",kartuJenis("opak").length+" butir opak, "+kartuJenis("ubah").length+" mineral ubahan"]]))+'</div>');
+    h.push('<div class="dok-status"><b>Status pemeriksaan alat</b><br>'+esc(statusGerbang())+'</div>');
+    h.push("<h2>Bagian A &middot; Kesiapan alat</h2>");
+    batuanSeksi("A").forEach(function(s){ h.push(tabelDok(s.rows.concat([["K3 tercentang",jumlahK3()+" dari 5"]]))); });
+    h.push("<h2>Bagian B &middot; Kartu butir</h2>");
+    batuanSeksi("B").forEach(function(s){ h.push('<div class="blok">'+tabelDok(s.rows)+'</div>'); });
+    sampel.forEach(function(s,i){
+      h.push("<h3>Kartu "+(i+1)+" &middot; "+(jenisKartu(s.data)==="opak"?"Butir opak":"Mineral ubahan")+" &middot; "+esc(namaKartu(s.data))+"</h3>");
+      kartuBaris(s.data).forEach(function(g){ h.push('<div class="blok">'+tabelDok(g.rows)+'</div>'); });
+    });
+    [["C","Ubahan per bagian batuan"],["D","Tekstur dan urutan pembentukan"],["E","Jenis alterasi, intensitas, sebaran"],["F","Batuan asal dan deskripsi laporan"],["G","Cerita sistem hidrotermal"]].forEach(function(p){
+      h.push("<h2>Bagian "+p[0]+" &middot; "+p[1]+"</h2>");
+      batuanSeksi(p[0]).forEach(function(s){ h.push('<div class="blok">'+(s.judul?"<h3>"+esc(s.judul)+"</h3>":"")+tabelDok(s.rows)+'</div>'); });
+      if(p[0]==="E") h.push('<div class="blok">'+tabelDok(barisKomposisi(d).concat(barisSaran(d)))+'</div>');
+    });
+    h.push('<h2>Bagian H &middot; Sketsa</h2><div class="dok-sketsa">'+
+      SLOT.map(function(k){ return fotoSketsa[k]?'<img src="'+fotoSketsa[k].data+'" alt="">':''; }).join("")+'</div>');
+    h.push("<h2>Penutup &middot; Batas keyakinan</h2>");
+    batuanSeksi("P").forEach(function(s){ h.push(tabelDok(s.rows)); });
+  }
+  h.push('<div class="dok-paraf"><div><div class="garis"></div>Mahasiswa<br>'+esc(kosong?"":d.nama||"")+'</div>'+
+    '<div><div class="garis"></div>Asisten pendamping<br>'+esc(kosong?"":d.asisten||"")+'</div>'+
+    '<div><div class="garis"></div>Dosen pengampu<br>Alifia Widya W. B., S.T., M.Sc.</div></div>');
+  if(kosong) h.push('<p class="dok-pita">Borang cadangan &middot; diisi tangan</p>');
+  h.push('<p class="dok-kaki">'+(kosong
+    ? 'Borang cadangan. Dipakai hanya bila lembar daring tidak bisa diakses. Serahkan ke asisten di akhir sesi, dan salin ke lembar daring begitu memungkinkan.'
+    : 'Dicetak dari lembar kerja daring pada '+esc(new Date().toLocaleString("id-ID"))+'. Salinan ini sah hanya bila menyertakan nomor tanda terima pengiriman.')+'</p>');
+  $("dokumen").innerHTML=h.join("");
+}
+
+/* ===========================================================================
+   KIRIM
+   =========================================================================== */
+function pesan(t,j){ var e=$("status"); e.textContent=t; e.className="status"+(j?" "+j:""); }
+function periksaSebelumKeluar(){
+  sudahCoba=true; perbaruiBatuan();
+  var g=tandaiBatuan();
+  if(g.length){
+    pesan("Lembar belum lengkap. Cek daftar di atas, ya.","buruk");
+    $("kurang").scrollIntoView({behavior:"smooth",block:"start"});
+    return false;
+  }
+  if(!kartuKosong()){
+    if(!confirm("Kartu kerja masih berisi butir yang belum disimpan, dan butir itu TIDAK akan ikut terkirim.\n\nTekan Batal untuk kembali dan menyimpannya dulu, atau OK untuk melanjutkan tanpa butir tersebut.")){
+      $("kartu-kerja").scrollIntoView({behavior:"smooth",block:"start"});
+      pesan("Ditahan. Simpan dulu butir di kartu kerja.","buruk"); return false;
+    }
+  }
+  return true;
+}
+$("btn-kirim").addEventListener("click",function(){
+  var tombol=this;
+  if(!periksaSebelumKeluar()) return;
+  if(URL_KIRIM.indexOf("GANTI")===0){ pesan("Alamat pengiriman belum dipasang oleh dosen. Pakai tombol cadangan.","buruk"); return; }
+  var d=bacaBatuan();
+  tombol.disabled=true; pesan("Menyiapkan lembar...","");
+  var foto=[];
+  SLOT.forEach(function(k){ if(fotoSketsa[k]) foto.push({label:NAMA_SLOT[k].replace(/ /g,"_"),mineral:0,data:fotoSketsa[k].data}); });
+  var muatan={ lembar:LEMBAR, teks:susun(), html:susunHTML(), umum:susunUmum(), mineral:susunMineral(),
+    nama:d.nama, nim:d.nim, kelompok:d.kelompok, mikroskop:d.mikroskop, sayatan:d.sayatan,
+    data:{batuan:d}, foto:foto };
+  pesan("Mengirim, jangan tutup halaman...","");
+  fetch(URL_KIRIM,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(muatan)})
+    .then(function(r){ return r.json(); })
+    .then(function(j){
+      if(j&&j.ok){ tombol.textContent="Terkirim ✓"; tombol.className="basal";
+        simpanTanda(j.tanda, d);
+        pesan("Terkirim ✓ Nomor tanda terima: "+j.tanda+". Nomor ini juga tersimpan di HP ini.","baik"); }
+      else { tombol.disabled=false; pesan("Pengiriman ditolak: "+((j&&j.pesan)||"sebab tidak diketahui")+". Pakai tombol cadangan.","buruk"); }
+    }).catch(function(){
+      tombol.disabled=false; pesan("Pengiriman gagal, kemungkinan sinyal terputus. Coba sekali lagi. Kalau tetap gagal, pakai tombol cadangan.","buruk");
+    });
+});
+$("btn-salin").addEventListener("click",function(){
+  if(!periksaSebelumKeluar()) return;
+  var t=susun(); $("ekspor").value=t;
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(t).then(function(){ pesan("Tersalin. Foto sketsa tetap harus dikirim terpisah lewat asisten.","baik"); })
+      .catch(function(){ pesan("Salin manual dari kotak di bawah.",""); });
+  } else pesan("Salin manual dari kotak di bawah.","");
+});
+$("btn-cetak").addEventListener("click",function(){ bangunDokumen(false); window.print(); });
+$("btn-borang").addEventListener("click",function(){ bangunDokumen(true); window.print(); });
+window.addEventListener("beforeprint",function(){ if(!$("dokumen").innerHTML) bangunDokumen(false); });
+$("btn-kosong").addEventListener("click",function(){
+  if(!confirm("Seluruh isian, semua kartu tersimpan, dan sketsa akan dihapus dari perangkat ini. Tidak bisa dikembalikan. Lanjutkan?")) return;
+  try{ localStorage.removeItem(KUNCI); localStorage.removeItem(KUNCI+"-sketsa"); }catch(e){}
+  location.reload();
+});
+if(!KIRIM_AKTIF){
+  var tk=$("btn-kirim"); tk.disabled=true; tk.textContent="Pengiriman sudah ditutup";
+  pesan("Tenggat pengumpulan sudah lewat. Lembar ini tetap bisa dibaca dan dicetak sebagai bahan belajar.","");
+}
+
+muat();
+
+/* kait uji, tidak dipakai mahasiswa */
+window.__lk7 = { bacaBatuan:bacaBatuan, bacaKartu:bacaKartu, galatBatuan:galatBatuan, galatKartu:galatKartu, susunUmum:susunUmum,
+  susunMineral:susunMineral, sampel:function(){ return sampel; }, komposisi:komposisi, saranC:saranC, urutkan:urutkan, relasi:relasi,
+  namaDiizinkan:namaDiizinkan, bangunDokumen:bangunDokumen, CONTOH_CIRI:CONTOH_CIRI, susun:susun, susunHTML:susunHTML };
+})();
+</script>
+</body>
+</html>
