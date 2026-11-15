@@ -159,7 +159,7 @@ const MATAKULIAH = [
     semesterKe: 'Semester III',
     divisi: 'ccc',
     ringkas: 'Membaca sayatan tipis dengan mikroskop polarisasi. Periksa alat dulu, baru pengamatan.',
-    MINGGU_AKTIF: 7,
+    MINGGU_AKTIF: 8,
     minggu: [
       {
         ke: 1,
@@ -186,7 +186,16 @@ const MATAKULIAH = [
           { nama: 'Slide Batuan Metamorf', tipe: 'slide', url: '', tersedia: false },
           { nama: 'Cek Nilai disini', tipe: 'cek nilai', url: 'https://the-archive-of-knowledge.netlify.app/petrografi/pantau/', tersedia: true },
           { nama: 'Lembar Ralat Modul Bab 6', tipe: 'lain', url: '', tersedia: false }] },
-      { ke: 8, judul: '', catatan: '', berkas: [] },
+            {
+        ke: 8,
+        judul: 'Mineral bijih dan alterasi hidrotermal',
+        catatan: 'Bawa senter HP untuk uji butir opak. Lembar kerja diisi langsung di lab lewat HP. Kirim maksimal 24 jam setelah sesi, catat nomor tanda terimanya.',
+        berkas: [
+          { nama: 'Lembar Kerja 7', tipe: 'lk', url: '/petrografi/lk7/', tersedia: true },
+          { nama: 'Slide Acara 7', tipe: 'slide', url: 'https://drive.google.com/file/d/1N5sMtGsVxZgX-fg4e9kkDB6-aS8F_pBy/view?usp=sharing', tersedia: true },
+          { nama: 'Lembar Ralat Modul Bab 7', tipe: 'modul', url: 'https://drive.google.com/file/d/1c2DunCqcoygENjFlev9Rn7B6-ySXM3pq/view?usp=sharing', tersedia: true }
+        ]
+      },
       { ke: 9, judul: '', catatan: '', berkas: [] },
       { ke: 10, judul: '', catatan: '', berkas: [] },
       { ke: 11, judul: '', catatan: '', berkas: [] },
