@@ -99,6 +99,18 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--garis);
   <p class="alasan">Halaman ini menampilkan seluruh kelas. Jangan buka di layar yang terlihat mahasiswa, dan jangan bagikan sandinya lewat grup angkatan.</p>
   <div class="baris dua">
     <div><label for="kunci">Sandi panel</label><input type="password" id="kunci" autocomplete="off"></div>
+    <div><label for="pilih-lembar">Acara</label>
+      <select id="pilih-lembar" style="width:100%;background:var(--putih);border:1px solid var(--garis);border-radius:4px;padding:10px;font-family:inherit;font-size:16px;color:var(--tinta)">
+        <option value="LK7">LK7 · Mineral Bijih dan Alterasi</option>
+        <option value="LK6">LK6 · Batuan Metamorf</option>
+        <option value="LK5">LK5 · Batuan Sedimen</option>
+        <option value="LK4">LK4 · Batuan Beku</option>
+        <option value="LK3">LK3 · Mineral Pembentuk Batuan</option>
+        <option value="LK1">LK1 · Mikroskop dan Sifat Optik</option>
+        <option value="">Semua acara</option>
+      </select></div>
+  </div>
+  <div class="baris">
     <div style="display:flex;align-items:flex-end;gap:10px">
       <button type="button" class="aksi" id="btn-masuk">Masuk</button>
       <button type="button" class="aksi sekunder sembunyi" id="btn-segar">Muat ulang</button>
@@ -119,7 +131,7 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--garis);
 
 /* ====== SATU-SATUNYA BARIS YANG PERLU DIUBAH ======
    Tempel URL penerapan Apps Script yang sama dengan lembar kerja. */
-var URL_LAYANAN = "https://script.google.com/macros/s/AKfycbyyIx-UhhUOnX5pBV9QpU11L3Ms4xFT9a-rqO520dzbxbEXMdlsLOWr4ZvAXRd2x9UK/exec";
+var URL_LAYANAN = "https://script.google.com/macros/s/AKfycbw2whfsgzeI4ahdGCwp_tkhQsKMofH5nhCk7L-4s1-h5jEVjNHYd__GvGW_r6DF0Drm/exec";
 /* ================================================== */
 
 function el(id){ return document.getElementById(id); }
@@ -177,7 +189,7 @@ el("btn-cek").addEventListener("click",function(){
         j.baris.map(function(b){
           var kelas = b.rilis ? "baik" : "tunggu";
           var h='<div class="kartu '+kelas+'">';
-          h+='<p><b>Tanda terima</b> '+esc(b.tanda)+' &middot; '+esc(String(b.mineral))+' mineral</p>';
+          h+='<p>'+(b.lembar?'<b>'+esc(b.lembar)+'</b> &middot; ':'')+'<b>Tanda terima</b> '+esc(b.tanda)+' &middot; '+esc(String(b.mineral))+' kartu</p>';
           h+='<p>Validasi asisten: '+esc(b.statusAsisten)+'</p>';
           h+='<p>Pemeriksaan dosen: '+esc(b.statusDosen)+'</p>';
           if(b.skor!==null && b.skor!==undefined && b.skor!==""){
@@ -216,15 +228,18 @@ function gambarPanel(j){
     '<div class="angka"><b>'+(r.dinilai||0)+'</b><span>sudah dinilai</span></div>'+
     '<div class="angka"><b>'+(r.dirilis||0)+'</b><span>sudah dirilis</span></div></div>';
 
-  h+=tabel("Belum mengirim",["NIM","Nama","Kelompok"],j.belum||[],function(b){
-    return [b.nim,b.nama,b.kelompok]; });
+  var acara=el("pilih-lembar").value;
+  h+= acara
+    ? tabel("Belum mengirim "+acara,["NIM","Nama","Kelompok"],j.belum||[],function(b){
+        return [b.nim,b.nama,b.kelompok]; })
+    : '<h2>Belum mengirim</h2><p class="alasan">Pilih satu acara dulu. Tanpa pilihan acara, daftar ini tidak bermakna.</p>';
 
-  h+=tabel("Sudah mengirim, belum dinilai",["NIM","Nama","Kelompok","Mineral","Status asisten"],
-    j.menunggu||[],function(b){ return [b.nim,b.nama,b.kelompok,b.mineral,b.statusAsisten]; });
+  h+=tabel("Sudah mengirim, belum dinilai",["Acara","NIM","Nama","Kelompok","Kartu","Status asisten"],
+    j.menunggu||[],function(b){ return [b.lembar,b.nim,b.nama,b.kelompok,b.mineral,b.statusAsisten]; });
 
-  h+=tabel("Sudah dinilai",["NIM","Nama","Kelompok","Skor","Huruf","Asisten","Rilis"],
+  h+=tabel("Sudah dinilai",["Acara","NIM","Nama","Kelompok","Skor","Huruf","Asisten","Rilis"],
     j.selesai||[],function(b){
-      return [b.nim,b.nama,b.kelompok,b.skor,b.huruf,b.asisten,b.rilis?"Dirilis":"Belum"]; });
+      return [b.lembar,b.nim,b.nama,b.kelompok,b.skor,b.huruf,b.asisten,b.rilis?"Dirilis":"Belum"]; });
 
   el("hasil-panel").innerHTML=h;
 }
@@ -233,7 +248,7 @@ function muatPanel(){
   var kunci=el("kunci").value;
   if(!kunci){ pesan("status-panel","Sandi belum diisi.","buruk"); return; }
   pesan("status-panel","Memuat...");
-  panggil({aksi:"panel", kunci:kunci})
+  panggil({aksi:"panel", kunci:kunci, lembar:el("pilih-lembar").value})
     .then(function(j){
       if(!j||!j.ok){ pesan("status-panel",(j&&j.pesan)||"Gagal memuat.","buruk"); return; }
       pesan("status-panel","Diperbarui "+new Date().toLocaleTimeString("id-ID"),"baik");
@@ -244,6 +259,7 @@ function muatPanel(){
 }
 el("btn-masuk").addEventListener("click",muatPanel);
 el("btn-segar").addEventListener("click",muatPanel);
+el("pilih-lembar").addEventListener("change",function(){ if(el("kunci").value) muatPanel(); });
 
 el("nim").addEventListener("keydown",function(e){ if(e.key==="Enter") el("btn-cek").click(); });
 el("kunci").addEventListener("keydown",function(e){ if(e.key==="Enter") muatPanel(); });
