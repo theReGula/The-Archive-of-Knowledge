@@ -183,9 +183,9 @@ const MATAKULIAH = [
           { nama: 'Slide Batuan Sedimen', tipe: 'slide', url: 'https://drive.google.com/file/d/1lLHJYTcHOOgTSVG5ZgXCB91gVJWxXFuM/view?usp=sharing', tersedia: true }, { nama: 'Cek Nilai disini', tipe: 'cek nilai', url: 'https://the-archive-of-knowledge.netlify.app/petrografi/pantau/', tersedia: true },
           { nama: 'Lembar Ralat Modul Bab 5', tipe: 'lain', url: 'https://drive.google.com/file/d/16J05oFK97udQUMbRuu4VVU07FTD3pdLJ/view?usp=sharing', tersedia: true }] },
             { ke: 7, judul: 'Petrografi batuan metamorf', catatan: 'Pilih jalur berfoliasi atau nonfoliasi di Bagian C. Persen mineral cukup diisi sekali di kartu, tabel komposisi menghitung sendiri. Kalau modul dan lembar kerja berbeda, ikuti lembar kerja dan Lembar Ralat Bab 6.', berkas: [{ nama: 'Lembar Kerja 6', tipe: 'lk', url: '/petrografi/lk6/', tersedia: true },
-          { nama: 'Slide Batuan Metamorf', tipe: 'slide', url: '', tersedia: false },
+          { nama: 'Slide Batuan Metamorf', tipe: 'slide', url: 'https://drive.google.com/file/d/12VyI84Fy432zjAKLjcXJo5d-s3uauRee/view?usp=sharing', tersedia: true },
           { nama: 'Cek Nilai disini', tipe: 'cek nilai', url: 'https://the-archive-of-knowledge.netlify.app/petrografi/pantau/', tersedia: true },
-          { nama: 'Lembar Ralat Modul Bab 6', tipe: 'lain', url: '', tersedia: false }] },
+          { nama: 'Lembar Ralat Modul Bab 6', tipe: 'lain', url: 'https://drive.google.com/file/d/1wBVUz-rb-dVAs5if8xlo40Igk7nUKSu7/view?usp=sharing', tersedia: true }] },
             {
         ke: 8,
         judul: 'Mineral bijih dan alterasi hidrotermal',
